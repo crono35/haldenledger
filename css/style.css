@@ -466,22 +466,23 @@ footer {
   }
 }
 
-@media (max-width: 680px) {
-  .home-with-ad {
-    grid-template-columns: 1fr;
+@media (max-width: 820px) {
+  /* Mobile/tablet: stack the page and force the advertisement after all editorial content. */
+  .home-with-ad.ad-mobile-last {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
-  /* On phones, show the editorial content first and move the desktop
-     left-rail advertisement to the end of the homepage. */
   .ad-mobile-last .home-content {
-    grid-column: 1;
-    grid-row: 1;
+    order: 1;
+    width: 100%;
   }
 
   .ad-mobile-last .left-ad {
-    grid-column: 1;
-    grid-row: 2;
+    order: 2;
     width: min(220px, 58vw);
-    margin: 32px auto 0;
+    margin: 36px auto 0;
+    align-self: center;
   }
 }
