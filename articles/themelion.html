@@ -5,558 +5,112 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Inside Themelion Base: a Halden Ledger walkthrough of humanity's first permanent industrial settlement on the Moon." />
   <title>Inside Themelion | The Halden Ledger</title>
-
-  <style>
-    :root {
-      --ink: #111;
-      --muted: #666;
-      --rule: #d4d4d4;
-      --paper: #fbfaf7;
-      --accent: #7a1111;
-      --max: 980px;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.62;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:hover { color: var(--accent); }
-
-    .shell {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
-    .utility {
-      padding: 10px 0;
-      border-bottom: 1px solid var(--rule);
-      font: 0.76rem Arial, Helvetica, sans-serif;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .masthead {
-      text-align: center;
-      padding: 22px 0 12px;
-      border-bottom: 3px solid var(--ink);
-    }
-
-    .masthead a {
-      font-size: clamp(2rem, 6vw, 4.2rem);
-      letter-spacing: -0.05em;
-      line-height: 0.95;
-      font-weight: 700;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 18px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--ink);
-      font: 700 0.76rem Arial, Helvetica, sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    article {
-      width: min(100%, 820px);
-      margin: 42px auto 70px;
-    }
-
-    .section {
-      font: 700 0.78rem Arial, Helvetica, sans-serif;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.5rem, 7vw, 5.4rem);
-      line-height: 0.94;
-      letter-spacing: -0.045em;
-      font-weight: 700;
-    }
-
-    .dek {
-      font-size: 1.28rem;
-      line-height: 1.4;
-      color: #333;
-      margin: 20px 0 18px;
-    }
-
-    .byline {
-      font: 0.82rem Arial, Helvetica, sans-serif;
-      color: var(--muted);
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .hero {
-      width: 100%;
-      display: block;
-      margin: 28px 0 8px;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      border: 1px solid #ddd;
-      background: #e7e7e7;
-    }
-
-    .caption {
-      font: 0.72rem Arial, Helvetica, sans-serif;
-      color: var(--muted);
-      margin-bottom: 28px;
-    }
-
-    .dropcap:first-letter {
-      float: left;
-      font-size: 4.6rem;
-      line-height: 0.8;
-      padding: 9px 9px 0 0;
-      font-weight: 700;
-    }
-
-    p {
-      font-size: 1.08rem;
-      margin: 0 0 1.2em;
-    }
-
-    h2 {
-      font-size: 1.7rem;
-      line-height: 1.12;
-      margin: 2.1em 0 0.7em;
-      border-top: 1px solid var(--rule);
-      padding-top: 18px;
-    }
-
-    .pullquote {
-      border-left: 4px solid var(--ink);
-      margin: 34px 0;
-      padding: 4px 0 4px 22px;
-      font-size: 1.5rem;
-      line-height: 1.28;
-      font-style: italic;
-    }
-
-    .factbox {
-      margin: 34px 0;
-      border-top: 3px solid var(--ink);
-      border-bottom: 1px solid var(--ink);
-      padding: 16px 0;
-    }
-
-    .factbox h3 {
-      font: 700 0.82rem Arial, Helvetica, sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin: 0 0 12px;
-    }
-
-    .factgrid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 8px 18px;
-      font: 0.86rem Arial, Helvetica, sans-serif;
-    }
-
-    .factgrid strong { color: #333; }
-
-    .endmark {
-      text-align: center;
-      margin-top: 34px;
-      font-size: 1.5rem;
-    }
-
-    footer {
-      border-top: 2px solid var(--ink);
-      padding: 22px 0 38px;
-      font: 0.76rem Arial, Helvetica, sans-serif;
-      color: var(--muted);
-    }
-
-    @media (max-width: 640px) {
-      .utility { flex-direction: column; gap: 2px; }
-      .factgrid { grid-template-columns: 1fr; }
-      article { margin-top: 28px; }
-    }
-  </style>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
-
 <body>
-  <header>
-    <div class="shell">
-      <div class="utility">
-        <div>Sunday, May 9, 2027</div>
-        <div>Science &amp; Exploration</div>
-      </div>
+<header>
+  <div class="article-shell">
+    <div class="utility-bar"><div>Sunday, May 9, 2027</div><div>Science &amp; Exploration</div></div>
+    <div class="masthead"><a class="masthead-link" href="../index.html">The Halden Ledger</a></div>
+    <nav class="nav"><a href="../index.html">Home</a><a href="#">World</a><a href="#">Science</a><a href="#">Industry</a><a href="#">Politics</a><a href="#">Culture</a><a href="#">Archive</a></nav>
+  </div>
+</header>
+<main class="article-shell">
+<article class="article">
+  <div class="section-label">Science / The Moon</div>
+  <h1>Inside Themelion</h1>
+  <p class="article-dek">Humanity’s first permanent lunar settlement does not look like a city. Most of it is buried, unfinished and deliberately difficult to see. The Ledger spent a day walking the parts that are not.</p>
+  <div class="byline">By Naomi Valez &nbsp;|&nbsp; The Halden Ledger</div>
 
-      <div class="masthead">
-        <a href="../index.html">The Halden Ledger</a>
-      </div>
+  <img class="hero" src="../images/themelion.jpg" alt="Themelion Base spread across the lunar south polar terrain" />
+  <div class="caption">Themelion Base in the lunar south polar region. Most pressurized spaces are shielded beneath regolith or built into excavated trenches. Avelor Astronautics.</div>
 
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="../index.html">Home</a>
-        <a href="#">World</a>
-        <a href="#">Science</a>
-        <a href="#">Industry</a>
-        <a href="#">Politics</a>
-        <a href="#">Culture</a>
-        <a href="#">Archive</a>
-      </nav>
+  <p class="dropcap">From a distance, Themelion is easy to underestimate. There is no glass dome, no skyline and almost nothing that resembles the lunar cities imagined in the last century. What appears instead across the gray terrain is a collection of roads, antennae, solar fields, excavation cuts, equipment yards and low industrial structures separated by stretches of untouched regolith.</p>
+  <p>Then a freight lift rises out of the ground.</p>
+  <p>The platform emerges slowly from a rectangular shaft cut into the lunar surface, carrying a pressure vessel roughly the size of a city bus. A crawler takes it from there, moving at a pace that would be unremarkable in a terrestrial construction yard if the sky above it were not black.</p>
+  <p>That is the first useful lesson about Themelion: the visible base is not the base. It is the roof.</p>
+
+  <div class="pullquote">“The visible base is not the base. It is the roof.”</div>
+
+  <h2>The way down</h2>
+  <p>Our tour begins through an access structure built into the wall of a shallow excavation trench. The entrance is functional to the point of anonymity: pressure door, dust vestibule, suit connections, inspection lights. No lobby. No flag wall. No commemorative plaque.</p>
+  <p>Beyond the inner hatch, a short corridor slopes gradually downward into the oldest part of the base. These first-generation sections were landed as complete pressure modules and then covered with lunar soil for shielding. The walls retain their original curved geometry. Pipes, electrical conduits and ventilation trunks occupy much of the ceiling. Storage appears wherever a human being can fit a shelf.</p>
+  <p>Nothing is wasted, including space.</p>
+  <p>The oldest passageways are narrow enough that two people carrying equipment learn quickly who has right of way. Doorways are scratched from years of cases and tool carts. Temporary cable runs have become permanent. Someone has attached a handwritten label to an air circulation panel despite the presence of a perfectly functional digital maintenance tag directly beneath it.</p>
+  <p>Themelion is only a few years old, but parts of it already feel lived in.</p>
+
+  <h2>Habitat Ring</h2>
+  <p>The main inhabited section is less a ring than a network that acquired the name while engineers were still joining the first modules together. Crew quarters branch from a central spine alongside a medical room, galley, hygiene facilities, exercise space and several common areas that have accumulated furniture in ways no architect appears to have planned.</p>
+  <p>Private cabins are small. A bunk, storage, fold-down desk and screen occupy most of the available volume. Residents personalize them carefully because anything brought from Earth has mass, and mass has a transportation cost. Photographs are common. Large objects are not.</p>
+  <p>In the galley, maintenance engineer Ben Park is repairing a coffee heater that, according to two nearby technicians, has failed often enough to qualify as a member of the crew. Park has been on the Moon for seven months and keeps a photograph of his daughter taped inside his tool case. He says the heater is not technically mission-critical, then continues working on it anyway.</p>
+  <p>The joke would be ordinary in almost any workplace on Earth. Here, ordinary is part of the achievement.</p>
+
+  <h2>A town built around failure</h2>
+  <p>Almost every system at Themelion has a backup. Many backups have backups. Doors divide the settlement into pressure zones. Oxygen can be isolated section by section. Water lines can be rerouted around damaged modules. Battery banks sit behind separate fire barriers. Emergency breathing equipment appears at intervals that initially seem excessive until someone reminds you that there is no atmosphere outside.</p>
+  <p>The redundancy is not elegant. It is visible.</p>
+  <p>Engineers here talk about “graceful failure,” the idea that a broken component should reduce capability instead of ending it. The phrase appears repeatedly during our visit: in life support, power management, data routing, water recycling and pressure control.</p>
+  <p>This is one reason Themelion feels less like a spacecraft than early orbital stations did. A spacecraft is expected to return home. Themelion is being designed around the possibility that home may not be able to solve the next problem quickly.</p>
+
+  <div class="factbox">
+    <h3>Themelion at a glance</h3>
+    <div class="factgrid">
+      <strong>Location</strong><span>Lunar south polar region, near Themelion Crater</span>
+      <strong>Function</strong><span>Permanent settlement, industrial site, construction yard and deep-space support base</span>
+      <strong>Architecture</strong><span>Buried landed modules, excavated trenches and expanding subterranean construction</span>
+      <strong>Primary resources</strong><span>Water, power, propellant production and local manufacturing</span>
+      <strong>Operator</strong><span>Avelor Astronautics and partner contractors</span>
     </div>
-  </header>
-
-  <main class="shell">
-    <article>
-      <div class="section">Science / The Moon</div>
-
-      <h1>Inside Themelion</h1>
-
-      <p class="dek">
-        Humanity’s first permanent lunar settlement does not look like a city. Most of it is buried,
-        unfinished and deliberately difficult to see. The Ledger spent a day walking the parts that are not.
-      </p>
-
-      <div class="byline">
-        By Naomi Valez &nbsp;|&nbsp; The Halden Ledger
-      </div>
-
-      <img
-        class="hero"
-        src="../images/themelion.jpg"
-        alt="Themelion Base spread across the lunar south polar terrain"
-      />
-
-      <div class="caption">
-        Themelion Base in the lunar south polar region. Most pressurized spaces are shielded beneath regolith or built into excavated trenches. Avelor Astronautics.
-      </div>
-
-      <p class="dropcap">
-        From a distance, Themelion is easy to underestimate. There is no glass dome, no skyline and almost
-        nothing that resembles the lunar cities imagined in the last century. What appears instead across the
-        gray terrain is a collection of roads, antennae, solar fields, excavation cuts, equipment yards and
-        low industrial structures separated by stretches of untouched regolith.
-      </p>
-
-      <p>
-        Then a freight lift rises out of the ground.
-      </p>
-
-      <p>
-        The platform emerges slowly from a rectangular shaft cut into the lunar surface, carrying a pressure
-        vessel roughly the size of a city bus. A crawler takes it from there, moving at a pace that would be
-        unremarkable in a terrestrial construction yard if the sky above it were not black.
-      </p>
-
-      <p>
-        That is the first useful lesson about Themelion: the visible base is not the base. It is the roof.
-      </p>
-
-      <div class="pullquote">
-        “The visible base is not the base. It is the roof.”
-      </div>
-
-      <h2>The way down</h2>
-
-      <p>
-        Our tour begins through an access structure built into the wall of a shallow excavation trench.
-        The entrance is functional to the point of anonymity: pressure door, dust vestibule, suit connections,
-        inspection lights. No lobby. No flag wall. No commemorative plaque.
-      </p>
-
-      <p>
-        Beyond the inner hatch, a short corridor slopes gradually downward into the oldest part of the base.
-        These first-generation sections were landed as complete pressure modules and then covered with lunar
-        soil for shielding. The walls retain their original curved geometry. Pipes, electrical conduits and
-        ventilation trunks occupy much of the ceiling. Storage appears wherever a human being can fit a shelf.
-      </p>
-
-      <p>
-        Nothing is wasted, including space.
-      </p>
-
-      <p>
-        The oldest passageways are narrow enough that two people carrying equipment learn quickly who has
-        right of way. Doorways are scratched from years of cases and tool carts. Temporary cable runs have
-        become permanent. Someone has attached a handwritten label to an air circulation panel despite the
-        presence of a perfectly functional digital maintenance tag directly beneath it.
-      </p>
-
-      <p>
-        Themelion is only a few years old, but parts of it already feel lived in.
-      </p>
-
-      <h2>Habitat Ring</h2>
-
-      <p>
-        The main inhabited section is less a ring than a network that acquired the name while engineers were
-        still joining the first modules together. Crew quarters branch from a central spine alongside a
-        medical room, galley, hygiene facilities, exercise space and several common areas that have accumulated
-        furniture in ways no architect appears to have planned.
-      </p>
-
-      <p>
-        Private cabins are small. A bunk, storage, fold-down desk and screen occupy most of the available
-        volume. Residents personalize them carefully because anything brought from Earth has mass, and mass
-        has a transportation cost. Photographs are common. Large objects are not.
-      </p>
-
-      <p>
-        In the galley, maintenance engineer Ben Park is repairing a coffee heater that, according to two
-        nearby technicians, has failed often enough to qualify as a member of the crew. Park has been on the
-        Moon for seven months and keeps a photograph of his daughter taped inside his tool case. He says the
-        heater is not technically mission-critical, then continues working on it anyway.
-      </p>
-
-      <p>
-        The joke would be ordinary in almost any workplace on Earth. Here, ordinary is part of the achievement.
-      </p>
-
-      <h2>A town built around failure</h2>
-
-      <p>
-        Almost every system at Themelion has a backup. Many backups have backups. Doors divide the settlement
-        into pressure zones. Oxygen can be isolated section by section. Water lines can be rerouted around
-        damaged modules. Battery banks sit behind separate fire barriers. Emergency breathing equipment appears
-        at intervals that initially seem excessive until someone reminds you that there is no atmosphere outside.
-      </p>
-
-      <p>
-        The redundancy is not elegant. It is visible.
-      </p>
-
-      <p>
-        Engineers here talk about “graceful failure,” the idea that a broken component should reduce capability
-        instead of ending it. The phrase appears repeatedly during our visit: in life support, power management,
-        data routing, water recycling and pressure control.
-      </p>
-
-      <p>
-        This is one reason Themelion feels less like a spacecraft than early orbital stations did. A spacecraft
-        is expected to return home. Themelion is being designed around the possibility that home may not be able
-        to solve the next problem quickly.
-      </p>
-
-      <div class="factbox">
-        <h3>Themelion at a glance</h3>
-        <div class="factgrid">
-          <strong>Location</strong><span>Lunar south polar region, near Themelion Crater</span>
-          <strong>Function</strong><span>Permanent settlement, industrial site, construction yard and deep-space support base</span>
-          <strong>Architecture</strong><span>Buried landed modules, excavated trenches and expanding subterranean construction</span>
-          <strong>Primary resources</strong><span>Water, power, propellant production and local manufacturing</span>
-          <strong>Operator</strong><span>Avelor Astronautics and partner contractors</span>
-        </div>
-      </div>
-
-      <h2>Where the base becomes a factory</h2>
-
-      <p>
-        The character of Themelion changes several hundred meters beyond the habitat sections. The ceilings
-        become higher. Floors become dirtier. The steady machinery noise becomes harder to separate into
-        individual sources.
-      </p>
-
-      <p>
-        This is the industrial side of the settlement, and it is the reason Themelion exists where it does.
-      </p>
-
-      <p>
-        Water extracted from lunar material is valuable first because people need it, and second because it can
-        be separated into oxygen and hydrogen. That makes it life support, industrial feedstock and, potentially,
-        propellant. On Earth those categories belong to different industries. At Themelion they are parts of
-        the same survival chain.
-      </p>
-
-      <p>
-        Processing equipment is distributed rather than concentrated in one dramatic plant. Pumps and storage
-        tanks occupy shielded service chambers. Utility corridors carry water, gases, power and data between
-        zones. Surface structures handle equipment that can tolerate radiation and temperature extremes.
-      </p>
-
-      <p>
-        The settlement's managers are reluctant to call this self-sufficiency. Too many critical components
-        still arrive from Earth. Electronics, specialized seals, medical supplies and complex machinery remain
-        difficult or impossible to replace locally.
-      </p>
-
-      <p>
-        But the list of things Themelion can make for itself is growing.
-      </p>
-
-      <h2>The construction level</h2>
-
-      <p>
-        The newest part of the base is not a module at all.
-      </p>
-
-      <p>
-        It is a hole.
-      </p>
-
-      <p>
-        A pressure door opens onto an unfinished chamber cut directly into the lunar terrain. Temporary
-        structural supports stand along one wall while crews prepare the space for lining, sealing and
-        utilities. The room is larger than anything in the original habitat, large enough that our guide's
-        voice acquires an echo.
-      </p>
-
-      <p>
-        This is the direction Themelion is going.
-      </p>
-
-      <p>
-        Landing complete habitats worked when the base was small. It becomes increasingly inefficient as the
-        population and industrial footprint grow. The next generation of the settlement is being excavated
-        locally: trenches first, then larger underground spaces where shielding is provided by the Moon itself.
-      </p>
-
-      <p>
-        It creates an unusual urban pattern. The oldest neighborhoods are the smallest. Newer ones are larger
-        because the machines digging them are larger.
-      </p>
-
-      <h2>Surface operations</h2>
-
-      <p>
-        Back outside, the apparent emptiness of the surface starts to make more sense.
-      </p>
-
-      <p>
-        Solar arrays occupy broad fields away from heavy vehicle traffic. Radiators stand where they can reject
-        heat without being shadowed by equipment. Communication towers sit on raised ground. Processing units
-        that do not need full pressure protection remain exposed. Rover tracks connect these sites in pale arcs
-        across the regolith.
-      </p>
-
-      <p>
-        The largest vehicles are crawlers built less like cars than mobile construction platforms. They transport
-        pressure modules, excavation equipment and cargo that would be awkward to move through the underground
-        network. They are slow, wide and almost comically practical.
-      </p>
-
-      <p>
-        Nothing on the surface appears designed to impress a visitor.
-      </p>
-
-      <p>
-        The result is impressive anyway.
-      </p>
-
-      <h2>The distance to Earth</h2>
-
-      <p>
-        Themelion's operations room maintains several clocks. One shows local mission time. Another tracks
-        communications windows and vehicle schedules. Earth time appears almost as an administrative detail,
-        necessary for coordinating with people who still organize their lives around sunrise and sunset.
-      </p>
-
-      <p>
-        There is no sunrise in the ordinary sense here.
-      </p>
-
-      <p>
-        Near the lunar south pole, the geometry of light dominates planning. Some elevated areas receive long
-        periods of illumination useful for solar power. Nearby depressions can remain in shadow for extraordinary
-        lengths of time. That contrast — energy near the surface, water in colder terrain — is one of the reasons
-        this region matters.
-      </p>
-
-      <p>
-        It also gives Themelion an atmosphere unlike the Apollo photographs familiar to generations of schoolchildren.
-        Light arrives low across the landscape, stretching machinery and people into long shadows.
-      </p>
-
-      <h2>Not a colony. Not yet.</h2>
-
-      <p>
-        Avelor officials are careful with the word <em>colony</em>. They prefer settlement, industrial complex or
-        base. The distinction is partly technical and partly political. Themelion still depends heavily on Earth,
-        and no one we speak with pretends otherwise.
-      </p>
-
-      <p>
-        Yet the vocabulary is becoming harder to police.
-      </p>
-
-      <p>
-        People sleep here, work here, argue here and celebrate birthdays here. They know which shower has the
-        best water pressure. They complain about the food rotation. They leave tools in the wrong place. They
-        learn which corridor is faster when a cargo transfer blocks the main spine.
-      </p>
-
-      <p>
-        The first stages of permanence do not look historic while they are happening.
-      </p>
-
-      <p>
-        They look like maintenance.
-      </p>
-
-      <h2>What comes next</h2>
-
-      <p>
-        The construction maps shown to the Ledger contain more empty outlines than finished rooms. Additional
-        industrial chambers are planned beneath the existing surface network. Excavation corridors extend toward
-        future processing zones. Power capacity is being increased. More cargo handling infrastructure is being
-        installed than the present population requires.
-      </p>
-
-      <p>
-        The explanation is straightforward: building on the Moon is slow enough that waiting for demand to arrive
-        means building too late.
-      </p>
-
-      <p>
-        That philosophy is visible everywhere at Themelion. The current settlement is modest. The infrastructure
-        around it assumes it will not remain that way.
-      </p>
-
-      <p>
-        Near the end of our visit, another cargo elevator rises from below carrying empty racks toward the surface.
-        A crawler waits beside the shaft. Farther away, excavation lights mark a trench that does not appear on
-        several older photographs of the site.
-      </p>
-
-      <p>
-        From orbit, Themelion can still look like a handful of equipment scattered across a gray plain.
-      </p>
-
-      <p>
-        Standing on top of it, the illusion is harder to maintain.
-      </p>
-
-      <p>
-        Humanity has not built a lunar city.
-      </p>
-
-      <p>
-        It has begun building the machinery from which one could grow.
-      </p>
-
-      <div class="endmark">◆</div>
-    </article>
-  </main>
-
-  <footer>
-    <div class="shell">
-      © 2027 The Halden Ledger &nbsp; · &nbsp; About &nbsp; · &nbsp; Contact &nbsp; · &nbsp; Corrections &nbsp; · &nbsp; Archive
-    </div>
-  </footer>
+  </div>
+
+  <h2>Where the base becomes a factory</h2>
+  <p>The character of Themelion changes several hundred meters beyond the habitat sections. The ceilings become higher. Floors become dirtier. The steady machinery noise becomes harder to separate into individual sources.</p>
+  <p>This is the industrial side of the settlement, and it is the reason Themelion exists where it does.</p>
+  <p>Water extracted from lunar material is valuable first because people need it, and second because it can be separated into oxygen and hydrogen. That makes it life support, industrial feedstock and, potentially, propellant. On Earth those categories belong to different industries. At Themelion they are parts of the same survival chain.</p>
+  <p>Processing equipment is distributed rather than concentrated in one dramatic plant. Pumps and storage tanks occupy shielded service chambers. Utility corridors carry water, gases, power and data between zones. Surface structures handle equipment that can tolerate radiation and temperature extremes.</p>
+  <p>The settlement's managers are reluctant to call this self-sufficiency. Too many critical components still arrive from Earth. Electronics, specialized seals, medical supplies and complex machinery remain difficult or impossible to replace locally.</p>
+  <p>But the list of things Themelion can make for itself is growing.</p>
+
+  <h2>The construction level</h2>
+  <p>The newest part of the base is not a module at all.</p>
+  <p>It is a hole.</p>
+  <p>A pressure door opens onto an unfinished chamber cut directly into the lunar terrain. Temporary structural supports stand along one wall while crews prepare the space for lining, sealing and utilities. The room is larger than anything in the original habitat, large enough that our guide's voice acquires an echo.</p>
+  <p>This is the direction Themelion is going.</p>
+  <p>Landing complete habitats worked when the base was small. It becomes increasingly inefficient as the population and industrial footprint grow. The next generation of the settlement is being excavated locally: trenches first, then larger underground spaces where shielding is provided by the Moon itself.</p>
+  <p>It creates an unusual urban pattern. The oldest neighborhoods are the smallest. Newer ones are larger because the machines digging them are larger.</p>
+
+  <h2>Surface operations</h2>
+  <p>Back outside, the apparent emptiness of the surface starts to make more sense.</p>
+  <p>Solar arrays occupy broad fields away from heavy vehicle traffic. Radiators stand where they can reject heat without being shadowed by equipment. Communication towers sit on raised ground. Processing units that do not need full pressure protection remain exposed. Rover tracks connect these sites in pale arcs across the regolith.</p>
+  <p>The largest vehicles are crawlers built less like cars than mobile construction platforms. They transport pressure modules, excavation equipment and cargo that would be awkward to move through the underground network. They are slow, wide and almost comically practical.</p>
+  <p>Nothing on the surface appears designed to impress a visitor.</p>
+  <p>The result is impressive anyway.</p>
+
+  <h2>The distance to Earth</h2>
+  <p>Themelion's operations room maintains several clocks. One shows local mission time. Another tracks communications windows and vehicle schedules. Earth time appears almost as an administrative detail, necessary for coordinating with people who still organize their lives around sunrise and sunset.</p>
+  <p>There is no sunrise in the ordinary sense here.</p>
+  <p>Near the lunar south pole, the geometry of light dominates planning. Some elevated areas receive long periods of illumination useful for solar power. Nearby depressions can remain in shadow for extraordinary lengths of time. That contrast — energy near the surface, water in colder terrain — is one of the reasons this region matters.</p>
+  <p>It also gives Themelion an atmosphere unlike the Apollo photographs familiar to generations of schoolchildren. Light arrives low across the landscape, stretching machinery and people into long shadows.</p>
+
+  <h2>Not a colony. Not yet.</h2>
+  <p>Avelor officials are careful with the word <em>colony</em>. They prefer settlement, industrial complex or base. The distinction is partly technical and partly political. Themelion still depends heavily on Earth, and no one we speak with pretends otherwise.</p>
+  <p>Yet the vocabulary is becoming harder to police.</p>
+  <p>People sleep here, work here, argue here and celebrate birthdays here. They know which shower has the best water pressure. They complain about the food rotation. They leave tools in the wrong place. They learn which corridor is faster when a cargo transfer blocks the main spine.</p>
+  <p>The first stages of permanence do not look historic while they are happening.</p>
+  <p>They look like maintenance.</p>
+
+  <h2>What comes next</h2>
+  <p>The construction maps shown to the Ledger contain more empty outlines than finished rooms. Additional industrial chambers are planned beneath the existing surface network. Excavation corridors extend toward future processing zones. Power capacity is being increased. More cargo handling infrastructure is being installed than the present population requires.</p>
+  <p>The explanation is straightforward: building on the Moon is slow enough that waiting for demand to arrive means building too late.</p>
+  <p>That philosophy is visible everywhere at Themelion. The current settlement is modest. The infrastructure around it assumes it will not remain that way.</p>
+  <p>Near the end of our visit, another cargo elevator rises from below carrying empty racks toward the surface. A crawler waits beside the shaft. Farther away, excavation lights mark a trench that does not appear on several older photographs of the site.</p>
+  <p>From orbit, Themelion can still look like a handful of equipment scattered across a gray plain.</p>
+  <p>Standing on top of it, the illusion is harder to maintain.</p>
+  <p>Humanity has not built a lunar city.</p>
+  <p>It has begun building the machinery from which one could grow.</p>
+
+  <div class="endmark">◆</div>
+</article>
+</main>
+<footer><div class="article-shell">© 2027 The Halden Ledger &nbsp; · &nbsp; About &nbsp; · &nbsp; Contact &nbsp; · &nbsp; Corrections &nbsp; · &nbsp; Archive</div></footer>
 </body>
 </html>
