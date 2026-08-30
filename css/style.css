@@ -471,8 +471,17 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .left-ad {
-    width: min(150px, 38vw);
-    margin: 0 auto 22px;
+  /* On phones, show the editorial content first and move the desktop
+     left-rail advertisement to the end of the homepage. */
+  .ad-mobile-last .home-content {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .ad-mobile-last .left-ad {
+    grid-column: 1;
+    grid-row: 2;
+    width: min(220px, 58vw);
+    margin: 32px auto 0;
   }
 }
