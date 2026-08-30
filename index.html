@@ -1,100 +1,404 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The Halden Ledger — independent reporting on science, industry, policy, and the future." />
-  <title>The Halden Ledger</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <header>
-    <div class="site-shell">
-      <div class="utility-bar">
-        <div>Sunday, May 9, 2027</div>
-        <div>Independent reporting since 1911</div>
-      </div>
-      <div class="masthead">
-        <h1>The Halden Ledger</h1>
-        <div class="tagline">Science · Industry · Policy · World</div>
-      </div>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#">World</a><a href="#">Science</a><a href="#">Industry</a><a href="#">Politics</a>
-        <a href="#">Culture</a><a href="#">Opinion</a><a href="#">Archive</a>
-      </nav>
-    </div>
-  </header>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Old+Standard+TT:wght@400;700&family=Roboto+Condensed:wght@600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap');
 
-  <main class="site-shell home-main">
-    <section class="lead-grid">
-      <article class="lead-story">
-        <div class="kicker">Science / The Moon</div>
-        <h2>Themelion Enters a New Phase</h2>
-        <p class="dek">Once dismissed as an expensive experiment, the lunar settlement is becoming something harder to ignore: permanent infrastructure beyond Earth.</p>
-        <div class="byline">By Naomi Valez</div>
-        <img class="story-image" src="images/themelion.jpg" alt="Themelion lunar settlement" />
-        <div class="caption">Themelion Base in the lunar south polar region. Halden Ledger file image.</div>
-        <p>Themelion was never supposed to look permanent this soon. Its earliest modules were designed around short-duration crews, narrow operational margins, and the assumption that almost everything important would still come from Earth. That assumption is beginning to change.</p>
-        <p>New construction, expanded logistics capacity, and a growing industrial footprint have turned the outpost into a test of whether human activity beyond Earth can become routine rather than exceptional.</p>
-        <a class="read-more" href="articles/themelion.html">Read the full story</a>
-      </article>
+:root {
+  --ink: #111111;
+  --muted: #666666;
+  --rule: #d8d8d8;
+  --paper: #fbfaf7;
+  --accent: #7a1111;
+  --site-max: 1180px;
+  --article-max: 820px;
 
-      <aside>
-        <article class="side-story">
-          <div class="kicker">Interview</div>
-          <img src="images/adrian-serrin.jpg" alt="Adrian Serrin seated in his office" />
-          <h3>The Architect Behind Avelor</h3>
-          <div class="byline">By Marcus Venn</div>
-          <p>Adrian Serrin rarely gives interviews. In a wide-ranging conversation with the Ledger, he discusses Avelor, risk, ambition, and why he thinks the future arrives long before most people notice it.</p>
-          <a class="read-more" href="articles/adrian-serrin.html">Read the interview</a>
-        </article>
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-display: "Old Standard TT", Georgia, "Times New Roman", serif;
+  --font-headline: "Roboto Condensed", Arial, Helvetica, sans-serif;
+  --font-ui: "Inter", Arial, Helvetica, sans-serif;
+}
 
-        <article class="side-story">
-          <div class="kicker">Investigations</div>
-          <h3>Avelor’s Expansion Is Outpacing Its Public Plans</h3>
-          <div class="byline">By Lena Kwon</div>
-          <p>A review of supplier contracts, infrastructure filings and launch-site expansion suggests Avelor is building capacity far beyond what its published near-term plans appear to require.</p>
-          <a class="read-more" href="articles/avelor-expansion.html">Read the investigation</a>
-        </article>
+* { box-sizing: border-box; }
 
-        <article class="side-story">
-          <div class="kicker">Politics</div>
-          <h3>How Evelyn Grant Built the Coalition That Put Her in the White House</h3>
-          <div class="byline">By Elena Arden</div>
-          <p>Grant’s victory crossed lines that had defined the previous two presidential cycles. Whether that coalition survives governing may determine how much of her agenda survives with it.</p>
-          <a class="read-more" href="articles/grant-coalition.html">Read the analysis</a>
-        </article>
-      </aside>
-    </section>
+html { scroll-behavior: smooth; }
 
-    <div class="section-heading">More from the Ledger</div>
-    <section class="below-fold">
-      <article class="card">
-        <div class="kicker">Markets</div>
-        <h3>Space Infrastructure Becomes a Market of Its Own</h3>
-        <div class="byline">By Marcus Venn</div>
-        <p>Investors once treated lunar development as a distant prospect. A growing class of suppliers now sees it as ordinary industrial demand.</p>
-      </article>
-      <article class="card">
-        <div class="kicker">Washington</div>
-        <h3>New Resilience Programs Blur Civil and Strategic Planning</h3>
-        <div class="byline">By Lena Kwon</div>
-        <p>Federal agencies are quietly expanding continuity and infrastructure planning across energy, transport, communications, and space.</p>
-      </article>
-      <article class="card">
-        <div class="kicker">Culture</div>
-        <h3>The People Who Choose to Live Somewhere Else</h3>
-        <div class="byline">By Naomi Valez</div>
-        <p>For the first generation of long-duration lunar workers, the hardest questions are increasingly social rather than technical.</p>
-      </article>
-    </section>
-  </main>
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--font-body);
+  line-height: 1.58;
+}
 
-  <footer>
-    <div class="site-shell footer-row">
-      <div>© 2027 The Halden Ledger</div>
-      <div>About · Contact · Corrections · Privacy · Archive</div>
-    </div>
-  </footer>
-</body>
-</html>
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover { color: var(--accent); }
+
+.site-shell {
+  width: min(calc(100% - 32px), var(--site-max));
+  margin: 0 auto;
+}
+
+.article-shell {
+  width: min(calc(100% - 32px), 980px);
+  margin: 0 auto;
+}
+
+.utility-bar {
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.masthead {
+  text-align: center;
+  padding: 24px 0 13px;
+  border-bottom: 3px solid var(--ink);
+}
+
+.masthead h1,
+.masthead .masthead-link {
+  margin: 0;
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: clamp(2.35rem, 7vw, 5.15rem);
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+  font-weight: 700;
+}
+
+.masthead .tagline {
+  margin-top: 8px;
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--ink);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.kicker,
+.section-label {
+  font-family: var(--font-ui);
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  font-size: 0.76rem;
+  margin-bottom: 8px;
+}
+
+.byline,
+.meta,
+.caption {
+  font-family: var(--font-ui);
+  color: var(--muted);
+}
+
+.byline { font-size: 0.8rem; margin-bottom: 8px; }
+.meta { font-size: 0.8rem; }
+.caption { font-size: 0.72rem; margin-top: 6px; }
+
+/* Homepage */
+
+.home-main { padding: 24px 0 48px; }
+
+.lead-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 0.9fr);
+  gap: 28px;
+  align-items: start;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 28px;
+}
+
+.lead-story {
+  padding-right: 28px;
+  border-right: 1px solid var(--rule);
+}
+
+.lead-story h2 {
+  margin: 0 0 12px;
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: clamp(2rem, 4.3vw, 4.35rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.dek {
+  font-size: 1.15rem;
+  color: #333;
+  max-width: 820px;
+  margin: 0 0 16px;
+}
+
+.story-image {
+  width: 100%;
+  display: block;
+  margin: 18px 0 10px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #e8e8e8;
+  border: 1px solid #ddd;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 2px;
+}
+
+.side-story + .side-story {
+  border-top: 1px solid var(--rule);
+  margin-top: 22px;
+  padding-top: 22px;
+}
+
+.side-story h3,
+.card h3 {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  line-height: 1.08;
+  margin: 0 0 8px;
+}
+
+.side-story h3 { font-size: 1.55rem; }
+.card h3 { font-size: 1.35rem; }
+
+.side-story p,
+.card p {
+  margin: 0;
+  color: #3f3f3f;
+}
+
+.side-story p { font-size: 0.98rem; }
+.card p { font-size: 0.95rem; }
+
+.side-story img {
+  width: 100%;
+  display: block;
+  margin: 12px 0 10px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #e8e8e8;
+  border: 1px solid #ddd;
+}
+
+.section-heading {
+  margin-top: 36px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 7px 0;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.below-fold {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.card {
+  border-top: 3px solid var(--ink);
+  padding-top: 12px;
+}
+
+/* Article pages */
+
+.article {
+  width: min(100%, var(--article-max));
+  margin: 42px auto 70px;
+}
+
+.article h1 {
+  margin: 0;
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: clamp(2.45rem, 7vw, 5.15rem);
+  line-height: 0.97;
+  letter-spacing: -0.035em;
+}
+
+.article .article-dek {
+  font-size: 1.28rem;
+  line-height: 1.4;
+  color: #333;
+  margin: 20px 0 18px;
+}
+
+.article > .byline {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 0;
+}
+
+.article p {
+  font-size: 1.08rem;
+  margin: 0 0 1.2em;
+}
+
+.article .dropcap:first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 4.6rem;
+  line-height: 0.8;
+  padding: 9px 9px 0 0;
+  font-weight: 700;
+}
+
+.article h2 {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.12;
+  margin: 2.1em 0 0.7em;
+  border-top: 1px solid var(--rule);
+  padding-top: 18px;
+}
+
+.hero {
+  width: 100%;
+  display: block;
+  margin: 28px 0 8px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  background: #e7e7e7;
+}
+
+.pullquote {
+  border-left: 4px solid var(--ink);
+  margin: 34px 0;
+  padding: 4px 0 4px 22px;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.28;
+  font-style: italic;
+}
+
+.factbox,
+.evidence {
+  margin: 34px 0;
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 16px 0;
+}
+
+.factbox h3,
+.evidence h3 {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 12px;
+}
+
+.factgrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 8px 18px;
+  font-family: var(--font-ui);
+  font-size: 0.86rem;
+}
+
+.evidence ul { margin: 0; padding-left: 20px; }
+.evidence li { margin-bottom: 8px; }
+
+.note {
+  color: var(--muted);
+  font-size: 0.92rem !important;
+  font-style: italic;
+}
+
+.endmark {
+  text-align: center;
+  margin-top: 34px;
+  font-size: 1.5rem;
+}
+
+/* Interview */
+
+.interview-intro {
+  font-size: 1.04rem;
+  color: #333;
+  margin: 26px 0 34px;
+}
+
+.qa {
+  margin: 0 0 1.2em;
+}
+
+.qa .question,
+.qa .answer {
+  margin-bottom: 0.72em;
+}
+
+.qa .speaker {
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.qa .question .speaker { color: var(--accent); }
+
+/* Footer */
+
+footer {
+  border-top: 2px solid var(--ink);
+  margin-top: 44px;
+  padding: 24px 0 36px;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 820px) {
+  .lead-grid { grid-template-columns: 1fr; }
+  .lead-story { border-right: 0; padding-right: 0; }
+  .below-fold { grid-template-columns: 1fr; }
+  .utility-bar { flex-direction: column; gap: 2px; }
+}
+
+@media (max-width: 640px) {
+  .factgrid { grid-template-columns: 1fr; }
+  .article { margin-top: 28px; }
+}
