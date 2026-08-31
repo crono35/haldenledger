@@ -46,35 +46,34 @@ content="Elena Arden examines the coalition that elected President Evelyn Grant 
       text-align: center;
     }
 
-    .masthead a,
-    nav a {
+    .masthead a {
       color: var(--ink);
       text-decoration: none;
     }
 
     .brand {
       font-size: clamp(2.2rem, 7vw, 4.7rem);
-      line-height: 0.95;
+      line-height: .95;
       letter-spacing: -0.055em;
       font-weight: 700;
     }
 
     .tagline {
       margin-top: 9px;
-      font: 600 0.72rem/1.2 Arial, Helvetica, sans-serif;
-      letter-spacing: 0.22em;
+      font: 600 .72rem/1.2 Arial, Helvetica, sans-serif;
+      letter-spacing: .22em;
       text-transform: uppercase;
       color: var(--muted);
     }
 
     nav {
       border-top: 1px solid var(--rule);
-      font: 700 0.76rem/1 Arial, Helvetica, sans-serif;
+      font: 700 .76rem/1 Arial, Helvetica, sans-serif;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: .08em;
     }
 
-    .nav-inner {
+    nav .nav-inner {
       max-width: 1120px;
       margin: 0 auto;
       padding: 12px 24px;
@@ -84,21 +83,53 @@ content="Elena Arden examines the coalition that elected President Evelyn Grant 
       flex-wrap: wrap;
     }
 
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
     main {
-      max-width: 900px;
+      max-width: 850px;
       margin: 0 auto;
-      padding: 52px 24px 80px;
+      padding: 56px 24px 80px;
     }
 
     .kicker {
-      font: 700 0.77rem/1.2 Arial, Helvetica, sans-serif;
+      font: 700 .77rem/1.2 Arial, Helvetica, sans-serif;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: .16em;
       margin-bottom: 18px;
     }
 
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 7vw, 5.2rem);
+      line-height: .98;
+      letter-spacing: -.045em;
+      font-weight: 700;
+    }
+
+    .deck {
+      margin: 26px 0 20px;
+      font-size: 1.32rem;
+      line-height: 1.42;
+      color: #333;
+    }
+
+    .byline {
+      padding: 16px 0 22px;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      font: .86rem/1.5 Arial, Helvetica, sans-serif;
+    }
+
+    .byline strong {
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
     .hero {
-      margin: 0 0 34px;
+      margin: 34px 0 8px;
     }
 
     .hero img {
@@ -110,34 +141,7 @@ content="Elena Arden examines the coalition that elected President Evelyn Grant 
     .caption {
       margin-top: 8px;
       color: var(--muted);
-      font: 0.76rem/1.45 Arial, Helvetica, sans-serif;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.45rem, 6vw, 4.9rem);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      font-weight: 700;
-    }
-
-    .deck {
-      margin: 24px 0 20px;
-      font-size: 1.3rem;
-      line-height: 1.42;
-      color: #333;
-    }
-
-    .byline {
-      padding: 16px 0 22px;
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-      font: 0.86rem/1.5 Arial, Helvetica, sans-serif;
-    }
-
-    .byline strong {
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+      font: .76rem/1.45 Arial, Helvetica, sans-serif;
     }
 
     .article-body {
@@ -147,7 +151,7 @@ content="Elena Arden examines the coalition that elected President Evelyn Grant 
     }
 
     .article-body p {
-      margin: 0 0 1.25em;
+      margin: 0 0 1.15em;
     }
 
     .footer {
@@ -156,20 +160,16 @@ content="Elena Arden examines the coalition that elected President Evelyn Grant 
       color: var(--muted);
       background: var(--white);
       text-align: center;
-      font: 0.78rem/1.5 Arial, Helvetica, sans-serif;
+      font: .78rem/1.5 Arial, Helvetica, sans-serif;
     }
 
     @media (max-width: 640px) {
       main {
-        padding-top: 34px;
-      }
-
-      .hero {
-        margin-bottom: 28px;
+        padding-top: 38px;
       }
 
       .deck {
-        font-size: 1.15rem;
+        font-size: 1.16rem;
       }
 
       .article-body {
@@ -183,14 +183,17 @@ content="Elena Arden examines the coalition that elected President Evelyn Grant 
 <body>
 
   <header class="site-header">
-    <div class="masthead">
-      <a href="../index.html" aria-label="The Halden Ledger home">
-        <div class="brand">The Halden Ledger</div>
-        <div class="tagline">Independent reporting for a changing world</div>
-      </a>
-    </div>
 
 ```
+<div class="masthead">
+  <a href="../index.html" aria-label="The Halden Ledger home">
+    <div class="brand">The Halden Ledger</div>
+    <div class="tagline">
+      Independent reporting for a changing world
+    </div>
+  </a>
+</div>
+
 <nav>
   <div class="nav-inner">
     <a href="../index.html">Home</a>
@@ -207,17 +210,7 @@ content="Elena Arden examines the coalition that elected President Evelyn Grant 
   <main>
 
 ```
-<div class="kicker">Politics / Analysis</div>
-
-<figure class="hero">
-  <img
-    src="../images/grant-election-night.png"
-    alt="President Evelyn Grant on election night"
-  >
-  <figcaption class="caption">
-    President Evelyn Grant on election night. Halden Ledger file image.
-  </figcaption>
-</figure>
+<div class="kicker">Politics / Government</div>
 
 <h1>
   Evelyn Grant Won the Presidency. Now She Has to Govern a Coalition That Agrees on Less Than It Appears.
@@ -231,6 +224,16 @@ content="Elena Arden examines the coalition that elected President Evelyn Grant 
   By <strong>Elena Arden</strong><br>
   The Halden Ledger
 </div>
+
+<figure class="hero">
+  <img
+    src="../images/grant-election-night.png"
+    alt="President Evelyn Grant on election night"
+  >
+  <figcaption class="caption">
+    President Evelyn Grant on election night. Halden Ledger file image.
+  </figcaption>
+</figure>
 
 <article class="article-body">
 
