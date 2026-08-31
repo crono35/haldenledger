@@ -9,43 +9,6 @@
   />
   <title>Nyvolis Bets on an AI That Shows Its Doubts | The Halden Ledger</title>
   <link rel="stylesheet" href="../css/style.css" />
-
-  <style>
-    .essential-reading {
-      margin: 52px 0 10px;
-      padding-top: 26px;
-      border-top: 1px solid #cfcfcf;
-    }
-    .essential-reading > h2 { margin: 4px 0 18px; }
-    .essential-reading-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-    .essential-reading-card { margin: 0; }
-    .essential-reading-card h3 {
-      margin: 5px 0 8px;
-      font-size: 1.08rem;
-      line-height: 1.25;
-    }
-    .essential-reading-card h3 a {
-      color: inherit;
-      text-decoration: none;
-    }
-    .essential-reading-card h3 a:hover { text-decoration: underline; }
-    .essential-reading-card p {
-      margin: 0;
-      font-size: 0.94rem;
-      line-height: 1.45;
-    }
-    @media (max-width: 760px) {
-      .essential-reading-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-    }
-  </style>
-
 </head>
 
 <body>
@@ -60,7 +23,7 @@
       <h1>Nyvolis Bets on an AI That Shows Its Doubts</h1>
 
       <p class="article-dek">
-        LAT-9 was built for incomplete records, damaged archives and questions with more than one plausible answer. Nyvolis says its most useful feature may be knowing when the evidence is not good enough.
+        LAT-9 was built for incomplete technical data and questions with more than one plausible answer. Nyvolis says its most useful feature may be knowing when the evidence is not good enough.
       </p>
 
       <div class="author-badge" style="margin: 0 0 18px;">
@@ -86,7 +49,11 @@
       </p>
 
       <p>
-        The system, called LAT-9, was originally developed for archive reconstruction: damaged records, incomplete datasets and collections in which useful information survives without enough context to make the relationships obvious. That sounds like a narrow problem until the alternatives are considered. A system can connect too little and leave the archive unreadable, or connect too much and manufacture a coherent story from evidence that never supported one.
+        The system, called LAT-9, is being developed for problems where the available evidence is incomplete, contradictory or too thin to justify a single answer. That includes engineering diagnostics, scientific analysis, sensor histories and other technical work in which several explanations may fit the same data.
+      </p>
+
+      <p>
+        The challenge is easy to describe and difficult to solve. A system can connect too little and miss a useful relationship, or connect too much and manufacture a coherent explanation from evidence that never supported one.
       </p>
 
       <p>
@@ -108,7 +75,7 @@
       </p>
 
       <p>
-        Give a system enough damaged fragments and it may find relationships that are statistically plausible but wrong. The result can look better than the evidence deserves: complete sentences from partial records, reconstructed sequences with missing steps filled in, or a single explanation chosen from several that fit nearly as well.
+        Give a system enough incomplete signals and it may find relationships that are statistically plausible but wrong. The result can look better than the evidence deserves: a failure sequence with missing steps filled in, a causal chain inferred from a short sensor history, or one explanation selected from several that fit nearly as well.
       </p>
 
       <p>
@@ -138,7 +105,7 @@
       </p>
 
       <p>
-        According to company engineers, earlier versions failed in opposite directions. Some models found relationships almost everywhere, producing reconstructions that looked convincing until they were tested against held-back data. Others became so conservative that they rarely proposed anything useful.
+        According to company engineers, earlier versions failed in opposite directions. Some models found relationships almost everywhere, producing explanations that looked convincing until they were tested against held-back data. Others became so conservative that they rarely proposed anything useful.
       </p>
 
       <p>
@@ -150,7 +117,7 @@
       </p>
 
       <p>
-        If two reconstructions fit the available evidence, LAT-9 can retain both. If one gains support later, its confidence rises. If new evidence breaks the relationship, the system can downgrade or discard it without pretending the earlier uncertainty never existed.
+        If two explanations fit the available evidence, LAT-9 can retain both. If one gains support later, its confidence rises. If new evidence breaks the relationship, the system can downgrade or discard it without pretending the earlier uncertainty never existed.
       </p>
 
       <p>
@@ -164,7 +131,7 @@
       </p>
 
       <p>
-        A confidence score does not mean there is a 72 percent chance that a reconstructed document is "true." It describes how strongly the available evidence supports the relationships the model used to build that reconstruction under its current assumptions.
+        A confidence score does not mean there is a 72 percent chance that an explanation is "true." It describes how strongly the available evidence supports the relationships the model used under its current assumptions.
       </p>
 
       <p>
@@ -172,7 +139,7 @@
       </p>
 
       <p>
-        Nyvolis engineers test that directly. A reconstruction can be rerun with different relationship weights, alternate ordering assumptions or reduced reliance on repeated structures. Outputs that survive those changes receive more trust. Outputs that move substantially remain marked as unstable.
+        Nyvolis engineers test that directly. An analysis can be rerun with different relationship weights, alternate causal assumptions or reduced reliance on repeated patterns. Outputs that survive those changes receive more trust. Outputs that move substantially remain marked as unstable.
       </p>
 
       <p>
@@ -190,7 +157,7 @@
       <h2>Where Nyvolis thinks it can be useful</h2>
 
       <p>
-        Archive reconstruction remains the clearest application, but Nyvolis is testing the same approach against engineering logs, sensor histories, incomplete maintenance records and scientific datasets.
+        Nyvolis is testing LAT-9 against engineering logs, sensor histories, incomplete maintenance records and scientific datasets.
       </p>
 
       <p>
@@ -206,7 +173,7 @@
       </p>
 
       <p>
-        The same logic applies to old industrial records. A damaged maintenance archive may contain enough information to recover a sequence of repairs, but not enough to establish the order confidently. The useful result is not always one reconstructed history. Sometimes it is a map of which histories remain possible and what additional record would distinguish them.
+        The same logic applies to industrial maintenance. A partial service history may contain enough information to identify several likely failure paths without enough evidence to establish the order confidently. The useful result is not always one story. Sometimes it is a map of which explanations remain possible and what additional measurement would distinguish them.
       </p>
 
       <p>
@@ -250,7 +217,7 @@
       </p>
 
       <p>
-        LAT-9 can identify relationships people miss, reconstruct damaged material and keep track of uncertainty across a problem too large for a human team to hold in working memory. None of that means its preferred interpretation is automatically correct.
+        LAT-9 can identify relationships people miss and keep track of uncertainty across a problem too large for a human team to hold in working memory. None of that means its preferred interpretation is automatically correct.
       </p>
 
       <p>
@@ -266,32 +233,6 @@
       </p>
 
       <div class="endmark">◆</div>
-
-    
-      <section class="essential-reading" aria-labelledby="essential-reading-title">
-        <div class="section-label">Essential Reading</div>
-        <h2 id="essential-reading-title">Start Here</h2>
-
-        <div class="essential-reading-grid">
-          <article class="essential-reading-card">
-            <div class="kicker">Science / The Moon</div>
-            <h3><a href="themelion.html">Inside Themelion</a></h3>
-            <p>A walk through humanity’s first permanent lunar settlement and the infrastructure beginning to take shape beneath the surface.</p>
-          </article>
-
-          <article class="essential-reading-card">
-            <div class="kicker">Interview / Industry</div>
-            <h3><a href="adrian-serrin.html">Adrian Serrin: “I’ve Never Been Very Interested in Being the Smartest Person in the Room”</a></h3>
-            <p>The Avelor founder on engineering, failure, control, Themelion, uncertainty and the way he thinks about preparation.</p>
-          </article>
-
-          <article class="essential-reading-card">
-            <div class="kicker">Politics / Government</div>
-            <h3><a href="grant-coalition.html">Evelyn Grant Won the Country. Now She Has to Govern It.</a></h3>
-            <p>The coalition that elected President Evelyn Grant is broad. Governing it will require navigating Congress, the states and the limits of presidential authority.</p>
-          </article>
-        </div>
-      </section>
 
     </article>
   </main>
