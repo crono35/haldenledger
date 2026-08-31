@@ -21,15 +21,23 @@
       <div class="section-label">Politics / Government</div>
 
       <h1>
-        Evelyn Grant Won the Country. Now She Has to Govern it.
+        Evelyn Grant Won the Presidency. Now She Has to Govern a Coalition That Agrees on Less Than It Appears.
       </h1>
 
       <p class="article-dek">
         Grant assembled enough competing interests to win the White House. Keeping those interests together while navigating Congress, the states and the limits of presidential authority will be a different test.
       </p>
 
-      <div class="byline">
-        By Elena Arden &nbsp;|&nbsp; The Halden Ledger
+      <div class="author-badge" style="margin: 0 0 18px;">
+        <img
+          class="author-thumb"
+          src="../images/elena-arden-thumb-100.png"
+          alt="Elena Arden"
+          width="100"
+          height="100"
+          style="display:block; width:100px; height:100px; object-fit:cover; margin:0 0 10px; border-radius:4px;"
+        />
+        <div class="byline">By Elena Arden &nbsp;|&nbsp; The Halden Ledger</div>
       </div>
 
       <img
@@ -100,31 +108,23 @@
   <script>
     fetch('../header.html')
       .then(response => {
-        if (!response.ok) {
-          throw new Error('Header failed to load: ' + response.status);
-        }
+        if (!response.ok) throw new Error('Header failed to load: ' + response.status);
         return response.text();
       })
       .then(html => {
         document.getElementById('site-header').innerHTML = html;
       })
-      .catch(error => {
-        console.error(error);
-      });
+      .catch(error => console.error(error));
 
     fetch('../footer.html')
       .then(response => {
-        if (!response.ok) {
-          throw new Error('Footer failed to load: ' + response.status);
-        }
+        if (!response.ok) throw new Error('Footer failed to load: ' + response.status);
         return response.text();
       })
       .then(html => {
         document.getElementById('site-footer').innerHTML = html;
       })
-      .catch(error => {
-        console.error(error);
-      });
+      .catch(error => console.error(error));
   </script>
 
 </body>
