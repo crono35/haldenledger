@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Elena Arden examines the coalition that elected President Evelyn Grant and the institutional limits that may define her presidency."
+  />
+  <title>Evelyn Grant's Governing Coalition | The Halden Ledger</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+
+  <div id="site-header"></div>
+
+  <main class="article-shell">
+    <article class="article">
+
+      <div class="section-label">Politics / Government</div>
+
+      <h1>
+        Evelyn Grant Won the Country. Now She Has to Govern It.
+      </h1>
+
+      <p class="article-dek">
+        Grant assembled enough competing interests to win the White House. Keeping those interests together while navigating Congress, the states and the limits of presidential authority will be a different test.
+      </p>
+
+      <div class="author-badge" style="margin: 0 0 18px;">
+        <img
+          class="author-thumb"
+          src="../images/elena-arden-thumb-100.png"
+          alt="Elena Arden"
+          width="100"
+          height="100"
+          style="display:block; width:100px; height:100px; object-fit:cover; margin:0 0 10px; border-radius:4px;"
+        />
+        <div class="byline">By Elena Arden &nbsp;|&nbsp; The Halden Ledger</div>
+      </div>
+
+      <img
+        class="hero"
+        src="../images/grant-election-night.png"
+        alt="President Evelyn Grant on election night"
+      />
+
+      <div class="caption">
+        President Evelyn Grant on election night. Halden Ledger file image.
+      </div>
+
+      <p class="dropcap">
+        WASHINGTON — The coalition that elected Evelyn Grant was easier to assemble when its members had one question in front of them: who should be president? The questions get harder from here.
+      </p>
+
+      <p>
+        Grant arrived at the White House after a political career built largely in the less visible parts of government. The former Colorado senator spent years working through committees, negotiations and legislation that often required votes from people who disagreed with her on almost everything else. Her administration has begun in much the same way: less focused on broad declarations than on identifying where enough political and institutional support exists to move.
+      </p>
+
+      <p>
+        Grant won with support from voters who do not fit neatly into a single governing bloc. Moderates were drawn to her temperament. Labor remained an important part of her base. Environmental groups expect action from the administration, while parts of the business community that opposed Grant on regulation have supported pieces of her infrastructure and industrial agenda. Those groups could agree on Grant, but they will not always agree on what Grant should do.
+      </p>
+
+      <p>
+        New presidents often face some version of that problem, but it matters more for an administration that appears reluctant to treat an election victory as permission to ignore the institutions around it. Grant rarely uses the word <em>mandate</em>, and people close to the administration say the omission is deliberate.
+      </p>
+
+      <p>
+        Presidential elections produce a winner, not a unified government. Members of Congress answer to their own voters. Governors have their own constituencies. Agencies operate under authorities written years or decades earlier, and courts can halt policies long after the political argument over them appears settled. The practical limits on a president are often less visible than the office itself, and Grant appears to pay unusual attention to them.
+      </p>
+
+      <p>
+        Former Senate colleagues describe her as impatient with proposals that begin with what the federal government ought to accomplish but become vague when the conversation reaches who actually has the authority to accomplish it. An executive order can move policy quickly, but it cannot appropriate money. Congress can fund a program without giving an agency unlimited discretion over how to run it. Federal officials can establish national priorities and still find themselves dependent on state governments, regulators, contractors or courts before those priorities become real.
+      </p>
+
+      <p>
+        The presidency remains powerful, but presidential power is more conditional than campaigns usually suggest. Grant spent years confronting that reality in a legislative body where very few members could accomplish much alone. Senators can delay, amend, bargain and block, while most major legislation requires enough competing interests to overlap at the same time. Grant built much of her Senate record around finding those points of overlap.
+      </p>
+
+      <p>
+        As president, the scale is different, but the underlying problem is familiar. Supporters who want her administration to move faster have occasionally treated her emphasis on process and durability as needless caution, particularly when executive authority offers a quicker route. Her allies argue that speed is not the only measure that matters and that a policy surviving one administration, one court challenge and one congressional election may ultimately accomplish more than a larger policy that disappears two years later.
+      </p>
+
+      <p>
+        Grant rarely makes that case publicly. Her political style is noticeably spare, with direct answers, little ornament and limited interest in extending a controversy simply to win the next day's coverage. The approach can make her difficult to read, particularly for opponents looking for a sweeping ideological statement and supporters looking for a more forceful declaration of intent.
+      </p>
+
+      <p>
+        Her restrained manner should not be confused with a lack of firm positions. When Grant believes the federal government has both the legal authority and a workable path to act, former colleagues say she can be stubborn about using it. Most of the hesitation comes earlier, while she is deciding whether the path actually exists and whether it can survive contact with the institutions required to carry it out.
+      </p>
+
+      <p>
+        Every administration eventually encounters an issue that cannot be solved by issuing a statement or winning a vote. At that point the questions become more practical: Which agency can act? Who controls the money? Does Congress need to approve it? Will the states cooperate? How long will implementation take? What survives if public opinion turns?
+      </p>
+
+      <p>
+        Those questions rarely decide elections, but they often decide whether governments can carry out what elected officials promise. Grant spent much of her career working inside those constraints. As president, she now has more authority than she has ever had, along with more people and institutions capable of limiting how she uses it.
+      </p>
+
+      <div class="endmark">◆</div>
+
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    fetch('../header.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Header failed to load: ' + response.status);
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('site-header').innerHTML = html;
+      })
+      .catch(error => console.error(error));
+
+    fetch('../footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Footer failed to load: ' + response.status);
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('site-footer').innerHTML = html;
+      })
+      .catch(error => console.error(error));
+  </script>
+
+</body>
+</html>

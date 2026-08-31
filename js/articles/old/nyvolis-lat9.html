@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Nyvolis Technologies is developing LAT-9, an artificial intelligence system designed to preserve uncertainty instead of hiding it behind a single confident answer."
+  />
+  <title>Nyvolis Bets on an AI That Shows Its Doubts | The Halden Ledger</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+
+  <div id="site-header"></div>
+
+  <main class="article-shell">
+    <article class="article">
+
+      <div class="section-label">Technology / Artificial Intelligence</div>
+
+      <h1>Nyvolis Bets on an AI That Shows Its Doubts</h1>
+
+      <p class="article-dek">
+        LAT-9 was built for incomplete technical data and questions with more than one plausible answer. Nyvolis says its most useful feature may be knowing when the evidence is not good enough.
+      </p>
+
+      <div class="author-badge" style="margin: 0 0 18px;">
+        <img
+          class="author-thumb"
+          src="../images/marcus-venn-thumb-100.png"
+          alt="Marcus Venn"
+          width="100"
+          height="100"
+          style="display:block; width:100px; height:100px; object-fit:cover; margin:0 0 10px; border-radius:4px;"
+        />
+        <div class="byline">
+          By Marcus Venn &nbsp;|&nbsp; The Halden Ledger
+        </div>
+      </div>
+
+      <p class="dropcap">
+        Most artificial-intelligence systems are rewarded for producing an answer.
+      </p>
+
+      <p>
+        Nyvolis Technologies is spending heavily on one that is supposed to know when there may be several.
+      </p>
+
+      <p>
+        The system, called LAT-9, is being developed for problems where the available evidence is incomplete, contradictory or too thin to justify a single answer. That includes engineering diagnostics, scientific analysis, sensor histories and other technical work in which several explanations may fit the same data.
+      </p>
+
+      <p>
+        The challenge is easy to describe and difficult to solve. A system can connect too little and miss a useful relationship, or connect too much and manufacture a coherent explanation from evidence that never supported one.
+      </p>
+
+      <p>
+        Nyvolis engineers say LAT-9 is designed to keep those two failures separate.
+      </p>
+
+      <p>
+        Instead of collapsing uncertain evidence into one preferred interpretation, the system can maintain several possible reconstructions, assign confidence to each and revise those confidence levels when new information arrives.
+      </p>
+
+      <p>
+        For users accustomed to a single answer, the output can feel unfinished. Engineers working from incomplete evidence may find that more useful than false precision.
+      </p>
+
+      <h2>The problem with a clean answer</h2>
+
+      <p>
+        Modern machine-learning systems are extremely good at finding patterns. That strength creates an obvious failure mode when the input is incomplete.
+      </p>
+
+      <p>
+        Give a system enough incomplete signals and it may find relationships that are statistically plausible but wrong. The result can look better than the evidence deserves: a failure sequence with missing steps filled in, a causal chain inferred from a short sensor history, or one explanation selected from several that fit nearly as well.
+      </p>
+
+      <p>
+        For casual use, that may be irritating. In engineering, intelligence analysis, scientific review or historical reconstruction, it can be dangerous.
+      </p>
+
+      <p>
+        A polished answer can hide the place where the machine stopped reading the evidence and started estimating.
+      </p>
+
+      <p>
+        LAT-9's architecture is intended to expose that boundary. Nyvolis demonstrations show results divided by confidence, with unresolved relationships remaining visible rather than being quietly filled in.
+      </p>
+
+      <p>
+        The approach has a cost. Users get more conditional language, more competing possibilities and more cases where the system declines to collapse the problem into one output.
+      </p>
+
+      <p>
+        In other words, it can be harder to use if what you wanted was certainty.
+      </p>
+
+      <h2>Nine versions of the same problem</h2>
+
+      <p>
+        The name LAT-9 is a clue to how long Nyvolis has been working on the problem.
+      </p>
+
+      <p>
+        According to company engineers, earlier versions failed in opposite directions. Some models found relationships almost everywhere, producing explanations that looked convincing until they were tested against held-back data. Others became so conservative that they rarely proposed anything useful.
+      </p>
+
+      <p>
+        The tradeoff is familiar in systems engineering: tune a detector too aggressively and noise overwhelms it; tune it too conservatively and useful signals disappear.
+      </p>
+
+      <p>
+        Version nine was built around a different objective. The system could remain useful while preserving disagreement inside its own model.
+      </p>
+
+      <p>
+        If two explanations fit the available evidence, LAT-9 can retain both. If one gains support later, its confidence rises. If new evidence breaks the relationship, the system can downgrade or discard it without pretending the earlier uncertainty never existed.
+      </p>
+
+      <p>
+        That history is visible in the interface. Nyvolis has resisted the conversational design used by many consumer AI products, where the system presents a single fluent response and pushes most uncertainty into a disclaimer. LAT-9 instead exposes confidence bands, alternate relationships and unresolved segments as part of the main output.
+      </p>
+
+      <h2>Confidence is not probability</h2>
+
+      <p>
+        The confidence numbers require some care.
+      </p>
+
+      <p>
+        A confidence score does not mean there is a 72 percent chance that an explanation is "true." It describes how strongly the available evidence supports the relationships the model used under its current assumptions.
+      </p>
+
+      <p>
+        Change the assumptions and the result may change.
+      </p>
+
+      <p>
+        Nyvolis engineers test that directly. An analysis can be rerun with different relationship weights, alternate causal assumptions or reduced reliance on repeated patterns. Outputs that survive those changes receive more trust. Outputs that move substantially remain marked as unstable.
+      </p>
+
+      <p>
+        In practice, the feature is useful for stress-testing a conclusion before people build decisions around it.
+      </p>
+
+      <p>
+        Confidence labels alone would not make the system unusual. The more consequential choice is architectural: LAT-9 is designed to preserve competing states long enough to compare them instead of selecting one and discarding the rest.
+      </p>
+
+      <p>
+        That is expensive computationally and awkward for product design. It is also one of the few ways to prevent a machine from treating uncertainty as a formatting problem.
+      </p>
+
+      <h2>Where Nyvolis thinks it can be useful</h2>
+
+      <p>
+        Nyvolis is testing LAT-9 against engineering logs, sensor histories, incomplete maintenance records and scientific datasets.
+      </p>
+
+      <p>
+        Each of those environments contains gaps that can change the conclusion.
+      </p>
+
+      <p>
+        Consider a spacecraft component that fails after months in service. Engineers may have temperature records, vibration data, maintenance notes and a partial sequence of software events. Several explanations may fit. A conventional diagnostic system that selects one failure chain too early can send the investigation in the wrong direction.
+      </p>
+
+      <p>
+        LAT-9 can instead keep multiple failure chains active while the team looks for evidence that separates them.
+      </p>
+
+      <p>
+        The same logic applies to industrial maintenance. A partial service history may contain enough information to identify several likely failure paths without enough evidence to establish the order confidently. The useful result is not always one story. Sometimes it is a map of which explanations remain possible and what additional measurement would distinguish them.
+      </p>
+
+      <p>
+        The market is narrower than the one for general-purpose assistants, but the value proposition is easier to measure when a wrong diagnosis means lost equipment, delayed work or a failed investigation.
+      </p>
+
+      <h2>The human problem does not disappear</h2>
+
+      <p>
+        Showing uncertainty does not guarantee that users will respect it.
+      </p>
+
+      <p>
+        A screen can label one interpretation "low confidence" and a manager can still repeat it in a meeting as fact. A range can become a single number in a slide deck. An alternate reconstruction can disappear because the preferred one fits the schedule better.
+      </p>
+
+      <p>
+        Nyvolis can design a system that preserves ambiguity. It cannot force an organization to do the same.
+      </p>
+
+      <p>
+        This may be LAT-9's hardest scaling problem because it is not technical.
+      </p>
+
+      <p>
+        Software products usually compete by reducing friction. LAT-9 deliberately adds some back. It asks users to look at confidence, compare alternatives and tolerate cases where the correct output is still "unknown."
+      </p>
+
+      <p>
+        That behavior makes sense in a research lab. It becomes harder when the system moves into organizations that reward decisiveness.
+      </p>
+
+      <h2>Not an oracle</h2>
+
+      <p>
+        Nyvolis executives have been unusually careful about describing LAT-9 as an intelligence system rather than a source of truth.
+      </p>
+
+      <p>
+        That wording is more than legal caution.
+      </p>
+
+      <p>
+        LAT-9 can identify relationships people miss and keep track of uncertainty across a problem too large for a human team to hold in working memory. None of that means its preferred interpretation is automatically correct.
+      </p>
+
+      <p>
+        A useful LAT-9 deployment may occasionally frustrate the person operating it.
+      </p>
+
+      <p>
+        If the evidence supports one answer, the system should make that clear. If three answers remain plausible, it should make that clear too.
+      </p>
+
+      <p>
+        Most software is judged by how quickly it removes a question from the screen. Nyvolis is betting there is a market for a system willing to leave the right question there.
+      </p>
+
+      <div class="endmark">◆</div>
+
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    fetch('../header.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Header failed to load: ' + response.status);
+        }
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('site-header').innerHTML = html;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+    fetch('../footer.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Footer failed to load: ' + response.status);
+        }
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('site-footer').innerHTML = html;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  </script>
+
+</body>
+</html>
