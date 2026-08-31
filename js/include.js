@@ -1,29 +1,35 @@
-async function loadInclude(id, path) {
-try {
-const response = await fetch(path);
+document.addEventListener("DOMContentLoaded", async () => {
+  const script = document.currentScript;
+  const siteRoot = new URL("../", script.src);
 
-```
-if (!response.ok) {
-  throw new Error(`Failed to load ${path}: ${response.status}`);
-}
+  async function loadInclude(elementId, fileName) {
+    const target = document.getElementById(elementId);
 
-const html = await response.text();
-const target = document.getElementById(id);
+    if (!target) {
+      console.error(`Could not find #${elementId}`);
+      return;
+    }
 
-if (target) {
-  target.innerHTML = html;
-}
-```
+    try {
+      const fileUrl = new URL(fileName, siteRoot);
 
-} catch (error) {
-console.error(error);
-}
-}
+      const response = await fetch(fileUrl);
 
-const path = window.location.pathname;
-const isArticlePage = path.includes("/articles/");
+      if (!response.ok) {
+        throw new Error(
+          `Could not load ${fileUrl.href} — HTTP ${response.status}`
+        );
+      }
 
-const rootPrefix = isArticlePage ? "../" : "";
+      target.innerHTML = await response.text();
+    } catch (error) {
+      console.error(error);
+      target.innerHTML = "";
+    }
+  }
 
-loadInclude("site-header", `${rootPrefix}header.html`);
-loadInclude("site-footer", `${rootPrefix}footer.html`);
+  await Promise.all([
+    loadInclude("site-header", "header.html"),
+    loadInclude("site-footer", "footer.html")
+  ]);
+});
