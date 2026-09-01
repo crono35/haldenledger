@@ -6,8 +6,10 @@
   <meta name="description" content="The Halden Ledger — 2031 edition." />
   <title>The Halden Ledger | 2031 Edition</title>
   <link rel="stylesheet" href="/css/style.css" />
+
   <style>
     .era-main { padding: 48px 0 72px; }
+
     .era-placeholder {
       width: min(100%, 860px);
       margin: 0 auto;
@@ -15,6 +17,7 @@
       box-shadow: 0 0 18px rgba(0,0,0,.08);
       padding: 42px 48px;
     }
+
     .era-placeholder h1 {
       margin: 0 0 14px;
       font-family: var(--font-display);
@@ -22,7 +25,9 @@
       line-height: .98;
       letter-spacing: -.03em;
     }
+
     .era-placeholder .dek { margin-bottom: 28px; }
+
     .edition-note {
       border-top: 2px solid var(--ink);
       border-bottom: 1px solid var(--rule);
@@ -32,6 +37,7 @@
       font-size: .9rem;
       line-height: 1.55;
     }
+
     .back-link {
       display: inline-block;
       margin-top: 12px;
@@ -43,18 +49,24 @@
       border-bottom: 2px solid var(--ink);
       padding-bottom: 2px;
     }
+
     @media (max-width: 640px) {
       .era-placeholder { padding: 30px 24px; }
     }
   </style>
 </head>
+
 <body>
+
   <div id="site-header"></div>
 
   <main class="site-shell era-main">
     <section class="era-placeholder">
+
       <div class="section-label">2031 Edition</div>
+
       <h1>The Ledger Has Been Updated.</h1>
+
       <p class="dek">
         You now have access to The Halden Ledger as it appears after the events of <em>A Decade to Midnight</em>.
       </p>
@@ -64,14 +76,16 @@
       </div>
 
       <p>Earlier reporting remains available through the Ledger archive.</p>
+
       <a class="back-link" href="/archive.html">View the Archive</a>
+
     </section>
   </main>
 
   <div id="site-footer"></div>
 
   <script>
-    fetch('/2031/header.html')
+    fetch('/header.html')
       .then(response => {
         if (!response.ok) throw new Error('Header failed to load: ' + response.status);
         return response.text();
@@ -79,35 +93,22 @@
       .then(html => {
         document.getElementById('site-header').innerHTML = html;
 
-        var loggedOut = document.getElementById('ledger-logged-out');
-        var loggedIn = document.getElementById('ledger-logged-in');
-        var emailEl = document.getElementById('ledger-reader-email');
-        var yearEl = document.getElementById('ledger-reader-year');
-
-        var email = '';
-        var edition = '';
-
-        try {
-          email = localStorage.getItem('haldenLedgerReaderEmail') || '';
-          edition = localStorage.getItem('haldenLedgerEdition') || '';
-        } catch (e) {}
-
-        if (loggedOut && loggedIn && emailEl && yearEl && email && edition) {
-          emailEl.textContent = email;
-          yearEl.textContent = edition;
-          loggedOut.style.display = 'none';
-          loggedIn.style.display = 'flex';
-        }
+        var script = document.createElement('script');
+        script.src = '/js/header.js';
+        document.body.appendChild(script);
       })
       .catch(error => console.error(error));
 
-    fetch('/2031/footer.html')
+    fetch('/footer.html')
       .then(response => {
         if (!response.ok) throw new Error('Footer failed to load: ' + response.status);
         return response.text();
       })
-      .then(html => { document.getElementById('site-footer').innerHTML = html; })
+      .then(html => {
+        document.getElementById('site-footer').innerHTML = html;
+      })
       .catch(error => console.error(error));
   </script>
+
 </body>
 </html>

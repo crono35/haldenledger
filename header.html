@@ -4,77 +4,54 @@
     <div class="utility-bar" style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
 
       <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
-        <div>Monday, March 8, 2027</div>
+        <div id="ledger-edition-date">Monday, March 8, 2027</div>
         <div>Independent reporting since 1983</div>
       </div>
 
       <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
 
-        <div id="ledger-logged-out">
+        <div id="ledger-login-panel">
           <form
             class="header-login"
             action="#"
             method="post"
             style="display:flex; align-items:center; gap:6px; margin:0;"
-            onsubmit="
-              event.preventDefault();
-              var email = this.querySelector('[name=email]').value.trim();
-              var password = this.querySelector('[name=password]').value.trim();
-              var status = document.getElementById('ledger-login-status');
-
-              if (!email) {
-                status.textContent = 'Enter your email address.';
-                status.style.color = '#7a1111';
-                return false;
-              }
-
-              if (password !== 'MIDNIGHT31') {
-                status.textContent = 'Incorrect access code.';
-                status.style.color = '#7a1111';
-                return false;
-              }
-
-              status.textContent = '';
-              document.getElementById('ledger-unlock-email').textContent = email;
-              document.getElementById('ledger-unlock-modal').style.display = 'flex';
-              return false;
-            "
           >
-          <label for="header-email" class="sr-only" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;">
-            Email
-          </label>
+            <label for="header-email" class="sr-only" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;">
+              Email
+            </label>
 
-          <input
-            id="header-email"
-            name="email"
-            type="email"
-            placeholder="Email"
-            autocomplete="email"
-            required
-            style="width:145px; padding:5px 7px; border:1px solid #bbb; background:#fff; font:inherit; font-size:12px;"
-          />
+            <input
+              id="header-email"
+              name="email"
+              type="email"
+              placeholder="Email"
+              autocomplete="email"
+              required
+              style="width:145px; padding:5px 7px; border:1px solid #bbb; background:#fff; font:inherit; font-size:12px;"
+            />
 
-          <label for="header-password" class="sr-only" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;">
-            Access code
-          </label>
+            <label for="header-password" class="sr-only" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;">
+              Access code
+            </label>
 
-          <input
-            id="header-password"
-            name="password"
-            type="password"
-            placeholder="Access code"
-            autocomplete="off"
-            required
-            style="width:110px; padding:5px 7px; border:1px solid #bbb; background:#fff; font:inherit; font-size:12px;"
-          />
+            <input
+              id="header-password"
+              name="password"
+              type="password"
+              placeholder="Access code"
+              autocomplete="off"
+              required
+              style="width:110px; padding:5px 7px; border:1px solid #bbb; background:#fff; font:inherit; font-size:12px;"
+            />
 
-          <button
-            type="submit"
-            style="padding:5px 10px; border:1px solid #222; background:#222; color:#fff; font:inherit; font-size:12px; cursor:pointer;"
-          >
-            Sign In
-          </button>
-        </form>
+            <button
+              type="submit"
+              style="padding:5px 10px; border:1px solid #222; background:#222; color:#fff; font:inherit; font-size:12px; cursor:pointer;"
+            >
+              Sign In
+            </button>
+          </form>
 
           <div style="display:flex; align-items:center; justify-content:flex-end; gap:8px; font-size:11px; line-height:1.2;">
             <span id="ledger-login-status" aria-live="polite"></span>
@@ -86,7 +63,7 @@
         </div>
 
         <div
-          id="ledger-logged-in"
+          id="ledger-reader-panel"
           style="display:none; align-items:center; gap:8px; font-size:11px; line-height:1.2;"
         >
           <span id="ledger-reader-email" style="font-weight:600;"></span>
@@ -94,15 +71,8 @@
           <span>Archive access through <strong id="ledger-reader-year"></strong></span>
           <span style="color:#888;">·</span>
           <button
+            id="ledger-signout"
             type="button"
-            onclick="
-              try {
-                localStorage.removeItem('haldenLedgerEdition');
-                localStorage.removeItem('haldenLedgerBook1Unlocked');
-                localStorage.removeItem('haldenLedgerReaderEmail');
-              } catch (e) {}
-              window.location.href='/index.html';
-            "
             style="
               border:0;
               padding:0;
@@ -125,7 +95,7 @@
 
     <div class="masthead">
       <h1>
-        <a href="/" aria-label="The Halden Ledger home">
+        <a id="ledger-home-link" href="/" aria-label="The Halden Ledger home">
           The Halden Ledger
         </a>
       </h1>
@@ -136,48 +106,14 @@
     </div>
 
     <nav class="nav" aria-label="Coverage areas">
-      <a href="/science.html">Science</a>
-      <a href="/industry.html">Industry</a>
-      <a href="/policy.html">Policy</a>
-      <a href="/world.html">World</a>
+      <a id="ledger-nav-science" href="/science.html">Science</a>
+      <a id="ledger-nav-industry" href="/industry.html">Industry</a>
+      <a id="ledger-nav-policy" href="/policy.html">Policy</a>
+      <a id="ledger-nav-world" href="/world.html">World</a>
     </nav>
 
   </div>
 </header>
-
-<script>
-  (function () {
-    function updateLedgerLoginState() {
-      var loggedOut = document.getElementById('ledger-logged-out');
-      var loggedIn = document.getElementById('ledger-logged-in');
-      var emailEl = document.getElementById('ledger-reader-email');
-      var yearEl = document.getElementById('ledger-reader-year');
-
-      if (!loggedOut || !loggedIn || !emailEl || !yearEl) return;
-
-      var email = '';
-      var edition = '';
-
-      try {
-        email = localStorage.getItem('haldenLedgerReaderEmail') || '';
-        edition = localStorage.getItem('haldenLedgerEdition') || '';
-      } catch (e) {}
-
-      if (email && edition) {
-        emailEl.textContent = email;
-        yearEl.textContent = edition;
-        loggedOut.style.display = 'none';
-        loggedIn.style.display = 'flex';
-      } else {
-        loggedOut.style.display = 'block';
-        loggedIn.style.display = 'none';
-      }
-    }
-
-    updateLedgerLoginState();
-  })();
-</script>
-
 
 <div
   id="ledger-unlock-modal"
@@ -223,23 +159,16 @@
 
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
       <button
+        id="ledger-stay-current"
         type="button"
-        onclick="document.getElementById('ledger-unlock-modal').style.display='none';"
         style="padding:9px 14px; border:1px solid #222; background:transparent; color:#111; font:600 12px Inter,Arial,sans-serif; cursor:pointer;"
       >
         Stay in 2027
       </button>
 
       <button
+        id="ledger-confirm-unlock"
         type="button"
-        onclick="
-          try {
-            localStorage.setItem('haldenLedgerEdition','2031');
-            localStorage.setItem('haldenLedgerBook1Unlocked','true');
-            localStorage.setItem('haldenLedgerReaderEmail',document.getElementById('ledger-unlock-email').textContent);
-          } catch (e) {}
-          window.location.href='/2031/index.html';
-        "
         style="padding:9px 14px; border:1px solid #222; background:#222; color:#fff; font:600 12px Inter,Arial,sans-serif; cursor:pointer;"
       >
         Update to 2031
