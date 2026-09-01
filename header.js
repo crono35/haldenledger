@@ -1,16 +1,10 @@
-(function () {
+window.initLedgerHeader = function () {
   function getStored(key) {
     try {
       return localStorage.getItem(key) || '';
     } catch (e) {
       return '';
     }
-  }
-
-  function setStored(key, value) {
-    try {
-      localStorage.setItem(key, value);
-    } catch (e) {}
   }
 
   function clearStored(key) {
@@ -24,29 +18,8 @@
     return match ? match[1] : '2027';
   }
 
-  function displayEdition() {
-    var path = window.location.pathname;
-    var pathEdition = editionFromPath();
-    var unlocked = getStored('haldenLedgerEdition');
-
-    if (
-      path === '/archive.html' ||
-      path === '/archive' ||
-      path === '/archive/'
-    ) {
-      return unlocked || '2027';
-    }
-
-    return pathEdition;
-  }
-
   function formatEditionDate(yearString) {
-    var year = parseInt(yearString, 10);
-
-    if (!year) {
-      year = 2027;
-    }
-
+    var year = parseInt(yearString, 10) || 2027;
     var d = new Date(year, 2, 8);
 
     return d.toLocaleDateString('en-US', {
@@ -61,170 +34,94 @@
     return yearString === '2027' ? '' : '/' + yearString;
   }
 
-  function setEditionAwareLinks(yearString) {
-    var prefix = editionPrefix(yearString);
-
-    var home = document.getElementById('ledger-home-link');
-    var science = document.getElementById('ledger-nav-science');
-    var industry = document.getElementById('ledger-nav-industry');
-    var policy = document.getElementById('ledger-nav-policy');
-    var world = document.getElementById('ledger-nav-world');
-
-    if (home) {
-      home.href = prefix ? prefix + '/index.html' : '/index.html';
-    }
-
-    if (science) {
-      science.href = prefix ? prefix + '/science.html' : '/science.html';
-    }
-
-    if (industry) {
-      industry.href = prefix ? prefix + '/industry.html' : '/industry.html';
-    }
-
-    if (policy) {
-      policy.href = prefix ? prefix + '/policy.html' : '/policy.html';
-    }
-
-    if (world) {
-      world.href = prefix ? prefix + '/world.html' : '/world.html';
-    }
-  }
-
-  function renderReaderState() {
-    var path = window.location.pathname;
-
-    var onBaseEdition =
-      editionFromPath() === '2027' &&
-      path !== '/archive.html' &&
-      path !== '/archive' &&
-      path !== '/archive/';
-
-    var loginPanel = document.getElementById('ledger-login-panel');
-    var readerPanel = document.getElementById('ledger-reader-panel');
-    var emailEl = document.getElementById('ledger-reader-email');
-    var yearEl = document.getElementById('ledger-reader-year');
-
-    var email = getStored('haldenLedgerReaderEmail');
-    var unlocked = getStored('haldenLedgerEdition');
-
-    if (!loginPanel || !readerPanel) {
-      return;
-    }
-
-    if (!onBaseEdition && email && unlocked) {
-      loginPanel.style.display = 'none';
-      readerPanel.style.display = 'flex';
-
-      if (emailEl) {
-        emailEl.textContent = email;
-      }
-
-      if (yearEl) {
-        yearEl.textContent = unlocked;
-      }
-    } else {
-      loginPanel.style.display = 'block';
-      readerPanel.style.display = 'none';
-    }
-  }
-
-  var currentEdition = displayEdition();
+  var pathEdition = editionFromPath();
+  var unlockedEdition = getStored('haldenLedgerEdition');
+  var readerEmail = getStored('haldenLedgerReaderEmail');
 
   var dateEl = document.getElementById('ledger-edition-date');
 
   if (dateEl) {
-    dateEl.textContent = formatEditionDate(currentEdition);
+    dateEl.textContent = formatEditionDate(pathEdition);
   }
 
-  setEditionAwareLinks(currentEdition);
-  renderReaderState();
+  var prefix = editionPrefix(pathEdition);
 
-  var loginForm = document.querySelector('.header-login');
-  var status = document.getElementById('ledger-login-status');
+  var home = document.getElementById('ledger-home-link');
+  var science = document.getElementById('ledger-nav-science');
+  var industry = document.getElementById('ledger-nav-industry');
+  var policy = document.getElementById('ledger-nav-policy');
+  var world = document.getElementById('ledger-nav-world');
 
-  if (loginForm) {
-    loginForm.addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      var emailInput = loginForm.querySelector('[name=email]');
-      var codeInput = loginForm.querySelector('[name=password]');
-
-      var email = emailInput ? emailInput.value.trim() : '';
-      var code = codeInput ? codeInput.value.trim() : '';
-
-      if (!email) {
-        if (status) {
-          status.textContent = 'Enter your email address.';
-          status.style.color = '#7a1111';
-        }
-
-        return;
-      }
-
-      if (code !== 'MIDNIGHT31') {
-        if (status) {
-          status.textContent = 'Incorrect access code.';
-          status.style.color = '#7a1111';
-        }
-
-        return;
-      }
-
-      if (status) {
-        status.textContent = '';
-      }
-
-      var unlockEmail = document.getElementById('ledger-unlock-email');
-
-      if (unlockEmail) {
-        unlockEmail.textContent = email;
-      }
-
-      var modal = document.getElementById('ledger-unlock-modal');
-
-      if (modal) {
-        modal.style.display = 'flex';
-      }
-    });
+  if (home) {
+    home.href = prefix
+      ? prefix + '/index.html'
+      : '/index.html';
   }
 
-  var stayButton = document.getElementById('ledger-stay-current');
-
-  if (stayButton) {
-    stayButton.addEventListener('click', function () {
-      var modal = document.getElementById('ledger-unlock-modal');
-
-      if (modal) {
-        modal.style.display = 'none';
-      }
-    });
+  if (science) {
+    science.href = prefix
+      ? prefix + '/science.html'
+      : '/science.html';
   }
 
-  var unlockButton = document.getElementById('ledger-confirm-unlock');
+  if (industry) {
+    industry.href = prefix
+      ? prefix + '/industry.html'
+      : '/industry.html';
+  }
 
-  if (unlockButton) {
-    unlockButton.addEventListener('click', function () {
-      var unlockEmail = document.getElementById('ledger-unlock-email');
-      var email = unlockEmail ? unlockEmail.textContent.trim() : '';
+  if (policy) {
+    policy.href = prefix
+      ? prefix + '/policy.html'
+      : '/policy.html';
+  }
 
-      setStored('haldenLedgerEdition', '2031');
-      setStored('haldenLedgerBook1Unlocked', 'true');
-      setStored('haldenLedgerReaderEmail', email);
+  if (world) {
+    world.href = prefix
+      ? prefix + '/world.html'
+      : '/world.html';
+  }
 
-      window.location.href = '/2031/index.html';
-    });
+  var loginPanel = document.getElementById('ledger-login-panel');
+  var readerPanel = document.getElementById('ledger-reader-panel');
+  var emailEl = document.getElementById('ledger-reader-email');
+  var yearEl = document.getElementById('ledger-reader-year');
+
+  if (pathEdition !== '2027' && readerEmail && unlockedEdition) {
+    if (loginPanel) {
+      loginPanel.style.display = 'none';
+    }
+
+    if (readerPanel) {
+      readerPanel.style.display = 'flex';
+    }
+
+    if (emailEl) {
+      emailEl.textContent = readerEmail;
+    }
+
+    if (yearEl) {
+      yearEl.textContent = unlockedEdition;
+    }
+  } else {
+    if (loginPanel) {
+      loginPanel.style.display = 'block';
+    }
+
+    if (readerPanel) {
+      readerPanel.style.display = 'none';
+    }
   }
 
   var signout = document.getElementById('ledger-signout');
 
   if (signout) {
-    signout.addEventListener('click', function () {
+    signout.onclick = function () {
       clearStored('haldenLedgerEdition');
       clearStored('haldenLedgerBook1Unlocked');
       clearStored('haldenLedgerReaderEmail');
 
       window.location.href = '/index.html';
-    });
+    };
   }
-})();
+};
