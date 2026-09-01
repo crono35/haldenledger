@@ -76,7 +76,29 @@
         if (!response.ok) throw new Error('Header failed to load: ' + response.status);
         return response.text();
       })
-      .then(html => { document.getElementById('site-header').innerHTML = html; })
+      .then(html => {
+        document.getElementById('site-header').innerHTML = html;
+
+        var loggedOut = document.getElementById('ledger-logged-out');
+        var loggedIn = document.getElementById('ledger-logged-in');
+        var emailEl = document.getElementById('ledger-reader-email');
+        var yearEl = document.getElementById('ledger-reader-year');
+
+        var email = '';
+        var edition = '';
+
+        try {
+          email = localStorage.getItem('haldenLedgerReaderEmail') || '';
+          edition = localStorage.getItem('haldenLedgerEdition') || '';
+        } catch (e) {}
+
+        if (loggedOut && loggedIn && emailEl && yearEl && email && edition) {
+          emailEl.textContent = email;
+          yearEl.textContent = edition;
+          loggedOut.style.display = 'none';
+          loggedIn.style.display = 'flex';
+        }
+      })
       .catch(error => console.error(error));
 
     fetch('/2031/footer.html')
