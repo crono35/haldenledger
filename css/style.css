@@ -41,6 +41,8 @@ a:hover { color: var(--accent); }
 .article-shell {
   width: min(calc(100% - 32px), 980px);
   margin: 0 auto;
+  background: #ffffff;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
 }
 
 .utility-bar {
