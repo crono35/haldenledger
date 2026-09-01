@@ -82,31 +82,41 @@
 
   <div id="site-footer"></div>
 
-  <script src="/js/header.js"></script>
-
   <script>
-    fetch('/header.html')
-      .then(response => {
+    fetch('/header.html?v=4')
+      .then(function(response) {
         if (!response.ok) throw new Error('Header failed to load: ' + response.status);
         return response.text();
       })
-      .then(html => {
+      .then(function(html) {
         document.getElementById('site-header').innerHTML = html;
-        if (window.initLedgerHeader) {
-          window.initLedgerHeader();
-        }
-      })
-      .catch(error => console.error(error));
 
-    fetch('/footer.html')
-      .then(response => {
+        var script = document.createElement('script');
+        script.src = '/js/header.js?v=4';
+        script.onload = function() {
+          if (window.initLedgerHeader) {
+            window.initLedgerHeader();
+          } else {
+            console.error('initLedgerHeader was not found.');
+          }
+        };
+        document.body.appendChild(script);
+      })
+      .catch(function(error) {
+        console.error(error);
+      });
+
+    fetch('/footer.html?v=4')
+      .then(function(response) {
         if (!response.ok) throw new Error('Footer failed to load: ' + response.status);
         return response.text();
       })
-      .then(html => {
+      .then(function(html) {
         document.getElementById('site-footer').innerHTML = html;
       })
-      .catch(error => console.error(error));
+      .catch(function(error) {
+        console.error(error);
+      });
   </script>
 
 </body>
