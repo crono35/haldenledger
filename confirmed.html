@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Your subscription to The Halden Ledger is confirmed."
+  />
+  <title>Subscription Confirmed | The Halden Ledger</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .confirmed-shell {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 56px 20px 76px;
+    }
+
+    .confirmed-header {
+      max-width: 720px;
+      margin-bottom: 38px;
+    }
+
+    .confirmed-header h1 {
+      margin: 6px 0 12px;
+    }
+
+    .confirmed-header p {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.65;
+    }
+
+    .confirmed-note {
+      margin: 28px 0 42px;
+      padding: 18px 20px;
+      border-left: 3px solid #111;
+      background: rgba(0,0,0,0.03);
+      line-height: 1.55;
+    }
+
+    .start-here {
+      margin-top: 38px;
+      padding-top: 28px;
+      border-top: 1px solid #cfcfcf;
+    }
+
+    .start-here h2 {
+      margin: 4px 0 20px;
+    }
+
+    .start-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .start-card {
+      margin: 0;
+    }
+
+    .start-card h3 {
+      margin: 6px 0 9px;
+      font-size: 1.1rem;
+      line-height: 1.28;
+    }
+
+    .start-card h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .start-card h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .start-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .return-home {
+      margin-top: 42px;
+      font-weight: 600;
+    }
+
+    .return-home a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 760px) {
+      .start-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="site-header"></div>
+
+  <main class="confirmed-shell">
+
+    <section class="confirmed-header">
+      <div class="section-label">The Morning Ledger</div>
+
+      <h1>You’re subscribed.</h1>
+
+      <p>
+        Your email has been confirmed. New reporting from The Halden Ledger
+        will now be delivered to your inbox.
+      </p>
+    </section>
+
+    <div class="confirmed-note">
+      Welcome to the Morning Ledger. If you’re new to the site, these three stories
+      are a good place to begin.
+    </div>
+
+    <section class="start-here" aria-labelledby="start-here-title">
+      <div class="section-label">Essential Reading</div>
+      <h2 id="start-here-title">Start Here</h2>
+
+      <div class="start-grid">
+
+        <article class="start-card">
+          <div class="kicker">Science / The Moon</div>
+
+          <h3>
+            <a href="articles/themelion.html">Inside Themelion</a>
+          </h3>
+
+          <p>
+            A walk through humanity’s first permanent lunar settlement and the
+            infrastructure beginning to take shape beneath the surface.
+          </p>
+        </article>
+
+        <article class="start-card">
+          <div class="kicker">Interview / Industry</div>
+
+          <h3>
+            <a href="articles/adrian-serrin.html">
+              Adrian Serrin: “I’ve Never Been Very Interested in Being the Smartest Person in the Room”
+            </a>
+          </h3>
+
+          <p>
+            The Avelor founder on engineering, failure, control, Themelion,
+            uncertainty and the way he thinks about preparation.
+          </p>
+        </article>
+
+        <article class="start-card">
+          <div class="kicker">Politics / Government</div>
+
+          <h3>
+            <a href="articles/grant-coalition.html">
+              Evelyn Grant Won the Country. Now She Has to Govern It.
+            </a>
+          </h3>
+
+          <p>
+            The coalition that elected President Evelyn Grant is broad. Governing it
+            will require navigating Congress, the states and the limits of presidential authority.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <div class="return-home">
+      <a href="index.html">Return to The Halden Ledger →</a>
+    </div>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    fetch('header.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Header failed to load: ' + response.status);
+        }
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('site-header').innerHTML = html;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Footer failed to load: ' + response.status);
+        }
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('site-footer').innerHTML = html;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  </script>
+
+</body>
+</html>
