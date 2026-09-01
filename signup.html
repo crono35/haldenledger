@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Subscribe to The Halden Ledger and receive the Morning Ledger by email."
+  />
+  <title>Get the Morning Ledger | The Halden Ledger</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .signup-shell {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 52px 20px 76px;
+    }
+
+    .signup-heading {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .signup-heading h1 {
+      margin: 6px 0 10px;
+    }
+
+    .signup-heading p {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 1.04rem;
+      line-height: 1.65;
+    }
+
+    .ledger-signup {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #dedede;
+      box-shadow: 0 2px 15px rgba(0,0,0,.08);
+    }
+
+    .signup-brand,
+    .signup-form {
+      padding: 38px;
+    }
+
+    .signup-brand {
+      border-right: 1px solid #e4e4e4;
+    }
+
+    .signup-brand h2 {
+      margin: 0 0 18px;
+      font-size: 1.65rem;
+      line-height: 1.08;
+    }
+
+    .signup-brand p {
+      margin: 0 0 24px;
+      line-height: 1.55;
+    }
+
+    .signup-logo {
+      display: block;
+      width: 100%;
+      max-width: 235px;
+      height: auto;
+      margin: 26px auto 0;
+    }
+
+    .signup-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .signup-form label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .signup-form input[type="email"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 13px 14px;
+      margin: 0 0 16px;
+      border: 1px solid #cfcfcf;
+      border-radius: 0;
+      background: #fff;
+      color: #111;
+      font: inherit;
+    }
+
+    .signup-form input[type="email"]:focus {
+      outline: 1px solid #111;
+      border-color: #111;
+    }
+
+    .signup-form button {
+      width: 100%;
+      padding: 13px 18px;
+      border: 0;
+      border-radius: 0;
+      background: #070a0e;
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .signup-form button:hover,
+    .signup-form button:focus {
+      background: #222;
+    }
+
+    .signup-privacy {
+      margin: 14px 0 0;
+      font-size: .82rem;
+      line-height: 1.45;
+      color: #555;
+    }
+
+    .kit-note {
+      margin-top: 15px;
+      text-align: center;
+      font-size: .78rem;
+      color: #666;
+    }
+
+    .kit-note a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .fiction-note {
+      max-width: 700px;
+      margin: 28px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #d5d5d5;
+      font-size: .9rem;
+      line-height: 1.55;
+      color: #555;
+      text-align: center;
+    }
+
+    .fiction-note a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 700px) {
+      .ledger-signup {
+        grid-template-columns: 1fr;
+      }
+
+      .signup-brand {
+        border-right: 0;
+        border-bottom: 1px solid #e4e4e4;
+      }
+
+      .signup-brand,
+      .signup-form {
+        padding: 28px;
+      }
+    }
+  </style>
+
+  <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+</head>
+
+<body>
+
+  <div id="site-header"></div>
+
+  <main class="signup-shell">
+
+    <div class="signup-heading">
+      <div class="section-label">Subscribe</div>
+      <h1>Get the Morning Ledger</h1>
+      <p>
+        Stay connected to The Halden Ledger as new reporting, investigations
+        and stories are published.
+      </p>
+    </div>
+
+    <section class="ledger-signup" aria-label="Morning Ledger email signup">
+
+      <div class="signup-brand">
+        <h2>Get the Morning Ledger</h2>
+        <p>
+          The day's most important reporting from The Halden Ledger,
+          delivered to your inbox.
+        </p>
+
+        <img
+          class="signup-logo"
+          src="https://embed.filekitcdn.com/e/986mg8QC6LctQiixBhj5LA/aG7p5nnydza7TR6qgf1KHQ"
+          alt="The Halden Ledger"
+        />
+      </div>
+
+      <form
+        class="signup-form seva-form formkit-form"
+        action="https://app.kit.com/forms/9868263/subscriptions"
+        method="post"
+        data-sv-form="9868263"
+        data-uid="d6e78097da"
+        data-format="inline"
+        data-version="5"
+        data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"powered_by":{"show":true},"recaptcha":{"enabled":false}},"version":"5"}'
+      >
+        <ul
+          class="formkit-alert formkit-alert-error"
+          data-element="errors"
+          data-group="alert"
+          style="display:none;"
+        ></ul>
+
+        <label for="ledger-email">Email address</label>
+
+        <input
+          id="ledger-email"
+          class="formkit-input"
+          name="email_address"
+          aria-label="Email Address"
+          placeholder="Email Address"
+          required
+          type="email"
+          autocomplete="email"
+        />
+
+        <button
+          data-element="submit"
+          class="formkit-submit"
+          type="submit"
+        >
+          <span>Subscribe</span>
+        </button>
+
+        <p class="signup-privacy">
+          You can unsubscribe at any time.
+        </p>
+
+        <div class="kit-note">
+          <a
+            href="https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic"
+            target="_blank"
+            rel="nofollow noopener"
+          >
+            Built with Kit
+          </a>
+        </div>
+      </form>
+
+    </section>
+
+    <div class="fiction-note">
+      The Halden Ledger is a fictional publication from the world of
+      <em>The Silenced Universe</em>.
+      <a href="about.html">Learn more about the Ledger.</a>
+    </div>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    fetch('header.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Header failed to load: ' + response.status);
+        }
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('site-header').innerHTML = html;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Footer failed to load: ' + response.status);
+        }
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('site-footer').innerHTML = html;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  </script>
+
+</body>
+</html>
