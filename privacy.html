@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Privacy policy for The Halden Ledger."
+  />
+  <title>Privacy | The Halden Ledger</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .privacy-shell {
+      width: min(calc(100% - 32px), 820px);
+      margin: 0 auto;
+      padding: 46px 0 72px;
+    }
+
+    .privacy-page h1 {
+      margin: 0 0 12px;
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      line-height: .98;
+      letter-spacing: -0.03em;
+    }
+
+    .privacy-dek {
+      margin: 0 0 30px;
+      color: #3f3f3f;
+      font-size: 1.08rem;
+      line-height: 1.55;
+    }
+
+    .privacy-page h2 {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      line-height: 1.1;
+      margin: 2em 0 .7em;
+      border-top: 1px solid var(--rule);
+      padding-top: 18px;
+    }
+
+    .privacy-page p {
+      margin: 0 0 1.2em;
+      font-size: 1.04rem;
+      line-height: 1.65;
+    }
+
+    .privacy-page ul {
+      margin: 0 0 1.3em;
+      padding-left: 22px;
+    }
+
+    .privacy-page li {
+      margin-bottom: .65em;
+      line-height: 1.55;
+    }
+
+    .privacy-page a {
+      text-decoration: underline;
+    }
+
+    .privacy-note {
+      margin-top: 30px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--ink);
+      background: rgba(0, 0, 0, 0.03);
+      font-size: .96rem;
+      line-height: 1.55;
+    }
+
+    .privacy-updated {
+      margin-top: 28px;
+      color: var(--muted);
+      font-family: var(--font-ui);
+      font-size: .78rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="site-header"></div>
+
+  <main class="privacy-shell">
+    <article class="privacy-page">
+
+      <div class="section-label">Privacy</div>
+
+      <h1>Privacy Policy</h1>
+
+      <p class="privacy-dek">
+        The Halden Ledger collects only the information needed to operate the site, communicate with readers and deliver requested email updates.
+      </p>
+
+      <h2>Email subscriptions</h2>
+
+      <p>
+        If you subscribe to the Morning Ledger, you provide an email address. That information is used to send subscription confirmations, newsletters and other Ledger updates you have requested.
+      </p>
+
+      <p>
+        Email subscriptions are managed through Kit, a third-party email service provider. Kit may process information necessary to deliver email, manage subscriptions and measure basic email activity.
+      </p>
+
+      <p>
+        You can unsubscribe at any time using the unsubscribe link included in Ledger emails.
+      </p>
+
+      <h2>Contacting the Ledger</h2>
+
+      <p>
+        If you contact The Halden Ledger by email, the information you include in that message may be retained as needed to respond, follow up or maintain correspondence.
+      </p>
+
+      <p>
+        The contact form on this site opens your own email application and prepares a message addressed to
+        <a href="mailto:news@thehaldenledger.com">news@thehaldenledger.com</a>. The Ledger website does not separately store the contents of that form before the message is sent.
+      </p>
+
+      <h2>Website information</h2>
+
+      <p>
+        Like most websites, the services used to host and deliver The Halden Ledger may automatically receive limited technical information when you visit, such as your IP address, browser type, device information, referring page and basic request logs.
+      </p>
+
+      <p>
+        The Ledger does not currently use that information to create individual reader profiles or sell personal information to advertisers.
+      </p>
+
+      <h2>Cookies and third-party services</h2>
+
+      <p>
+        The Ledger itself does not currently use advertising cookies or behavioral advertising trackers. Third-party services embedded in or used by the site may use cookies or similar technologies as part of their normal operation.
+      </p>
+
+      <p>
+        If additional analytics, advertising or account features are added in the future, this policy will be updated to describe how those services use information.
+      </p>
+
+      <h2>Sharing information</h2>
+
+      <p>
+        The Halden Ledger does not sell reader email addresses or personal information.
+      </p>
+
+      <p>
+        Information may be shared with service providers only when necessary to operate the site, deliver requested communications or comply with legal obligations.
+      </p>
+
+      <h2>Your choices</h2>
+
+      <ul>
+        <li>You may unsubscribe from Ledger emails at any time.</li>
+        <li>You may choose not to provide optional information when contacting the Ledger.</li>
+        <li>You may contact the Ledger with questions about information you have provided.</li>
+      </ul>
+
+      <h2>Questions</h2>
+
+      <p>
+        Questions about this privacy policy can be sent to
+        <a href="mailto:news@thehaldenledger.com">news@thehaldenledger.com</a>.
+      </p>
+
+      <div class="privacy-note">
+        The Halden Ledger is a fictional publication associated with <em>The Silenced Universe</em>. This privacy policy applies to the real website and its reader communications, not to the fictional events or organizations described in Ledger articles.
+      </div>
+
+      <div class="privacy-updated">
+        Last updated: September 2026
+      </div>
+
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    fetch('header.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Header failed to load: ' + response.status);
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('site-header').innerHTML = html;
+      })
+      .catch(error => console.error(error));
+
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Footer failed to load: ' + response.status);
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('site-footer').innerHTML = html;
+      })
+      .catch(error => console.error(error));
+  </script>
+
+</body>
+</html>
