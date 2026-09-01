@@ -84,6 +84,73 @@
       line-height: 1.5;
     }
 
+    .archive-unlock {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border: 1px dashed #999;
+      background: rgba(0,0,0,.025);
+    }
+
+    .archive-unlock h3 {
+      margin: 0 0 7px;
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+
+    .archive-unlock p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: .94rem;
+      line-height: 1.5;
+    }
+
+    .unlock-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .unlock-field label {
+      display: block;
+      margin-bottom: 5px;
+      font-family: var(--font-ui);
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .unlock-field input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 9px 10px;
+      border: 1px solid #aaa;
+      background: #fff;
+      font: inherit;
+    }
+
+    .unlock-form button {
+      padding: 10px 14px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-ui);
+      font-size: .76rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    #archive-unlock-status {
+      min-height: 18px;
+      margin-top: 8px;
+      color: #7a1111;
+      font-family: var(--font-ui);
+      font-size: .78rem;
+    }
+
     .archive-note {
       margin-top: 34px;
       padding-top: 18px;
@@ -92,6 +159,16 @@
       font-family: var(--font-ui);
       font-size: .82rem;
       line-height: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      .unlock-form {
+        grid-template-columns: 1fr;
+      }
+
+      .unlock-form button {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -126,16 +203,34 @@
           <p>Reporting published after the events of <em>A Decade to Midnight</em>.</p>
         </div>
 
-        <div class="archive-edition" id="archive-2035" hidden>
-          <div class="archive-year">Unlocked Edition</div>
-          <h3><a href="/2035/index.html">2035</a></h3>
-          <p>Later reporting from The Halden Ledger.</p>
-        </div>
-
         <div class="archive-edition" id="archive-2036" hidden>
           <div class="archive-year">Unlocked Edition</div>
           <h3><a href="/2036/index.html">2036</a></h3>
-          <p>The complete Ledger archive.</p>
+          <p>Later reporting from The Halden Ledger.</p>
+        </div>
+
+        <div class="archive-unlock" id="unlock-2036">
+          <div class="archive-year">Test Access</div>
+          <h3>Unlock the 2036 Edition</h3>
+          <p>
+            Temporary test access for the 2036 archive framework.
+          </p>
+
+          <form class="unlock-form" id="archive-2036-form">
+            <div class="unlock-field">
+              <label for="archive-2036-email">Email</label>
+              <input id="archive-2036-email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="unlock-field">
+              <label for="archive-2036-code">Access code</label>
+              <input id="archive-2036-code" type="password" autocomplete="current-password" required />
+            </div>
+
+            <button type="submit">Unlock 2036</button>
+          </form>
+
+          <div id="archive-unlock-status" aria-live="polite"></div>
         </div>
       </section>
 
@@ -148,34 +243,76 @@
 
   <div id="site-footer"></div>
 
-    <script>
+  <script>
     function getUnlockedEdition() {
-          try {
-            return parseInt(localStorage.getItem('haldenLedgerEdition') || '2027', 10);
-          } catch (e) {
-            return 2027;
-          }
-        }
-    
-        function revealUnlockedEditions() {
-          var unlocked = getUnlockedEdition();
-    
-          var edition2031 = document.getElementById('archive-2031');
-          var edition2035 = document.getElementById('archive-2035');
-          var edition2036 = document.getElementById('archive-2036');
-    
-          if (edition2031 && unlocked >= 2031) edition2031.hidden = false;
-          if (edition2035 && unlocked >= 2035) edition2035.hidden = false;
-          if (edition2036 && unlocked >= 2036) edition2036.hidden = false;
-        }
-    
-        revealUnlockedEditions();
+      try {
+        return parseInt(localStorage.getItem('haldenLedgerEdition') || '2027', 10);
+      } catch (e) {
+        return 2027;
+      }
+    }
+
+    function getStored(key) {
+      try {
+        return localStorage.getItem(key) || '';
+      } catch (e) {
+        return '';
+      }
+    }
+
+    function revealUnlockedEditions() {
+      var unlocked = getUnlockedEdition();
+
+      var edition2031 = document.getElementById('archive-2031');
+      var edition2036 = document.getElementById('archive-2036');
+      var unlock2036 = document.getElementById('unlock-2036');
+
+      if (edition2031 && unlocked >= 2031) {
+        edition2031.hidden = false;
+      }
+
+      if (edition2036 && unlocked >= 2036) {
+        edition2036.hidden = false;
+      }
+
+      if (unlock2036) {
+        unlock2036.hidden = unlocked >= 2036;
+      }
+
+      var savedEmail = getStored('haldenLedgerReaderEmail');
+      var emailInput = document.getElementById('archive-2036-email');
+
+      if (savedEmail && emailInput) {
+        emailInput.value = savedEmail;
+      }
+    }
+
+    document.getElementById('archive-2036-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var email = document.getElementById('archive-2036-email').value.trim();
+      var code = document.getElementById('archive-2036-code').value.trim();
+      var status = document.getElementById('archive-unlock-status');
+
+      if (code !== 'VALLUM36') {
+        status.textContent = 'Incorrect access code.';
+        return;
+      }
+
+      try {
+        localStorage.setItem('haldenLedgerEdition', '2036');
+        localStorage.setItem('haldenLedgerBook3Unlocked', 'true');
+        localStorage.setItem('haldenLedgerReaderEmail', email);
+      } catch (e) {}
+
+      window.location.href = '/2036/index.html';
+    });
+
+    revealUnlockedEditions();
 
     fetch('/header.html?v=8')
       .then(function(response) {
-        if (!response.ok) {
-          throw new Error('Header failed to load: ' + response.status);
-        }
+        if (!response.ok) throw new Error('Header failed to load: ' + response.status);
         return response.text();
       })
       .then(function(html) {
@@ -200,9 +337,7 @@
 
     fetch('/footer.html?v=8')
       .then(function(response) {
-        if (!response.ok) {
-          throw new Error('Footer failed to load: ' + response.status);
-        }
+        if (!response.ok) throw new Error('Footer failed to load: ' + response.status);
         return response.text();
       })
       .then(function(html) {

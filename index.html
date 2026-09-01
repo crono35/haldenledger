@@ -176,6 +176,13 @@
           </article>
 
           <article class="card">
+            <div class="kicker">From the Archive / Investigations</div>
+            <h3><a href="articles/contractor-crane-failures.html">Contractor Concealed Crane Failures at Three West Coast Ports, Records Show</a></h3>
+            <div class="byline">By Lena Kwon</div>
+            <p>Tidegate Industrial Systems certified cargo equipment as safe after internal inspections found cracked components, disabled alarms and recurring control failures.</p>
+          </article>
+
+          <article class="card">
             <div class="kicker">Science / Environment</div>
             <h3><a href="articles/quagga-mussels.html">The Mussels That Keep Moving West</a></h3>
             <div class="byline">By Naomi Valez</div>
@@ -227,19 +234,20 @@
 
   <div id="site-footer"></div>
 
-    <script>
-    fetch('/header.html?v=8')
+  <script>
+    fetch('/header.html?v=6')
       .then(function(response) {
         if (!response.ok) {
           throw new Error('Header failed to load: ' + response.status);
         }
+
         return response.text();
       })
       .then(function(html) {
         document.getElementById('site-header').innerHTML = html;
 
         var script = document.createElement('script');
-        script.src = '/js/header.js?v=8';
+        script.src = '/js/header.js?v=6';
 
         script.onload = function() {
           if (window.initLedgerHeader) {
@@ -255,11 +263,12 @@
         console.error(error);
       });
 
-    fetch('/footer.html?v=8')
+    fetch('/footer.html?v=6')
       .then(function(response) {
         if (!response.ok) {
           throw new Error('Footer failed to load: ' + response.status);
         }
+
         return response.text();
       })
       .then(function(html) {

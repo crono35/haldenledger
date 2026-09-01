@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Halden Ledger — 2036 edition." />
+  <title>2036 Edition | The Halden Ledger</title>
+  <link rel="stylesheet" href="/css/style.css?v=20260901-1" />
+
+  <style>
+    .edition-shell {
+      width: min(calc(100% - 32px), 1120px);
+      margin: 0 auto;
+      padding: 42px 0 72px;
+    }
+
+    .edition-banner {
+      border-top: 3px solid var(--ink);
+      border-bottom: 1px solid var(--rule);
+      padding: 18px 0 22px;
+      margin-bottom: 34px;
+    }
+
+    .edition-banner h1 {
+      margin: 0 0 8px;
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 7vw, 5.2rem);
+      line-height: .98;
+      letter-spacing: -0.035em;
+    }
+
+    .edition-banner p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.55;
+    }
+
+    .edition-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 28px;
+    }
+
+    .lead-card,
+    .side-card {
+      border-top: 2px solid var(--ink);
+      padding-top: 14px;
+    }
+
+    .lead-card h2,
+    .side-card h2 {
+      margin: 0 0 8px;
+      font-family: var(--font-display);
+      line-height: 1.05;
+    }
+
+    .lead-card h2 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+    }
+
+    .side-card h2 {
+      font-size: 1.7rem;
+    }
+
+    .lead-card p,
+    .side-card p {
+      margin: 0;
+      color: #3f3f3f;
+      line-height: 1.55;
+    }
+
+    .test-note {
+      margin-top: 38px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--accent);
+      background: rgba(0,0,0,.03);
+      font-family: var(--font-ui);
+      font-size: .9rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 760px) {
+      .edition-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main class="edition-shell">
+    <section class="edition-banner">
+      <div class="section-label">2036 Edition</div>
+      <h1>The Halden Ledger</h1>
+      <p>
+        This is a temporary 2036 edition shell used to verify archive access,
+        edition-aware navigation, shared pages and the dynamic header and footer.
+      </p>
+    </section>
+
+    <section class="edition-grid" aria-label="2036 edition test content">
+      <article class="lead-card">
+        <div class="section-label">Top Story</div>
+        <h2>2036 Edition Test Page</h2>
+        <p>
+          The 2036 edition is active. Future reporting can replace this placeholder
+          without changing the archive or shared site framework.
+        </p>
+      </article>
+
+      <article class="side-card">
+        <div class="section-label">Archive</div>
+        <h2>Earlier editions remain available</h2>
+        <p>
+          Use the Ledger archive to move between unlocked editions without changing
+          your highest level of reader access.
+        </p>
+      </article>
+    </section>
+
+    <div class="test-note">
+      <strong>Framework test:</strong> the header and footer should display 2036,
+      the reader panel should show archive access through 2036, and shared pages
+      should continue to inherit the 2036 edition until another edition is selected.
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    fetch('/header.html?v=8')
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error('Header failed to load: ' + response.status);
+        }
+        return response.text();
+      })
+      .then(function(html) {
+        document.getElementById('site-header').innerHTML = html;
+
+        var script = document.createElement('script');
+        script.src = '/js/header.js?v=8';
+
+        script.onload = function() {
+          if (window.initLedgerHeader) {
+            window.initLedgerHeader();
+          } else {
+            console.error('initLedgerHeader was not found.');
+          }
+        };
+
+        document.body.appendChild(script);
+      })
+      .catch(function(error) {
+        console.error(error);
+      });
+
+    fetch('/footer.html?v=8')
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error('Footer failed to load: ' + response.status);
+        }
+        return response.text();
+      })
+      .then(function(html) {
+        document.getElementById('site-footer').innerHTML = html;
+      })
+      .catch(function(error) {
+        console.error(error);
+      });
+  </script>
+</body>
+</html>
