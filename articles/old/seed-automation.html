@@ -9,6 +9,43 @@
   />
   <title>Can Machines Build the Machines? | The Halden Ledger</title>
   <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    .essential-reading {
+      margin: 52px 0 10px;
+      padding-top: 26px;
+      border-top: 1px solid #cfcfcf;
+    }
+    .essential-reading > h2 { margin: 4px 0 18px; }
+    .essential-reading-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .essential-reading-card { margin: 0; }
+    .essential-reading-card h3 {
+      margin: 5px 0 8px;
+      font-size: 1.08rem;
+      line-height: 1.25;
+    }
+    .essential-reading-card h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .essential-reading-card h3 a:hover { text-decoration: underline; }
+    .essential-reading-card p {
+      margin: 0;
+      font-size: 0.94rem;
+      line-height: 1.45;
+    }
+    @media (max-width: 760px) {
+      .essential-reading-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -55,11 +92,7 @@
       </p>
 
       <p>
-        It inspects parts, moves components between stations, performs several assembly steps, tests the result and routes failed units back for rework. Some of the equipment it helps assemble can later be used elsewhere in the same production network. But the raw materials still arrive from outside suppliers, the tooling was designed by people, and technicians still step in whenever the process reaches the edge of what the software understands.
-      </p>
-
-      <p>
-        No one here is pretending that the machine is building a copy of itself. The more interesting question is narrower and more practical: how much of an industrial system can be built, maintained or expanded by the industrial system itself?
+        The system can inspect parts, move components between stations, perform several assembly steps, test the result and route a failed unit back for rework. Some of the equipment it helps assemble can later be used elsewhere in the same production network. But the raw materials arrive from outside suppliers, the tooling was designed by people, and technicians still intervene whenever the process reaches the edge of what the software understands.
       </p>
 
       <p>
@@ -89,7 +122,7 @@
       </p>
 
       <p>
-        The newer work is pushing outward into that surrounding system.
+        The newer research is aimed at the surrounding system.
       </p>
 
       <p>
@@ -97,7 +130,7 @@
       </p>
 
       <p>
-        Off-world industry makes those support systems harder to ignore. A broken actuator on Earth can be replaced from a warehouse. On the Moon, the same failure may wait for the next cargo flight unless somebody planned for it months earlier.
+        That difference is especially important for off-world industry. A broken actuator on Earth can be replaced from a warehouse. A broken actuator on the Moon may wait for the next cargo flight unless somebody planned for the failure months earlier.
       </p>
 
       <h2>Anika Rao starts with failure</h2>
@@ -133,13 +166,13 @@
       </p>
 
       <p>
-        It is a less spectacular benchmark, and a more useful one for judging whether the system can scale.
+        That is a less spectacular benchmark, but it is the one that determines whether automation scales.
       </p>
 
       <h2>Building capacity, not copies</h2>
 
       <p>
-        “Self-replicating factory” appears often in discussions of advanced automation, though it describes current systems poorly.
+        The phrase “self-replicating factory” appears frequently in discussions of advanced automation. It is also a poor description of what current systems can do.
       </p>
 
       <p>
@@ -147,7 +180,7 @@
       </p>
 
       <p>
-        Researchers are concentrating on a narrower question: how much useful capacity can an automated system add to the network around it?
+        Researchers are instead concentrating on a narrower question: can an automated system increase some of its own useful capacity?
       </p>
 
       <p>
@@ -155,13 +188,17 @@
       </p>
 
       <p>
-        None of those machines has reproduced itself, but the industrial network has still grown. For engineers, that is the more useful measure.
+        None of those machines has reproduced itself. The industrial network has still grown.
+      </p>
+
+      <p>
+        That is the part engineers care about.
       </p>
 
       <h2>Why the Moon changes the math</h2>
 
       <p>
-        The engineering is difficult; the economic incentive is easier to see.
+        The economics are straightforward even when the engineering is not.
       </p>
 
       <p>
@@ -177,7 +214,7 @@
       </p>
 
       <p>
-        Every additional material that can be sourced locally gives the automation more work it can perform without another launch.
+        The more material that can be sourced locally, the more useful the automation becomes.
       </p>
 
       <p>
@@ -185,13 +222,13 @@
       </p>
 
       <p>
-        Permanent lunar infrastructure gives the technology a demanding place to prove whether those gains are real.
+        It gives automation a problem worth solving.
       </p>
 
       <h2>The parts still have to come from somewhere</h2>
 
       <p>
-        Moving parts with robots does not eliminate the supply-chain problem.
+        The supply-chain problem does not disappear because a robot moves the parts.
       </p>
 
       <p>
@@ -207,13 +244,13 @@
       </p>
 
       <p>
-        It is less elegant than a machine building an identical copy of itself, but much closer to how real factories expand.
+        The result looks less elegant than a machine building an identical copy of itself. It is also much closer to how real factories expand.
       </p>
 
       <h2>A factory that can help build a factory</h2>
 
       <p>
-        A meaningful threshold could arrive well before full industrial independence.
+        The most interesting threshold may arrive long before anything resembling full industrial independence.
       </p>
 
       <p>
@@ -221,11 +258,15 @@
       </p>
 
       <p>
-        Humans would still design the expansion. Imported electronics and precision components would still be required, and technicians would still solve failures the machines could not. What changes is the ratio between imported effort and locally created capacity.
+        Humans would still design the expansion. Imported electronics and precision components would still be required. Technicians would still solve the failures the machines could not.
       </p>
 
       <p>
-        One shipment supports more construction, one technician supervises more machines, and one production line helps install another.
+        But the ratio changes.
+      </p>
+
+      <p>
+        One shipment supports more construction. One technician supervises more machines. One production line helps install another.
       </p>
 
       <p>
@@ -235,7 +276,7 @@
       <h2>The prototype question</h2>
 
       <p>
-        Emerging technologies are often judged too generously after a successful demonstration.
+        There is a familiar mistake in emerging technology: treating a successful demonstration as evidence that the difficult part is finished.
       </p>
 
       <p>
@@ -247,7 +288,7 @@
       </p>
 
       <p>
-        The work is now moving beyond isolated tasks.
+        What has changed is the direction of the work.
       </p>
 
       <p>
@@ -263,10 +304,40 @@
       </p>
 
       <p>
-        The machines on the floor are not there yet, but they are beginning to show what the next step might require.
+        The machines on the floor are not there yet.
+      </p>
+
+      <p>
+        They are beginning to show what the next step looks like.
       </p>
 
       <div class="endmark">◆</div>
+
+    
+      <section class="essential-reading" aria-labelledby="essential-reading-title">
+        <div class="section-label">Essential Reading</div>
+        <h2 id="essential-reading-title">Start Here</h2>
+
+        <div class="essential-reading-grid">
+          <article class="essential-reading-card">
+            <div class="kicker">Science / The Moon</div>
+            <h3><a href="themelion.html">Inside Themelion</a></h3>
+            <p>A walk through humanity’s first permanent lunar settlement and the infrastructure beginning to take shape beneath the surface.</p>
+          </article>
+
+          <article class="essential-reading-card">
+            <div class="kicker">Interview / Industry</div>
+            <h3><a href="adrian-serrin.html">Adrian Serrin: “I’ve Never Been Very Interested in Being the Smartest Person in the Room”</a></h3>
+            <p>The Avelor founder on engineering, failure, control, Themelion, uncertainty and the way he thinks about preparation.</p>
+          </article>
+
+          <article class="essential-reading-card">
+            <div class="kicker">Politics / Government</div>
+            <h3><a href="grant-coalition.html">Evelyn Grant Won the Country. Now She Has to Govern It.</a></h3>
+            <p>The coalition that elected President Evelyn Grant is broad. Governing it will require navigating Congress, the states and the limits of presidential authority.</p>
+          </article>
+        </div>
+      </section>
 
     </article>
   </main>

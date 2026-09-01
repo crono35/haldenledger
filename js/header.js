@@ -15,12 +15,21 @@ window.initLedgerHeader = function () {
 
   function editionFromPath() {
     var match = window.location.pathname.match(/^\/(20\d{2})(?:\/|$)/);
-    return match ? match[1] : '2027';
+    return match ? match[1] : '';
+  }
+
+  function editionFromQuery() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var edition = params.get('edition') || '';
+      return /^20\d{2}$/.test(edition) ? edition : '';
+    } catch (e) {
+      return '';
+    }
   }
 
   function isArchivePage() {
     var path = window.location.pathname;
-
     return (
       path === '/archive.html' ||
       path === '/archive' ||
@@ -41,22 +50,34 @@ window.initLedgerHeader = function () {
   }
 
   function editionPrefix(yearString) {
+    return yearString === '2027' ? '' : '/' + yearString;
+  }
+
+  function utilityHref(path, yearString) {
     return yearString === '2027'
-      ? ''
-      : '/' + yearString;
+      ? path
+      : path + '?edition=' + encodeURIComponent(yearString);
   }
 
   var pathEdition = editionFromPath();
+  var queryEdition = editionFromQuery();
   var unlockedEdition = getStored('haldenLedgerEdition');
   var readerEmail = getStored('haldenLedgerReaderEmail');
 
+  /*
+    Edition context rules:
+    - A dated path such as /2031/ always controls.
+    - Utility pages can carry ?edition=2031 so they stay in that edition.
+    - Archive follows the reader's highest unlocked edition.
+    - Otherwise the site defaults to 2027.
+  */
   var displayEdition =
-    isArchivePage() && unlockedEdition
-      ? unlockedEdition
-      : pathEdition;
+    pathEdition ||
+    queryEdition ||
+    (isArchivePage() && unlockedEdition) ||
+    '2027';
 
   var dateEl = document.getElementById('ledger-edition-date');
-
   if (dateEl) {
     dateEl.textContent = formatEditionDate(displayEdition);
   }
@@ -70,83 +91,77 @@ window.initLedgerHeader = function () {
   var world = document.getElementById('ledger-nav-world');
 
   if (home) {
-    home.href = prefix
-      ? prefix + '/index.html'
-      : '/index.html';
+    home.href = prefix ? prefix + '/index.html' : '/index.html';
   }
 
   if (science) {
-    science.href = prefix
-      ? prefix + '/science.html'
-      : '/science.html';
+    science.href = prefix ? prefix + '/science.html' : '/science.html';
   }
 
   if (industry) {
-    industry.href = prefix
-      ? prefix + '/industry.html'
-      : '/industry.html';
+    industry.href = prefix ? prefix + '/industry.html' : '/industry.html';
   }
 
   if (policy) {
-    policy.href = prefix
-      ? prefix + '/policy.html'
-      : '/policy.html';
+    policy.href = prefix ? prefix + '/policy.html' : '/policy.html';
   }
 
   if (world) {
-    world.href = prefix
-      ? prefix + '/world.html'
-      : '/world.html';
+    world.href = prefix ? prefix + '/world.html' : '/world.html';
   }
 
-  var loginPanel =
-    document.getElementById('ledger-login-panel');
+  var loginPanel = document.getElementById('ledger-login-panel');
+  var readerPanel = document.getElementById('ledger-reader-panel');
+  var emailEl = document.getElementById('ledger-reader-email');
+  var yearEl = document.getElementById('ledger-reader-year');
 
-  var readerPanel =
-    document.getElementById('ledger-reader-panel');
+  var isLoggedIn = readerEmail && unlockedEdition;
 
-  var emailEl =
-    document.getElementById('ledger-reader-email');
-
-  var yearEl =
-    document.getElementById('ledger-reader-year');
-
-  var shouldShowReaderStatus =
-    readerEmail &&
-    unlockedEdition &&
-    (
-      pathEdition !== '2027' ||
-      isArchivePage()
-    );
-
-  if (shouldShowReaderStatus) {
-    if (loginPanel) {
-      loginPanel.style.display = 'none';
-    }
-
-    if (readerPanel) {
-      readerPanel.style.display = 'flex';
-    }
-
-    if (emailEl) {
-      emailEl.textContent = readerEmail;
-    }
-
-    if (yearEl) {
-      yearEl.textContent = unlockedEdition;
-    }
+  if (isLoggedIn) {
+    if (loginPanel) loginPanel.style.display = 'none';
+    if (readerPanel) readerPanel.style.display = 'flex';
+    if (emailEl) emailEl.textContent = readerEmail;
+    if (yearEl) yearEl.textContent = unlockedEdition;
   } else {
-    if (loginPanel) {
-      loginPanel.style.display = 'block';
-    }
-
-    if (readerPanel) {
-      readerPanel.style.display = 'none';
-    }
+    if (loginPanel) loginPanel.style.display = 'block';
+    if (readerPanel) readerPanel.style.display = 'none';
   }
 
-  var signout =
-    document.getElementById('ledger-signout');
+  function updateFooter() {
+    var footerYear = document.getElementById('ledger-footer-year');
+    var about = document.getElementById('ledger-footer-about');
+    var contact = document.getElementById('ledger-footer-contact');
+    var corrections = document.getElementById('ledger-footer-corrections');
+    var privacy = document.getElementById('ledger-footer-privacy');
+    var archive = document.getElementById('ledger-footer-archive');
+
+    if (!footerYear) return false;
+
+    footerYear.textContent = displayEdition;
+
+    if (about) about.href = utilityHref('/about.html', displayEdition);
+    if (contact) contact.href = utilityHref('/contact.html', displayEdition);
+    if (corrections) corrections.href = utilityHref('/corrections.html', displayEdition);
+    if (privacy) privacy.href = utilityHref('/privacy.html', displayEdition);
+    if (archive) archive.href = '/archive.html';
+
+    return true;
+  }
+
+  if (!updateFooter()) {
+    var observer = new MutationObserver(function() {
+      if (updateFooter()) {
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  var signout = document.getElementById('ledger-signout');
 
   if (signout) {
     signout.onclick = function () {

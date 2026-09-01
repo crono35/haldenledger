@@ -118,22 +118,47 @@
 
   <div id="site-footer"></div>
 
-  <script>
-    fetch('/header.html')
-      .then(response => {
-        if (!response.ok) throw new Error('Header failed to load: ' + response.status);
+    <script>
+    fetch('/header.html?v=8')
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error('Header failed to load: ' + response.status);
+        }
         return response.text();
       })
-      .then(html => { document.getElementById('site-header').innerHTML = html; })
-      .catch(error => console.error(error));
+      .then(function(html) {
+        document.getElementById('site-header').innerHTML = html;
 
-    fetch('/footer.html')
-      .then(response => {
-        if (!response.ok) throw new Error('Footer failed to load: ' + response.status);
+        var script = document.createElement('script');
+        script.src = '/js/header.js?v=8';
+
+        script.onload = function() {
+          if (window.initLedgerHeader) {
+            window.initLedgerHeader();
+          } else {
+            console.error('initLedgerHeader was not found.');
+          }
+        };
+
+        document.body.appendChild(script);
+      })
+      .catch(function(error) {
+        console.error(error);
+      });
+
+    fetch('/footer.html?v=8')
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error('Footer failed to load: ' + response.status);
+        }
         return response.text();
       })
-      .then(html => { document.getElementById('site-footer').innerHTML = html; })
-      .catch(error => console.error(error));
+      .then(function(html) {
+        document.getElementById('site-footer').innerHTML = html;
+      })
+      .catch(function(error) {
+        console.error(error);
+      });
   </script>
 
 </body>

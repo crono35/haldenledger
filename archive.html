@@ -148,39 +148,41 @@
 
   <div id="site-footer"></div>
 
-  <script>
+    <script>
     function getUnlockedEdition() {
-      try {
-        return parseInt(localStorage.getItem('haldenLedgerEdition') || '2027', 10);
-      } catch (e) {
-        return 2027;
-      }
-    }
+          try {
+            return parseInt(localStorage.getItem('haldenLedgerEdition') || '2027', 10);
+          } catch (e) {
+            return 2027;
+          }
+        }
+    
+        function revealUnlockedEditions() {
+          var unlocked = getUnlockedEdition();
+    
+          var edition2031 = document.getElementById('archive-2031');
+          var edition2035 = document.getElementById('archive-2035');
+          var edition2036 = document.getElementById('archive-2036');
+    
+          if (edition2031 && unlocked >= 2031) edition2031.hidden = false;
+          if (edition2035 && unlocked >= 2035) edition2035.hidden = false;
+          if (edition2036 && unlocked >= 2036) edition2036.hidden = false;
+        }
+    
+        revealUnlockedEditions();
 
-    function revealUnlockedEditions() {
-      var unlocked = getUnlockedEdition();
-
-      var edition2031 = document.getElementById('archive-2031');
-      var edition2035 = document.getElementById('archive-2035');
-      var edition2036 = document.getElementById('archive-2036');
-
-      if (edition2031 && unlocked >= 2031) edition2031.hidden = false;
-      if (edition2035 && unlocked >= 2035) edition2035.hidden = false;
-      if (edition2036 && unlocked >= 2036) edition2036.hidden = false;
-    }
-
-    revealUnlockedEditions();
-
-    fetch('/header.html?v=5')
+    fetch('/header.html?v=8')
       .then(function(response) {
-        if (!response.ok) throw new Error('Header failed to load: ' + response.status);
+        if (!response.ok) {
+          throw new Error('Header failed to load: ' + response.status);
+        }
         return response.text();
       })
       .then(function(html) {
         document.getElementById('site-header').innerHTML = html;
 
         var script = document.createElement('script');
-        script.src = '/js/header.js?v=5';
+        script.src = '/js/header.js?v=8';
 
         script.onload = function() {
           if (window.initLedgerHeader) {
@@ -196,9 +198,11 @@
         console.error(error);
       });
 
-    fetch('/footer.html?v=5')
+    fetch('/footer.html?v=8')
       .then(function(response) {
-        if (!response.ok) throw new Error('Footer failed to load: ' + response.status);
+        if (!response.ok) {
+          throw new Error('Footer failed to load: ' + response.status);
+        }
         return response.text();
       })
       .then(function(html) {

@@ -6,57 +6,6 @@
   <meta name="description" content="Inside Themelion Base: a Halden Ledger walkthrough of humanity's first permanent industrial settlement on the Moon." />
   <title>Inside Themelion | The Halden Ledger</title>
   <link rel="stylesheet" href="../css/style.css" />
-
-  <style>
-    .essential-reading {
-      margin: 52px 0 10px;
-      padding-top: 26px;
-      border-top: 1px solid #cfcfcf;
-    }
-
-    .essential-reading > h2 {
-      margin: 4px 0 18px;
-    }
-
-    .essential-reading-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .essential-reading-card {
-      margin: 0;
-    }
-
-    .essential-reading-card h3 {
-      margin: 5px 0 8px;
-      font-size: 1.08rem;
-      line-height: 1.25;
-    }
-
-    .essential-reading-card h3 a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .essential-reading-card h3 a:hover {
-      text-decoration: underline;
-    }
-
-    .essential-reading-card p {
-      margin: 0;
-      font-size: 0.94rem;
-      line-height: 1.45;
-    }
-
-    @media (max-width: 760px) {
-      .essential-reading-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-    }
-  </style>
-
 </head>
 
 <body>
@@ -74,17 +23,7 @@
         Humanity’s first permanent lunar settlement does not look like a city. Most of it is buried, unfinished and deliberately difficult to see. The Ledger spent a day walking the parts that are not.
       </p>
 
-      <div class="author-badge" style="margin: 0 0 18px;">
-        <img
-          class="author-thumb"
-          src="../images/naomi-valez-thumb-100.png"
-          alt="Naomi Valez"
-          width="100"
-          height="100"
-          style="display:block; width:100px; height:100px; object-fit:cover; margin:0 0 10px; border-radius:4px;"
-        />
-        <div class="byline">By Naomi Valez &nbsp;|&nbsp; The Halden Ledger</div>
-      </div>
+      <div class="byline">By Naomi Valez &nbsp;|&nbsp; The Halden Ledger</div>
 
       <img
         class="hero"
@@ -131,16 +70,6 @@
       <p>
         Private cabins are small. A bunk, storage, fold-down desk and screen occupy most of the available volume. Residents personalize them carefully because anything brought from Earth has mass, and mass still has a transportation cost. Photographs are common. Large objects are not.
       </p>
-
-      <img
-        class="story-image"
-        src="../images/cabin.png"
-        alt="A compact private cabin inside Themelion Base"
-      />
-
-      <div class="caption">
-        A private crew cabin inside Themelion. Living space is compact, with storage, a bunk and a small work area built into the walls. Halden Ledger file image.
-      </div>
 
       <p>
         In the galley, maintenance engineer Ben Park is repairing a coffee heater that, according to two nearby technicians, has failed often enough to qualify as a member of the crew. Park has been on the Moon for seven months and keeps a photograph of his daughter taped inside his tool case. He says the heater is not technically mission-critical, then continues working on it anyway. The joke would be ordinary in almost any workplace on Earth, and here that ordinariness is part of what makes the place feel permanent.
@@ -205,16 +134,6 @@
         The newest part of the base is not a landed module. It is an unfinished chamber cut directly into the lunar terrain. Temporary structural supports stand along one wall while crews prepare the space for lining, sealing and utilities, and the room is large enough that our guide’s voice acquires an echo.
       </p>
 
-      <img
-        class="story-image"
-        src="../images/tunnel.png"
-        alt="An unfinished excavated construction chamber inside Themelion Base"
-      />
-
-      <div class="caption">
-        One of Themelion’s newer excavated chambers before lining, sealing and utility installation are complete. Halden Ledger file image.
-      </div>
-
       <p>
         Landing complete habitats worked when the base was small. The method becomes increasingly inefficient as the population and industrial footprint grow. Newer sections are being excavated locally: trenches first, then larger underground spaces where shielding is provided by the Moon itself.
       </p>
@@ -277,75 +196,52 @@
 
       <div class="endmark">◆</div>
 
-    
-      <section class="essential-reading" aria-labelledby="essential-reading-title">
-        <div class="section-label">Essential Reading</div>
-        <h2 id="essential-reading-title">Start Here</h2>
-
-        <div class="essential-reading-grid">
-          <article class="essential-reading-card">
-            <div class="kicker">Moon / Industry</div>
-            <h3>
-              <a href="themelion.html">Themelion Is Becoming More Than a Lunar Outpost</a>
-            </h3>
-            <p>
-              Inside the expanding lunar settlement that is beginning to change what permanent activity beyond Earth could look like.
-            </p>
-          </article>
-
-          <article class="essential-reading-card">
-            <div class="kicker">Interview</div>
-            <h3>
-              <a href="adrian-serrin.html">Adrian Serrin Has Been Building for This Moment for Years</a>
-            </h3>
-            <p>
-              The Avelor founder on scale, preparation and why he believes the infrastructure around spaceflight matters more than any single launch.
-            </p>
-          </article>
-
-          <article class="essential-reading-card">
-            <div class="kicker">Politics</div>
-            <h3>
-              <a href="grant-coalition.html">Evelyn Grant Won the Presidency. Now She Has to Govern.</a>
-            </h3>
-            <p>
-              Grant assembled a broad coalition to win the White House. Keeping it together will require a different kind of political skill.
-            </p>
-          </article>
-        </div>
-      </section>
-
     </article>
   </main>
 
   <div id="site-footer"></div>
 
-  <script>
-    fetch('../header.html')
-      .then(response => {
+    <script>
+    fetch('/header.html?v=6')
+      .then(function(response) {
         if (!response.ok) {
           throw new Error('Header failed to load: ' + response.status);
         }
+
         return response.text();
       })
-      .then(html => {
+      .then(function(html) {
         document.getElementById('site-header').innerHTML = html;
+
+        var script = document.createElement('script');
+        script.src = '/js/header.js?v=6';
+
+        script.onload = function() {
+          if (window.initLedgerHeader) {
+            window.initLedgerHeader();
+          } else {
+            console.error('initLedgerHeader was not found.');
+          }
+        };
+
+        document.body.appendChild(script);
       })
-      .catch(error => {
+      .catch(function(error) {
         console.error(error);
       });
 
-    fetch('../footer.html')
-      .then(response => {
+    fetch('/footer.html?v=6')
+      .then(function(response) {
         if (!response.ok) {
           throw new Error('Footer failed to load: ' + response.status);
         }
+
         return response.text();
       })
-      .then(html => {
+      .then(function(html) {
         document.getElementById('site-footer').innerHTML = html;
       })
-      .catch(error => {
+      .catch(function(error) {
         console.error(error);
       });
   </script>

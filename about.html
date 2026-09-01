@@ -124,10 +124,6 @@
         You do not need to have read the books to explore the site, and the site is designed so that readers can discover the larger story at their own pace.
       </p>
 
-      <p>
-        As the series progresses, the Ledger will progress with it. After finishing each book, readers can return to see new editions, articles and updates from the world as it moves forward. Earlier editions will remain available in the archive, so the site can be explored as a record of how the story’s world changes over time.
-      </p>
-
       <div class="series-link">
         <a href="#" aria-label="Explore The Silenced Universe">Explore <em>The Silenced Universe</em> →</a>
       </div>
@@ -137,32 +133,45 @@
 
   <div id="site-footer"></div>
 
-  <script>
-    fetch('header.html')
-      .then(response => {
+    <script>
+    fetch('/header.html?v=8')
+      .then(function(response) {
         if (!response.ok) {
           throw new Error('Header failed to load: ' + response.status);
         }
         return response.text();
       })
-      .then(html => {
+      .then(function(html) {
         document.getElementById('site-header').innerHTML = html;
+
+        var script = document.createElement('script');
+        script.src = '/js/header.js?v=8';
+
+        script.onload = function() {
+          if (window.initLedgerHeader) {
+            window.initLedgerHeader();
+          } else {
+            console.error('initLedgerHeader was not found.');
+          }
+        };
+
+        document.body.appendChild(script);
       })
-      .catch(error => {
+      .catch(function(error) {
         console.error(error);
       });
 
-    fetch('footer.html')
-      .then(response => {
+    fetch('/footer.html?v=8')
+      .then(function(response) {
         if (!response.ok) {
           throw new Error('Footer failed to load: ' + response.status);
         }
         return response.text();
       })
-      .then(html => {
+      .then(function(html) {
         document.getElementById('site-footer').innerHTML = html;
       })
-      .catch(error => {
+      .catch(function(error) {
         console.error(error);
       });
   </script>

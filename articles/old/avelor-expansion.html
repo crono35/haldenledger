@@ -6,6 +6,57 @@
   <meta name="description" content="A Halden Ledger investigation into Avelor Astronautics' rapid expansion and the gap between its public plans and its growing industrial footprint." />
   <title>Avelor’s Expansion Is Outpacing Its Public Plans | The Halden Ledger</title>
   <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    .essential-reading {
+      margin: 52px 0 10px;
+      padding-top: 26px;
+      border-top: 1px solid #cfcfcf;
+    }
+
+    .essential-reading > h2 {
+      margin: 4px 0 18px;
+    }
+
+    .essential-reading-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .essential-reading-card {
+      margin: 0;
+    }
+
+    .essential-reading-card h3 {
+      margin: 5px 0 8px;
+      font-size: 1.08rem;
+      line-height: 1.25;
+    }
+
+    .essential-reading-card h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .essential-reading-card h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .essential-reading-card p {
+      margin: 0;
+      font-size: 0.94rem;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 760px) {
+      .essential-reading-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -165,6 +216,44 @@
       </p>
 
       <div class="endmark">◆</div>
+
+    
+      <section class="essential-reading" aria-labelledby="essential-reading-title">
+        <div class="section-label">Essential Reading</div>
+        <h2 id="essential-reading-title">Start Here</h2>
+
+        <div class="essential-reading-grid">
+          <article class="essential-reading-card">
+            <div class="kicker">Moon / Industry</div>
+            <h3>
+              <a href="themelion.html">Themelion Is Becoming More Than a Lunar Outpost</a>
+            </h3>
+            <p>
+              Inside the expanding lunar settlement that is beginning to change what permanent activity beyond Earth could look like.
+            </p>
+          </article>
+
+          <article class="essential-reading-card">
+            <div class="kicker">Interview</div>
+            <h3>
+              <a href="adrian-serrin.html">Adrian Serrin Has Been Building for This Moment for Years</a>
+            </h3>
+            <p>
+              The Avelor founder on scale, preparation and why he believes the infrastructure around spaceflight matters more than any single launch.
+            </p>
+          </article>
+
+          <article class="essential-reading-card">
+            <div class="kicker">Politics</div>
+            <h3>
+              <a href="grant-coalition.html">Evelyn Grant Won the Presidency. Now She Has to Govern.</a>
+            </h3>
+            <p>
+              Grant assembled a broad coalition to win the White House. Keeping it together will require a different kind of political skill.
+            </p>
+          </article>
+        </div>
+      </section>
 
     </article>
   </main>
