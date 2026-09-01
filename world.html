@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="World reporting from The Halden Ledger." />
+  <title>World | The Halden Ledger</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .section-page {
+      padding: 34px 0 64px;
+    }
+
+    .section-page-header {
+      border-bottom: 3px solid var(--ink);
+      padding-bottom: 18px;
+      margin-bottom: 30px;
+    }
+
+    .section-page-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      line-height: .98;
+      margin: 0 0 10px;
+    }
+
+    .section-page-header p {
+      margin: 0;
+      max-width: 760px;
+      color: #3f3f3f;
+      font-size: 1.08rem;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px 24px;
+    }
+
+    .section-card {
+      border-top: 2px solid var(--ink);
+      padding-top: 12px;
+    }
+
+    .section-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1.08;
+      margin: 7px 0 9px;
+    }
+
+    .section-card p {
+      margin: 0;
+      color: #3f3f3f;
+      font-size: .98rem;
+    }
+
+    .section-card .story-image {
+      margin-top: 8px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 820px) {
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="site-header"></div>
+
+  <main class="site-shell section-page">
+
+    <header class="section-page-header">
+      <div class="section-label">The Halden Ledger</div>
+      <h1>World</h1>
+      <p>Economics, society, health and the everyday changes reshaping life beyond the biggest headlines.</p>
+    </header>
+
+    <section class="section-grid" aria-label="World stories">
+      
+        <article class="section-card">
+          <div class="kicker">Economy / Global Trade</div>
+          
+          <h2><a href="articles/global-economy-redundancy.html">The World Economy Is Becoming More Expensive on Purpose</a></h2>
+          <div class="byline">By Owen Guillermo</div>
+          <p>Governments and companies are paying for backup factories, alternate shipping routes and production capacity they hope they will never fully need.</p>
+        </article>
+
+        <article class="section-card">
+          <div class="kicker">Culture / Technology</div>
+          
+          <h2><a href="articles/human-verified-dating.html">Dating Apps Are Adding “Human Verified” Profiles</a></h2>
+          <div class="byline">By Theo Ryden</div>
+          <p>As synthetic photos, voices and profile text become harder to spot, dating platforms are asking users to prove there is a real person behind the account.</p>
+        </article>
+
+        <article class="section-card">
+          <div class="kicker">Health / Society</div>
+          
+          <h2><a href="articles/waiting-room-home.html">The Waiting Room Is Moving Into the Home</a></h2>
+          <div class="byline">By Theo Ryden</div>
+          <p>Primary care is shifting toward continuous monitoring, home diagnostics and AI-assisted triage.</p>
+        </article>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    fetch('/header.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Header failed to load: ' + response.status);
+        return response.text();
+      })
+      .then(html => { document.getElementById('site-header').innerHTML = html; })
+      .catch(error => console.error(error));
+
+    fetch('/footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Footer failed to load: ' + response.status);
+        return response.text();
+      })
+      .then(html => { document.getElementById('site-footer').innerHTML = html; })
+      .catch(error => console.error(error));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Science reporting from The Halden Ledger." />
+  <title>Science | The Halden Ledger</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .section-page {
+      padding: 34px 0 64px;
+    }
+
+    .section-page-header {
+      border-bottom: 3px solid var(--ink);
+      padding-bottom: 18px;
+      margin-bottom: 30px;
+    }
+
+    .section-page-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      line-height: .98;
+      margin: 0 0 10px;
+    }
+
+    .section-page-header p {
+      margin: 0;
+      max-width: 760px;
+      color: #3f3f3f;
+      font-size: 1.08rem;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px 24px;
+    }
+
+    .section-card {
+      border-top: 2px solid var(--ink);
+      padding-top: 12px;
+    }
+
+    .section-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1.08;
+      margin: 7px 0 9px;
+    }
+
+    .section-card p {
+      margin: 0;
+      color: #3f3f3f;
+      font-size: .98rem;
+    }
+
+    .section-card .story-image {
+      margin-top: 8px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 820px) {
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="site-header"></div>
+
+  <main class="site-shell section-page">
+
+    <header class="section-page-header">
+      <div class="section-label">The Halden Ledger</div>
+      <h1>Science</h1>
+      <p>Astronomy, the Moon, the environment and the research changing how people understand the world around them.</p>
+    </header>
+
+    <section class="section-grid" aria-label="Science stories">
+      
+        <article class="section-card">
+          <div class="kicker">Science / The Moon</div>
+          
+          <a href="articles/themelion.html">
+            <img class="story-image" src="images/themelion.jpg" alt="" />
+          </a>
+          <h2><a href="articles/themelion.html">Inside Themelion</a></h2>
+          <div class="byline">By Naomi Valez</div>
+          <p>Humanity’s first permanent lunar settlement is growing beneath the surface, where infrastructure matters more than spectacle.</p>
+        </article>
+
+        <article class="section-card">
+          <div class="kicker">Astronomy</div>
+          
+          <a href="articles/cielo-ventana.html">
+            <img class="story-image" src="images/cielo-ventana.png" alt="" />
+          </a>
+          <h2><a href="articles/cielo-ventana.html">At Cielo Ventana, the Hunt Is Moving Beyond the Catalogs</a></h2>
+          <div class="byline">By Naomi Valez</div>
+          <p>Astronomers Sofia Maren and Elias Navarro are revisiting weak signals, incomplete tracks and observations automated surveys leave behind.</p>
+        </article>
+
+        <article class="section-card">
+          <div class="kicker">Science / Environment</div>
+          
+          <h2><a href="articles/quagga-mussels.html">The Mussels That Keep Moving West</a></h2>
+          <div class="byline">By Naomi Valez</div>
+          <p>Quagga mussels have already transformed reservoirs across the Southwest. Water managers are trying to keep them out of the systems they have not reached.</p>
+        </article>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    fetch('/header.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Header failed to load: ' + response.status);
+        return response.text();
+      })
+      .then(html => { document.getElementById('site-header').innerHTML = html; })
+      .catch(error => console.error(error));
+
+    fetch('/footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Footer failed to load: ' + response.status);
+        return response.text();
+      })
+      .then(html => { document.getElementById('site-footer').innerHTML = html; })
+      .catch(error => console.error(error));
+  </script>
+
+</body>
+</html>

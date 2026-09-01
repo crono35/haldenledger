@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Policy reporting from The Halden Ledger." />
+  <title>Policy | The Halden Ledger</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .section-page {
+      padding: 34px 0 64px;
+    }
+
+    .section-page-header {
+      border-bottom: 3px solid var(--ink);
+      padding-bottom: 18px;
+      margin-bottom: 30px;
+    }
+
+    .section-page-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      line-height: .98;
+      margin: 0 0 10px;
+    }
+
+    .section-page-header p {
+      margin: 0;
+      max-width: 760px;
+      color: #3f3f3f;
+      font-size: 1.08rem;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px 24px;
+    }
+
+    .section-card {
+      border-top: 2px solid var(--ink);
+      padding-top: 12px;
+    }
+
+    .section-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1.08;
+      margin: 7px 0 9px;
+    }
+
+    .section-card p {
+      margin: 0;
+      color: #3f3f3f;
+      font-size: .98rem;
+    }
+
+    .section-card .story-image {
+      margin-top: 8px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 820px) {
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="site-header"></div>
+
+  <main class="site-shell section-page">
+
+    <header class="section-page-header">
+      <div class="section-label">The Halden Ledger</div>
+      <h1>Policy</h1>
+      <p>Government, institutions and the political decisions shaping a fast-changing country.</p>
+    </header>
+
+    <section class="section-grid" aria-label="Policy stories">
+      
+        <article class="section-card">
+          <div class="kicker">Politics / Government</div>
+          
+          <a href="articles/grant-coalition.html">
+            <img class="story-image" src="images/grant-election-night.png" alt="" />
+          </a>
+          <h2><a href="articles/grant-coalition.html">Evelyn Grant Won the Country. Now She Has to Govern It.</a></h2>
+          <div class="byline">By Elena Arden</div>
+          <p>Grant built a coalition broad enough to win the White House. Governing through Congress, the states and institutional limits will be a different test.</p>
+        </article>
+
+        <article class="section-card">
+          <div class="kicker">Politics / Government</div>
+          
+          <h2><a href="articles/government-shutdown.html">Washington Is Running Out of Time to Avoid a Shutdown</a></h2>
+          <div class="byline">By Elena Arden</div>
+          <p>Negotiators are still talking, but agencies are preparing for a funding lapse as the next budget deadline approaches.</p>
+        </article>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    fetch('/header.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Header failed to load: ' + response.status);
+        return response.text();
+      })
+      .then(html => { document.getElementById('site-header').innerHTML = html; })
+      .catch(error => console.error(error));
+
+    fetch('/footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Footer failed to load: ' + response.status);
+        return response.text();
+      })
+      .then(html => { document.getElementById('site-footer').innerHTML = html; })
+      .catch(error => console.error(error));
+  </script>
+
+</body>
+</html>

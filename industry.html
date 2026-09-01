@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Industry reporting from The Halden Ledger." />
+  <title>Industry | The Halden Ledger</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .section-page {
+      padding: 34px 0 64px;
+    }
+
+    .section-page-header {
+      border-bottom: 3px solid var(--ink);
+      padding-bottom: 18px;
+      margin-bottom: 30px;
+    }
+
+    .section-page-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      line-height: .98;
+      margin: 0 0 10px;
+    }
+
+    .section-page-header p {
+      margin: 0;
+      max-width: 760px;
+      color: #3f3f3f;
+      font-size: 1.08rem;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px 24px;
+    }
+
+    .section-card {
+      border-top: 2px solid var(--ink);
+      padding-top: 12px;
+    }
+
+    .section-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1.08;
+      margin: 7px 0 9px;
+    }
+
+    .section-card p {
+      margin: 0;
+      color: #3f3f3f;
+      font-size: .98rem;
+    }
+
+    .section-card .story-image {
+      margin-top: 8px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 820px) {
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="site-header"></div>
+
+  <main class="site-shell section-page">
+
+    <header class="section-page-header">
+      <div class="section-label">The Halden Ledger</div>
+      <h1>Industry</h1>
+      <p>Technology, aerospace, markets, labor and the systems being built ahead of tomorrow’s demand.</p>
+    </header>
+
+    <section class="section-grid" aria-label="Industry stories">
+      
+        <article class="section-card">
+          <div class="kicker">Investigations / Industry</div>
+          
+          <h2><a href="articles/avelor-expansion.html">Avelor’s Expansion Is Outpacing Its Public Plans</a></h2>
+          <div class="byline">By Lena Kwon</div>
+          <p>Construction filings, supplier commitments and infrastructure work suggest Avelor is building capacity beyond its public near-term forecasts.</p>
+        </article>
+
+        <article class="section-card">
+          <div class="kicker">Interview / Industry</div>
+          
+          <a href="articles/adrian-serrin.html">
+            <img class="story-image" src="images/adrian-serrin.jpg" alt="" />
+          </a>
+          <h2><a href="articles/adrian-serrin.html">Adrian Serrin: “I’ve Never Been Very Interested in Being the Smartest Person in the Room”</a></h2>
+          <div class="byline">By Theo Ryden</div>
+          <p>The Avelor founder on engineering, failure, control, Themelion, uncertainty and preparation.</p>
+        </article>
+
+        <article class="section-card">
+          <div class="kicker">Technology</div>
+          
+          <a href="articles/seed-automation.html">
+            <img class="story-image" src="images/seed-origin.png" alt="" />
+          </a>
+          <h2><a href="articles/seed-automation.html">Can Machines Build the Machines?</a></h2>
+          <div class="byline">By Marcus Venn</div>
+          <p>Automation research is pushing beyond individual machines toward industrial systems that can help expand their own manufacturing capacity.</p>
+        </article>
+
+        <article class="section-card">
+          <div class="kicker">Technology</div>
+          
+          <h2><a href="articles/nyvolis-lat9.html">Nyvolis Bets on an AI That Shows Its Doubts</a></h2>
+          <div class="byline">By Marcus Venn</div>
+          <p>LAT-9 is designed to surface uncertainty rather than conceal it when the evidence is incomplete.</p>
+        </article>
+
+        <article class="section-card">
+          <div class="kicker">Markets</div>
+          
+          <a href="articles/space-infrastructure-market.html">
+            <img class="story-image" src="images/moon-coin.png" alt="" />
+          </a>
+          <h2><a href="articles/space-infrastructure-market.html">Space Infrastructure Becomes a Market of Its Own</a></h2>
+          <div class="byline">By Owen Guillermo</div>
+          <p>Suppliers increasingly see lunar development not as a distant prospect but as ordinary industrial demand.</p>
+        </article>
+
+        <article class="section-card">
+          <div class="kicker">Economy / Labor</div>
+          
+          <h2><a href="articles/ai-first-rung.html">AI Didn’t Eliminate the Office. It Eliminated the First Rung.</a></h2>
+          <div class="byline">By Owen Guillermo</div>
+          <p>Companies are automating the work that once trained junior employees, leaving a growing experience gap behind.</p>
+        </article>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    fetch('/header.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Header failed to load: ' + response.status);
+        return response.text();
+      })
+      .then(html => { document.getElementById('site-header').innerHTML = html; })
+      .catch(error => console.error(error));
+
+    fetch('/footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Footer failed to load: ' + response.status);
+        return response.text();
+      })
+      .then(html => { document.getElementById('site-footer').innerHTML = html; })
+      .catch(error => console.error(error));
+  </script>
+
+</body>
+</html>
