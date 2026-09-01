@@ -13,28 +13,42 @@
       padding-top: 26px;
       border-top: 1px solid #cfcfcf;
     }
-    .essential-reading > h2 { margin: 4px 0 18px; }
+
+    .essential-reading > h2 {
+      margin: 4px 0 18px;
+    }
+
     .essential-reading-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
-    .essential-reading-card { margin: 0; }
+
+    .essential-reading-card {
+      margin: 0;
+    }
+
     .essential-reading-card h3 {
       margin: 5px 0 8px;
       font-size: 1.08rem;
       line-height: 1.25;
     }
+
     .essential-reading-card h3 a {
       color: inherit;
       text-decoration: none;
     }
-    .essential-reading-card h3 a:hover { text-decoration: underline; }
+
+    .essential-reading-card h3 a:hover {
+      text-decoration: underline;
+    }
+
     .essential-reading-card p {
       margin: 0;
       font-size: 0.94rem;
       line-height: 1.45;
     }
+
     @media (max-width: 760px) {
       .essential-reading-grid {
         grid-template-columns: 1fr;
@@ -60,7 +74,17 @@
         Supplier contracts, construction filings and infrastructure work at Horizon Point suggest Avelor Astronautics is preparing for a scale of operations that its public forecasts do not fully explain.
       </p>
 
-      <div class="byline">By Lena Kwon &nbsp;|&nbsp; The Halden Ledger</div>
+      <div class="author-badge" style="margin: 0 0 18px;">
+        <img
+          class="author-thumb"
+          src="../images/lena-thumb-100.png"
+          alt="Lena Kwon"
+          width="100"
+          height="100"
+          style="display:block; width:100px; height:100px; object-fit:cover; margin:0 0 10px; border-radius:4px;"
+        />
+        <div class="byline">By Lena Kwon &nbsp;|&nbsp; The Halden Ledger</div>
+      </div>
 
       <p class="dropcap">
         Avelor Astronautics has spent the last three years telling investors, regulators and the public a straightforward story: reusable launch vehicles are getting cheaper, orbital demand is rising, and the company intends to be ready when that demand arrives. The numbers support part of that story. They also appear to support more than that.
@@ -200,21 +224,33 @@
 
         <div class="essential-reading-grid">
           <article class="essential-reading-card">
-            <div class="kicker">Science / The Moon</div>
-            <h3><a href="themelion.html">Inside Themelion</a></h3>
-            <p>A walk through humanity’s first permanent lunar settlement and the infrastructure beginning to take shape beneath the surface.</p>
+            <div class="kicker">Moon / Industry</div>
+            <h3>
+              <a href="themelion.html">Themelion Is Becoming More Than a Lunar Outpost</a>
+            </h3>
+            <p>
+              Inside the expanding lunar settlement that is beginning to change what permanent activity beyond Earth could look like.
+            </p>
           </article>
 
           <article class="essential-reading-card">
-            <div class="kicker">Interview / Industry</div>
-            <h3><a href="adrian-serrin.html">Adrian Serrin: “I’ve Never Been Very Interested in Being the Smartest Person in the Room”</a></h3>
-            <p>The Avelor founder on engineering, failure, control, Themelion, uncertainty and the way he thinks about preparation.</p>
+            <div class="kicker">Interview</div>
+            <h3>
+              <a href="adrian-serrin.html">Adrian Serrin Has Been Building for This Moment for Years</a>
+            </h3>
+            <p>
+              The Avelor founder on scale, preparation and why he believes the infrastructure around spaceflight matters more than any single launch.
+            </p>
           </article>
 
           <article class="essential-reading-card">
-            <div class="kicker">Politics / Government</div>
-            <h3><a href="grant-coalition.html">Evelyn Grant Won the Country. Now She Has to Govern It.</a></h3>
-            <p>The coalition that elected President Evelyn Grant is broad. Governing it will require navigating Congress, the states and the limits of presidential authority.</p>
+            <div class="kicker">Politics</div>
+            <h3>
+              <a href="grant-coalition.html">Evelyn Grant Won the Presidency. Now She Has to Govern.</a>
+            </h3>
+            <p>
+              Grant assembled a broad coalition to win the White House. Keeping it together will require a different kind of political skill.
+            </p>
           </article>
         </div>
       </section>
