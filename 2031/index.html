@@ -62,7 +62,6 @@
 
   <main class="site-shell era-main">
     <section class="era-placeholder">
-
       <div class="section-label">2031 Edition</div>
 
       <h1>The Ledger Has Been Updated.</h1>
@@ -78,11 +77,12 @@
       <p>Earlier reporting remains available through the Ledger archive.</p>
 
       <a class="back-link" href="/archive.html">View the Archive</a>
-
     </section>
   </main>
 
   <div id="site-footer"></div>
+
+  <script src="/js/header.js"></script>
 
   <script>
     fetch('/header.html')
@@ -92,10 +92,9 @@
       })
       .then(html => {
         document.getElementById('site-header').innerHTML = html;
-
-        var script = document.createElement('script');
-        script.src = '/js/header.js';
-        document.body.appendChild(script);
+        if (window.initLedgerHeader) {
+          window.initLedgerHeader();
+        }
       })
       .catch(error => console.error(error));
 
