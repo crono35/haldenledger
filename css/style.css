@@ -137,12 +137,13 @@ a:hover { color: var(--accent); }
 
 .home-with-ad {
   display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
+  grid-template-columns: 150px 1fr;
   gap: 24px;
   align-items: start;
 }
 
 .home-content {
+  width: 100%;
   min-width: 0;
 }
 
@@ -172,7 +173,7 @@ a:hover { color: var(--accent); }
 
 .lead-grid {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(280px, 0.9fr);
+  grid-template-columns: 2fr 1fr;
   gap: 28px;
   align-items: start;
   border-bottom: 1px solid var(--ink);
