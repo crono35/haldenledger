@@ -86,7 +86,10 @@
         <article class="section-card">
           <div class="kicker">Investigations / Industry</div>
           
-          <h2><a href="articles/avelor-expansion.html">Avelor’s Expansion Is Outpacing Its Public Plans</a></h2>
+                    <a href="articles/avelor-expansion.html">
+            <img class="story-image" src="images/horizon-point.png" alt="A wide daytime view of Horizon Point with launch pads, rockets and industrial infrastructure" />
+          </a>
+<h2><a href="articles/avelor-expansion.html">Avelor’s Expansion Is Outpacing Its Public Plans</a></h2>
           <div class="byline">By Lena Kwon</div>
           <p>Construction filings, supplier commitments and infrastructure work suggest Avelor is building capacity beyond its public near-term forecasts.</p>
         </article>
@@ -94,6 +97,9 @@
         <article class="section-card">
           <div class="kicker">From the Archive / Investigations</div>
 
+          <a href="articles/contractor-crane-failures.html">
+            <img class="story-image" src="images/crane.png" alt="Container ships and gantry cranes at a busy West Coast cargo port" />
+          </a>
           <h2><a href="articles/contractor-crane-failures.html">Contractor Concealed Crane Failures at Three West Coast Ports, Records Show</a></h2>
           <div class="byline">By Lena Kwon</div>
           <p>Tidegate Industrial Systems certified cargo equipment as safe after internal inspections found cracked components, disabled alarms and recurring control failures.</p>
@@ -124,7 +130,10 @@
         <article class="section-card">
           <div class="kicker">Technology</div>
           
-          <h2><a href="articles/nyvolis-lat9.html">Nyvolis Bets on an AI That Shows Its Doubts</a></h2>
+                    <a href="articles/nyvolis-lat9.html">
+            <img class="story-image" src="images/ai-doubt.png" alt="An abstract branching data visualization showing multiple possible AI outcomes and an unknown path" />
+          </a>
+<h2><a href="articles/nyvolis-lat9.html">Nyvolis Bets on an AI That Shows Its Doubts</a></h2>
           <div class="byline">By Marcus Venn</div>
           <p>LAT-9 is designed to surface uncertainty rather than conceal it when the evidence is incomplete.</p>
         </article>
@@ -143,7 +152,10 @@
         <article class="section-card">
           <div class="kicker">Economy / Labor</div>
           
-          <h2><a href="articles/ai-first-rung.html">AI Didn’t Eliminate the Office. It Eliminated the First Rung.</a></h2>
+                    <a href="articles/ai-first-rung.html">
+            <img class="story-image" src="images/office.png" alt="Empty junior workstations in the foreground of a modern office while employees work farther back" />
+          </a>
+<h2><a href="articles/ai-first-rung.html">AI Didn’t Eliminate the Office. It Eliminated the First Rung.</a></h2>
           <div class="byline">By Owen Guillermo</div>
           <p>Companies are automating the work that once trained junior employees, leaving a growing experience gap behind.</p>
         </article>
@@ -154,7 +166,7 @@
   <div id="site-footer"></div>
 
   <script>
-    fetch('/header.html?v=6')
+    fetch('/header.html?v=8')
       .then(function(response) {
         if (!response.ok) throw new Error('Header failed to load: ' + response.status);
         return response.text();
@@ -163,7 +175,7 @@
         document.getElementById('site-header').innerHTML = html;
 
         var script = document.createElement('script');
-        script.src = '/js/header.js?v=6';
+        script.src = '/js/header.js?v=8';
         script.onload = function() {
           if (window.initLedgerHeader) {
             window.initLedgerHeader();
@@ -175,7 +187,7 @@
       })
       .catch(function(error) { console.error(error); });
 
-    fetch('/footer.html?v=6')
+    fetch('/footer.html?v=8')
       .then(function(response) {
         if (!response.ok) throw new Error('Footer failed to load: ' + response.status);
         return response.text();
