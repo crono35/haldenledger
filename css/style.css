@@ -5,6 +5,7 @@
   --muted: #666666;
   --rule: #d8d8d8;
   --paper: #fbfaf7;
+  --chrome: #f4f2ed;
   --accent: #7a1111;
   --site-max: 1180px;
   --article-max: 820px;
@@ -20,10 +21,21 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   color: var(--ink);
   background: var(--paper);
   font-family: var(--font-body);
   line-height: 1.58;
+}
+
+#site-header {
+  flex-shrink: 0;
+}
+
+#site-footer {
+  margin-top: auto;
 }
 
 a {
@@ -33,6 +45,13 @@ a {
 
 a:hover { color: var(--accent); }
 
+#site-header > header {
+  position: relative;
+  background: var(--chrome);
+  border-bottom: 2px solid #aaa;
+}
+
+
 .site-shell {
   width: min(calc(100% - 32px), var(--site-max));
   margin: 0 auto;
@@ -40,13 +59,13 @@ a:hover { color: var(--accent); }
 
 .article-shell {
   width: min(calc(100% - 32px), 980px);
-  margin: 0 auto;
+  margin: 10px auto 0;
   background: #ffffff;
   box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
 }
 
 .utility-bar {
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 0;
   font-family: var(--font-ui);
   font-size: 0.78rem;
   color: var(--muted);
@@ -56,10 +75,16 @@ a:hover { color: var(--accent); }
   gap: 16px;
 }
 
+.utility-bar,
+.utility-bar #ledger-edition-date,
+.utility-bar > div,
+.utility-bar > div > div {
+  font-family: var(--font-ui);
+}
+
 .masthead {
   text-align: center;
-  padding: 24px 0 13px;
-  border-bottom: 3px solid var(--ink);
+  padding: 16px 0 13px;
 }
 
 .masthead h1,
@@ -88,12 +113,26 @@ a:hover { color: var(--accent); }
   flex-wrap: wrap;
   gap: 18px;
   padding: 10px 0;
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 0;
   font-family: var(--font-ui);
   font-weight: 700;
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+}
+
+.nav a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav a:not(:last-child)::after {
+  content: "◆";
+  margin-left: 18px;
+  font-size: 0.42rem;
+  line-height: 1;
+  color: var(--ink);
+  transform: translateY(-0.02em);
 }
 
 .kicker,
@@ -284,7 +323,7 @@ a:hover { color: var(--accent); }
 
 .article {
   width: min(100%, var(--article-max));
-  margin: 42px auto 70px;
+  margin: 54px auto 70px;
 }
 
 .article h1 {
@@ -421,7 +460,8 @@ a:hover { color: var(--accent); }
 /* Footer */
 
 footer {
-  border-top: 2px solid var(--ink);
+  background: var(--chrome);
+  border-top: 2px solid #aaa;
   margin-top: 44px;
   padding: 24px 0 36px;
   font-family: var(--font-ui);

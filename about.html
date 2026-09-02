@@ -47,6 +47,36 @@
       line-height: 1.6;
     }
 
+    .launch-callout {
+      margin: 38px 0 10px;
+      padding: 26px 28px;
+      border: 1px solid #cfcfcf;
+      background: #f5f5f3;
+    }
+
+    .launch-callout h2 {
+      margin: 0 0 10px;
+    }
+
+    .launch-callout p:last-of-type {
+      margin-bottom: 20px;
+    }
+
+    .signup-button {
+      display: inline-block;
+      padding: 12px 18px;
+      background: #070a0e;
+      color: #fff !important;
+      text-decoration: none !important;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .signup-button:hover,
+    .signup-button:focus {
+      background: #222;
+    }
+
     .about-page .series-link {
       margin-top: 36px;
       padding-top: 22px;
@@ -124,8 +154,27 @@
         You do not need to have read the books to explore the site, and the site is designed so that readers can discover the larger story at their own pace.
       </p>
 
+      <p>
+        As the series progresses, the Ledger will progress with it. After finishing each book, readers can return to see new editions, articles and updates from the world as it moves forward. Earlier editions will remain available in the archive, so the site can be explored as a record of how the story’s world changes over time.
+      </p>
+
+      <section class="launch-callout" aria-labelledby="series-launch-title">
+        <div class="section-label">Coming Soon</div>
+        <h2 id="series-launch-title">The story begins with <em>A Decade to Midnight</em></h2>
+
+        <p>
+          The first novel in <em>The Silenced Universe</em> is currently preparing for release. The Halden Ledger will continue expanding ahead of launch, with new reporting, characters and pieces of the world appearing here over time.
+        </p>
+
+        <p>
+          Join the mailing list to be notified when the book launches, receive major series updates, and hear when new Ledger material is published.
+        </p>
+
+        <a class="signup-button" href="signup.html">Join the mailing list →</a>
+      </section>
+
       <div class="series-link">
-        <a href="#" aria-label="Explore The Silenced Universe">Explore <em>The Silenced Universe</em> →</a>
+        Explore the Ledger now, then return as <em>The Silenced Universe</em> grows.
       </div>
 
     </article>
@@ -133,45 +182,32 @@
 
   <div id="site-footer"></div>
 
-    <script>
-    fetch('/header.html?v=8')
-      .then(function(response) {
+  <script>
+    fetch('header.html')
+      .then(response => {
         if (!response.ok) {
           throw new Error('Header failed to load: ' + response.status);
         }
         return response.text();
       })
-      .then(function(html) {
+      .then(html => {
         document.getElementById('site-header').innerHTML = html;
-
-        var script = document.createElement('script');
-        script.src = '/js/header.js?v=8';
-
-        script.onload = function() {
-          if (window.initLedgerHeader) {
-            window.initLedgerHeader();
-          } else {
-            console.error('initLedgerHeader was not found.');
-          }
-        };
-
-        document.body.appendChild(script);
       })
-      .catch(function(error) {
+      .catch(error => {
         console.error(error);
       });
 
-    fetch('/footer.html?v=8')
-      .then(function(response) {
+    fetch('footer.html')
+      .then(response => {
         if (!response.ok) {
           throw new Error('Footer failed to load: ' + response.status);
         }
         return response.text();
       })
-      .then(function(html) {
+      .then(html => {
         document.getElementById('site-footer').innerHTML = html;
       })
-      .catch(function(error) {
+      .catch(error => {
         console.error(error);
       });
   </script>
