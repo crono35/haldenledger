@@ -137,13 +137,12 @@ a:hover { color: var(--accent); }
 
 .home-with-ad {
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 150px minmax(0, 1fr);
   gap: 24px;
   align-items: start;
 }
 
 .home-content {
-  width: 100%;
   min-width: 0;
 }
 
@@ -173,7 +172,7 @@ a:hover { color: var(--accent); }
 
 .lead-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 0.9fr);
   gap: 28px;
   align-items: start;
   border-bottom: 1px solid var(--ink);
@@ -487,5 +486,96 @@ footer {
     width: min(220px, 58vw);
     margin: 36px auto 0;
     align-self: center;
+  }
+}
+
+
+/* === TEMPORARY HOMEPAGE DIAGNOSTIC OVERLAY ===
+   Safe to remove after debugging.
+   This does not change page structure or content.
+*/
+@media (min-width: 821px) {
+  .site-shell.home-main {
+    outline: 4px solid red !important;
+    position: relative;
+  }
+
+  .site-shell.home-main::before {
+    content: "site-shell";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: 99999;
+    background: red;
+    color: white;
+    font: 700 12px/1.2 Arial, sans-serif;
+    padding: 3px 5px;
+    pointer-events: none;
+  }
+
+  .home-with-ad {
+    outline: 4px solid blue !important;
+    position: relative;
+  }
+
+  .home-with-ad::before {
+    content: "home-with-ad";
+    position: absolute;
+    top: 20px;
+    left: 2px;
+    z-index: 99999;
+    background: blue;
+    color: white;
+    font: 700 12px/1.2 Arial, sans-serif;
+    padding: 3px 5px;
+    pointer-events: none;
+  }
+
+  .home-content {
+    outline: 4px solid green !important;
+    position: relative;
+  }
+
+  .home-content::before {
+    content: "home-content";
+    position: absolute;
+    top: 38px;
+    left: 2px;
+    z-index: 99999;
+    background: green;
+    color: white;
+    font: 700 12px/1.2 Arial, sans-serif;
+    padding: 3px 5px;
+    pointer-events: none;
+  }
+
+  .lead-grid {
+    outline: 4px solid orange !important;
+    position: relative;
+  }
+
+  .lead-grid::before {
+    content: "lead-grid";
+    position: absolute;
+    top: 56px;
+    left: 2px;
+    z-index: 99999;
+    background: orange;
+    color: black;
+    font: 700 12px/1.2 Arial, sans-serif;
+    padding: 3px 5px;
+    pointer-events: none;
+  }
+
+  .lead-story {
+    outline: 3px dashed purple !important;
+  }
+
+  .left-ad {
+    outline: 3px dashed magenta !important;
+  }
+
+  .side-story {
+    outline: 2px dashed teal !important;
   }
 }
