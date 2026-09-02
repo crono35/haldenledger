@@ -12,6 +12,12 @@
   <title>The Halden Ledger</title>
 
   <link rel="stylesheet" href="css/style.css?v=20260830-2" />
+  <style>
+    .home-content-wrap {
+      width: 100%;
+      min-width: 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -20,9 +26,7 @@
 
   <main class="site-shell home-main">
 
-    <div class="home-no-ad">
-
-
+    <div class="home-content-wrap">
 
       <div class="home-content">
 
@@ -32,7 +36,9 @@
 
             <div class="kicker">Science / The Moon</div>
 
-            <h2>Themelion Enters a New Phase</h2>
+            <h2>
+              <a href="articles/themelion.html">Themelion Enters a New Phase</a>
+            </h2>
 
             <p class="dek">
               Once dismissed as an expensive experiment, the lunar settlement is becoming something harder to ignore: permanent infrastructure beyond Earth.
@@ -40,11 +46,13 @@
 
             <div class="byline">By Naomi Valez</div>
 
-            <img
-              class="story-image"
-              src="images/themelion.webp"
-              alt="Themelion lunar settlement"
-            />
+            <a href="articles/themelion.html">
+              <img
+                class="story-image"
+                src="images/themelion.webp"
+                alt="Themelion lunar settlement"
+              />
+            </a>
 
             <div class="caption">
               Themelion Base in the lunar south polar region. Halden Ledger file image.
@@ -70,12 +78,16 @@
 
               <div class="kicker">Interview</div>
 
-              <img
-                src="images/adrian-serrin.webp"
-                alt="Adrian Serrin seated in his office"
-              />
+              <a href="articles/adrian-serrin.html">
+                <img
+                  src="images/adrian-serrin.webp"
+                  alt="Adrian Serrin seated in his office"
+                />
+              </a>
 
-              <h3>The Architect Behind Avelor</h3>
+              <h3>
+                <a href="articles/adrian-serrin.html">The Architect Behind Avelor</a>
+              </h3>
 
               <div class="byline">By Theo Ryden</div>
 
@@ -93,13 +105,17 @@
 
               <div class="kicker">Politics</div>
 
-              <img
-                src="images/grant-election-night.webp?v=2"
-                alt="President Evelyn Grant celebrating on election night"
-              />
+              <a href="articles/grant-coalition.html">
+                <img
+                  src="images/grant-election-night.webp?v=2"
+                  alt="President Evelyn Grant celebrating on election night"
+                />
+              </a>
 
               <h3>
-                How Evelyn Grant Built the Coalition That Put Her in the White House
+                <a href="articles/grant-coalition.html">
+                  How Evelyn Grant Built the Coalition That Put Her in the White House
+                </a>
               </h3>
 
               <div class="byline">By Elena Arden</div>
@@ -117,6 +133,15 @@
           </aside>
 
         </section>
+
+        <div class="home-banner" style="text-align:center; margin:24px auto 28px;">
+          <img
+            id="random-feature-top"
+            src=""
+            alt=""
+            style="display:block; width:560px; max-width:90%; height:auto; margin:0 auto;"
+          />
+        </div>
 
         <div class="section-heading">
           More from the Ledger
@@ -282,6 +307,15 @@
 
         </section>
 
+        <div class="home-banner" style="text-align:center; margin:32px auto 18px;">
+          <img
+            id="random-feature-bottom"
+            src=""
+            alt=""
+            style="display:block; width:560px; max-width:90%; height:auto; margin:0 auto;"
+          />
+        </div>
+
       </div>
 
     </div>
@@ -290,7 +324,28 @@
 
   <div id="site-footer"></div>
 
+  <script src="/js/features.js"></script>
+
   <script>
+    (function() {
+      var selected = window.pickHaldenFeatures ? window.pickHaldenFeatures(2) : [];
+      var topFeature = document.getElementById('random-feature-top');
+      var bottomFeature = document.getElementById('random-feature-bottom');
+
+      if (topFeature && selected[0]) {
+        topFeature.src = selected[0].src;
+        topFeature.alt = selected[0].alt;
+      }
+
+      if (bottomFeature && selected[1]) {
+        bottomFeature.src = selected[1].src;
+        bottomFeature.alt = selected[1].alt;
+      } else if (bottomFeature && selected[0]) {
+        bottomFeature.src = selected[0].src;
+        bottomFeature.alt = selected[0].alt;
+      }
+    })();
+
     fetch('/header.html?v=8')
       .then(function(response) {
         if (!response.ok) {

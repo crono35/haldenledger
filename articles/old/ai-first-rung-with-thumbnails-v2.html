@@ -9,6 +9,83 @@
   />
   <title>AI Didn’t Eliminate the Office. It Eliminated the First Rung. | The Halden Ledger</title>
   <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    .essential-reading {
+      margin: 52px 0 10px;
+      padding-top: 26px;
+      border-top: 1px solid #cfcfcf;
+    }
+
+    .essential-reading > h2 {
+      margin: 4px 0 18px;
+    }
+
+    .essential-reading-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .essential-reading-card {
+      display: block;
+      margin: 0;
+    }
+
+    .essential-reading-thumb {
+      display: block;
+      margin-bottom: 11px;
+    }
+
+    .essential-reading-thumb img {
+      display: block;
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border: 1px solid #ddd;
+      background: #e8e8e8;
+    }
+
+    .essential-reading-card h3 {
+      margin: 4px 0 7px;
+      font-size: 1.02rem;
+      line-height: 1.2;
+    }
+
+    .essential-reading-card h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .essential-reading-card h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .essential-reading-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .essential-reading-card .kicker {
+      margin-bottom: 2px;
+      font-size: 0.68rem;
+    }
+
+    @media (max-width: 900px) {
+      .essential-reading-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .essential-reading-thumb img {
+        height: 180px;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -276,9 +353,61 @@
 
       <div class="endmark">◆</div>
 
-    
 
-      <div id="continued-reading"></div>
+      <section class="essential-reading" aria-labelledby="essential-reading-title">
+        <div class="section-label">Continued Reading</div>
+        <h2 id="essential-reading-title">More from the Ledger</h2>
+
+        <div class="essential-reading-grid">
+
+          <article class="essential-reading-card">
+            <a class="essential-reading-thumb" href="themelion.html">
+              <img
+                src="../images/themelion.webp"
+                alt="Themelion Base on the lunar surface"
+              />
+            </a>
+
+            <div>
+              <div class="kicker">Science / The Moon</div>
+              <h3><a href="themelion.html">Inside Themelion</a></h3>
+              <p>Humanity’s first permanent lunar settlement is becoming something more than an outpost.</p>
+            </div>
+          </article>
+
+          <article class="essential-reading-card">
+            <a class="essential-reading-thumb" href="adrian-serrin.html">
+              <img
+                src="../images/adrian-serrin.webp"
+                alt="Adrian Serrin seated in his office"
+              />
+            </a>
+
+            <div>
+              <div class="kicker">Interview / Industry</div>
+              <h3><a href="adrian-serrin.html">The Architect Behind Avelor</a></h3>
+              <p>Adrian Serrin on engineering, risk, uncertainty and why he builds before demand arrives.</p>
+            </div>
+          </article>
+
+          <article class="essential-reading-card">
+            <a class="essential-reading-thumb" href="grant-coalition.html">
+              <img
+                src="../images/grant-election-night.webp"
+                alt="President Evelyn Grant on election night"
+              />
+            </a>
+
+            <div>
+              <div class="kicker">Politics / Government</div>
+              <h3><a href="grant-coalition.html">Evelyn Grant Won the Country. Now She Has to Govern It.</a></h3>
+              <p>The coalition that elected Grant is broad. Governing it will be the harder test.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
 
     </article>
   </main>
@@ -329,9 +458,6 @@
         console.error(error);
       });
   </script>
-
-
-  <script src="/js/continued-reading.js?v=1"></script>
 
 </body>
 </html>

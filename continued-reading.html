@@ -1,0 +1,186 @@
+<style>
+  .essential-reading {
+    margin: 52px 0 10px;
+    padding-top: 26px;
+    border-top: 1px solid #cfcfcf;
+  }
+
+  .essential-reading > h2 {
+    margin: 4px 0 18px;
+  }
+
+  .essential-reading-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .essential-reading-card {
+    display: block;
+    margin: 0;
+  }
+
+  .essential-reading-thumb {
+    display: block;
+    margin-bottom: 11px;
+  }
+
+  .essential-reading-thumb img {
+    display: block;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    background: #e8e8e8;
+  }
+
+  .essential-reading-card h3 {
+    margin: 4px 0 7px;
+    font-size: 1.02rem;
+    line-height: 1.2;
+  }
+
+  .essential-reading-card h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .essential-reading-card h3 a:hover {
+    text-decoration: underline;
+  }
+
+  .essential-reading-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .essential-reading-card .kicker {
+    margin-bottom: 2px;
+    font-size: 0.68rem;
+  }
+
+  .continued-reading-banner {
+    text-align: center;
+    margin: 28px auto 4px;
+  }
+
+  .continued-reading-banner img {
+    display: block;
+    width: min(100%, 560px);
+    height: auto;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 900px) {
+    .essential-reading-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .essential-reading-thumb img {
+      height: 180px;
+    }
+
+    .continued-reading-banner {
+      margin-top: 22px;
+    }
+  }
+</style>
+
+<section class="essential-reading" aria-labelledby="essential-reading-title">
+  <div class="section-label">Continued Reading</div>
+  <h2 id="essential-reading-title">More from the Ledger</h2>
+
+  <div class="essential-reading-grid">
+
+    <article class="essential-reading-card" data-article-path="/articles/themelion.html">
+      <a class="essential-reading-thumb" href="/articles/themelion.html">
+        <img src="/images/themelion.webp" alt="Themelion Base on the lunar surface" />
+      </a>
+      <div>
+        <div class="kicker">Science / The Moon</div>
+        <h3><a href="/articles/themelion.html">Inside Themelion</a></h3>
+        <p>Humanity’s first permanent lunar settlement is becoming something more than an outpost.</p>
+      </div>
+    </article>
+
+    <article class="essential-reading-card" data-article-path="/articles/adrian-serrin.html">
+      <a class="essential-reading-thumb" href="/articles/adrian-serrin.html">
+        <img src="/images/adrian-serrin.webp" alt="Adrian Serrin seated in his office" />
+      </a>
+      <div>
+        <div class="kicker">Interview / Industry</div>
+        <h3><a href="/articles/adrian-serrin.html">The Architect Behind Avelor</a></h3>
+        <p>Adrian Serrin on engineering, risk, uncertainty and why he builds before demand arrives.</p>
+      </div>
+    </article>
+
+    <article class="essential-reading-card" data-article-path="/articles/grant-coalition.html">
+      <a class="essential-reading-thumb" href="/articles/grant-coalition.html">
+        <img src="/images/grant-election-night.webp" alt="President Evelyn Grant on election night" />
+      </a>
+      <div>
+        <div class="kicker">Politics / Government</div>
+        <h3><a href="/articles/grant-coalition.html">Evelyn Grant Won the Country. Now She Has to Govern It.</a></h3>
+        <p>The coalition that elected Grant is broad. Governing it will be the harder test.</p>
+      </div>
+    </article>
+
+    <article class="essential-reading-card" data-article-path="/articles/nyvolis-lat9.html">
+      <a class="essential-reading-thumb" href="/articles/nyvolis-lat9.html">
+        <img src="/images/ai-doubt.webp" alt="A branching visualization representing uncertain AI outcomes" />
+      </a>
+      <div>
+        <div class="kicker">Technology / Artificial Intelligence</div>
+        <h3><a href="/articles/nyvolis-lat9.html">Nyvolis Bets on an AI That Shows Its Doubts</a></h3>
+        <p>LAT-9 was built to preserve uncertainty instead of hiding it behind a single confident answer.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="continued-reading-banner">
+    <img
+      id="continued-feature"
+      src="/images/1/avelor.webp"
+      alt="Avelor Astronautics"
+      data-randomized="false"
+      onload="
+        if (this.dataset.randomized === 'true') return;
+        this.dataset.randomized = 'true';
+
+        var img = this;
+
+        function chooseFeature() {
+          if (!window.pickHaldenFeatures) return;
+          var selected = window.pickHaldenFeatures(1);
+          if (selected[0]) {
+            img.alt = selected[0].alt || '';
+            if (img.src.indexOf(selected[0].src) === -1) {
+              img.src = selected[0].src;
+            }
+          }
+        }
+
+        if (window.pickHaldenFeatures) {
+          chooseFeature();
+        } else {
+          var existing = document.querySelector('script[data-halden-features]');
+          if (existing) {
+            existing.addEventListener('load', chooseFeature, { once: true });
+          } else {
+            var script = document.createElement('script');
+            script.src = '/js/features.js';
+            script.dataset.haldenFeatures = 'true';
+            script.onload = chooseFeature;
+            document.head.appendChild(script);
+          }
+        }
+      "
+    />
+  </div>
+<br>
+</section>
