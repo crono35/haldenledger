@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A fringe collection of online communities argues that humanity's biggest problems may share a common cause: humanity itself." />
+  <title>A Fringe Movement Says Humanity Needs to Be Reined In | The Halden Ledger</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="article-shell">
+    <article class="article">
+      <div class="section-label">World / Society</div>
+      <h1>A Fringe Movement Says Humanity Needs to Be Reined In</h1>
+      <p class="article-dek">A loose collection of online communities is finding common ground in an old argument: humanity may be its own biggest problem.</p>
+      <div class="author-badge" style="margin: 0 0 18px;">
+        <img
+          class="author-thumb"
+          src="../images/reporters/elena-arden.webp"
+          alt="Elena Arden"
+          width="100"
+          height="100"
+          style="display:block; width:100px; height:100px; object-fit:cover; margin:0 0 10px; border-radius:4px;"
+        />
+        <div class="byline">By Elena Arden &nbsp;|&nbsp; The Halden Ledger</div>
+      </div>
+
+      <img class="hero" src="../images/protest.webp" alt="A small group of protesters outside an unidentified building while pedestrians pass by" />
+      <div class="caption">A small demonstration calling for greater human restraint. The movement remains fragmented, largely online and politically marginal.</div>
+
+      <p class="dropcap">Political movements usually have something specific to blame. Governments. Corporations. Economic systems. New technologies. Old institutions.</p>
+      <p>A small collection of online communities has settled on a broader answer: us.</p>
+      <p>There is no single organization behind them, no recognized leader and not much agreement on what should be done. Some come from environmental groups, others from religious or antiwar communities, and many appear to have found one another online without belonging anywhere in particular. What they share is a belief that humanity has become very good at increasing what it can do and not particularly good at deciding what it should do.</p>
+      <p>Their examples are familiar enough. Wars continue despite generations spent recording their cost. Environmental agreements are signed and missed. New technologies solve problems while introducing others. Institutions created in response to one disaster weaken before the next arrives.</p>
+      <p>The unusual part is the conclusion. Rather than treating those failures as problems to solve individually, members of these communities increasingly describe them as evidence of something larger: a species that does not reliably restrain itself.</p>
+      <p>Dr. Mireya Sorel, a social philosopher at the Westbridge Institute who has followed several of the communities, cautions against calling that an ideology. Most of the people involved would probably disagree with one another on almost everything else, and membership counts on public forums say little about how many people actually accept their more extreme arguments.</p>
+      <p>“The common thread is restraint,” Sorel said. “They question the assumption that continuing to expand what we're capable of is automatically a good thing.”</p>
+      <p>For many, that means familiar proposals involving consumption, weapons or environmental protections. At the edges, however, the language becomes harder. Some argue that voluntary restraint has already failed and that governments should be willing to impose limits for the benefit of future generations.</p>
+      <p>There is a moral judgment underneath some of those arguments as well. Humanity's history of war, exploitation and environmental damage is presented not simply as a collection of failures but as evidence that people cannot always be trusted with the consequences of their own choices. Critics have described that view as little more than misanthropy dressed up as political philosophy.</p>
+      <p>Professor Tomas Veyra, a political historian at the North Cascades School of Public Affairs, sees little reason to treat the communities as a significant political force. Similar ideas have appeared in different forms for centuries; what has changed, he said, is how easily people who hold them can find one another.</p>
+      <p>“Ten thousand people scattered around the world used to be ten thousand isolated people,” Veyra said. “Now they have a forum.”</p>
+      <p>Even that may overstate their significance. Several of the larger communities reviewed by the Halden Ledger claim membership in the tens of thousands, but most discussions are driven by a much smaller group of regular contributors. Petitions associated with the movement have attracted little attention, and attempts to carry similar ideas into conventional politics have gone nowhere.</p>
+      <p>There isn't even agreement on what to call it. Different groups use different labels, most of which seem unlikely to survive beyond the communities that invented them. One phrase, however, appears with some regularity: <strong>Being able to continue is not the same as deserving to.</strong></p>
+
+      <div class="pullquote">
+        “Being able to continue is not the same as deserving to.”
+      </div>
+      <p>For now, it is mostly an internet slogan attached to a collection of people who agree that humanity needs limits but cannot agree on what those limits should be, who should set them or what would happen if the rest of the world simply said no.</p>
+
+      <div class="endmark">◆</div>
+
+      <div id="continued-reading"></div>
+    </article>
+  </main>
+  <div id="site-footer"></div>
+
+  <script>
+    fetch('/header.html?v=6')
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error('Header failed to load: ' + response.status);
+        }
+
+        return response.text();
+      })
+      .then(function(html) {
+        document.getElementById('site-header').innerHTML = html;
+
+        var script = document.createElement('script');
+        script.src = '/js/header.js?v=6';
+
+        script.onload = function() {
+          if (window.initLedgerHeader) {
+            window.initLedgerHeader();
+          } else {
+            console.error('initLedgerHeader was not found.');
+          }
+        };
+
+        document.body.appendChild(script);
+      })
+      .catch(function(error) {
+        console.error(error);
+      });
+
+    fetch('/footer.html?v=6')
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error('Footer failed to load: ' + response.status);
+        }
+
+        return response.text();
+      })
+      .then(function(html) {
+        document.getElementById('site-footer').innerHTML = html;
+      })
+      .catch(function(error) {
+        console.error(error);
+      });
+  </script>
+
+  <script src="/js/continued-reading.js?v=1"></script>
+
+</body>
+</html>
