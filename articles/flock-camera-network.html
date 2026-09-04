@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A Halden Ledger investigation into the growing reach of automated license-plate reader networks." />
+  <title>The Cameras Were Local. The Network Isn’t. | The Halden Ledger</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="article-shell">
+    <article class="article">
+      <div class="section-label">Investigations / Technology</div>
+      <h1>The Cameras Were Local. The Network Isn’t.</h1>
+      <p class="article-dek">A Halden Ledger analysis found Flock camera systems operating in 98 of the nation’s 100 largest metropolitan areas, the result of thousands of decisions by police departments, cities, businesses and neighborhoods.</p>
+      <div class="author-badge" style="margin: 0 0 18px;">
+        <img
+          class="author-thumb"
+          src="../images/reporters/lena-kwon.webp"
+          alt="Lena Kwon"
+          width="100"
+          height="100"
+          style="display:block; width:100px; height:100px; object-fit:cover; margin:0 0 10px; border-radius:4px;"
+        />
+        <div class="byline">By Lena Kwon &nbsp;|&nbsp; The Halden Ledger</div>
+      </div>
+      <img
+        class="story-image"
+        src="../images/camera.webp"
+        alt="Photo illustration of an automated license-plate reader detecting a vehicle plate"
+      />
+      <div class="article-meta">June 18, 2027 &nbsp;|&nbsp; Photo illustration / The Halden Ledger</div>
+        <p>There was no vote to build a national vehicle-surveillance network. Congress never authorized one, and no federal agency announced one. Instead, police departments, cities, businesses and neighborhoods bought cameras one contract at a time.</p>
+        <p>A four-month Halden Ledger review of municipal contracts, procurement records, police disclosures and deployment information found Flock Safety camera systems operating in 98 of the nation's 100 largest metropolitan areas. That does not mean 98 percent of roads are monitored; in some regions, only a handful of cameras cover a large area. Nor does it mean law enforcement can continuously follow any vehicle across the country. It does mean the network has become difficult to avoid in metropolitan America.</p>
+        <p>Flock Safety supplies automated license-plate recognition cameras to police departments, municipalities, businesses, homeowners associations and other customers. The cameras photograph passing vehicles and turn details from those images into searchable records.</p>
+        <p>Police departments have good reasons for wanting them. A stolen vehicle passes a camera and investigators have a location. A car associated with a missing person appears in another town and police have a lead. Departments contacted by The Halden pointed to investigations that were shortened by information from automated plate readers.</p>
+        <p>The technology works, but the question becomes more complicated as thousands of those cameras become part of something larger.</p>
+        <p>There is no comprehensive public map of every Flock camera in the United States. Deployments are divided among thousands of customers, with disclosure requirements varying by jurisdiction, so The Halden began assembling one.</p>
+        <p>Contracts led to purchase orders. Purchase orders identified departments, department policies identified neighboring agencies, and city council agendas documented expansions. Public records showed deployments in communities where official websites provided little information about them.</p>
+        <p>Individually, most were unremarkable: twenty cameras in one city, forty in another, several around a shopping district, others along roads entering residential neighborhoods. Together, they showed something different. Flock systems were present in 98 of the 100 metropolitan areas examined.</p>
+        <p>Presence is not saturation, but automated surveillance does something an officer parked beside a road cannot: it keeps the observation.</p>
+        <p>For most of American history, following a vehicle required investigators to decide it was worth following. Officers conducted surveillance, requested security footage or contacted other agencies after a person or vehicle became relevant. Automated systems reverse that sequence because the observation already exists when investigators decide they need it.</p>
+        <p>A camera does not know whether the sedan passing beneath it belongs to a suspected car thief, a missing teenager or someone driving home from work. It records the vehicle regardless. If nobody searches for it, the observation may never matter; if somebody does, part of the vehicle's past is already there.</p>
+        <p>One camera can establish that a vehicle passed one location. Enough observations can begin establishing where it went, and that distinction becomes more important as networks grow.</p>
+        <p>A license plate identifies a vehicle, not necessarily its driver. Families share cars, cars are borrowed, rental vehicles change hands, and plates can be stolen or misread. But vehicles routinely connect homes to workplaces, schools, hospitals, churches and other places their occupants visit. Repeated observations can therefore reveal information that an individual photograph cannot.</p>
+        <p>No document reviewed by The Halden described a plan to create nationwide coverage, and there doesn't appear to have been one. Police departments bought cameras to solve crimes. Neighborhoods installed them to monitor vehicles entering their streets. Businesses used them to protect property.</p>
+        <p>Those decisions can be reasonable on their own. The difficulty comes when information collected by separate systems can be searched or shared beyond the place where it was originally gathered. A camera installed to identify stolen vehicles remains capable of identifying other vehicles, a database used in a kidnapping investigation can be used in another kind of investigation, and a system purchased by one jurisdiction can become more useful when information is available to another.</p>
+        <p>The policy debate has largely occurred at the level of individual deployments: whether a city should buy cameras, where they should be installed and how long records should be retained. The network has grown faster than the debate around the network itself.</p>
+        <p>Removing or sharply restricting the systems would carry costs of its own. Missing people have been located with automated plate readers, stolen vehicles have been recovered, and suspects have been found faster than they might have been through conventional investigative work. That is what makes the issue harder than a simple argument over surveillance.</p>
+        <p>Most drivers will never know how many automated plate readers they passed on a given day. They may not know which agencies operate them, how long observations are retained or where those observations can ultimately be searched.</p>
+        <p>The cameras were installed one at a time, but the system they created no longer looks quite so local.</p>
+      <div class="endmark">◆</div>
+
+      <div id="continued-reading"></div>
+
+    </article>
+  </main>
+  <div id="site-footer"></div>
+  <script>
+    fetch('/header.html?v=6').then(function(response){ if(!response.ok) throw new Error('Header failed to load: '+response.status); return response.text(); }).then(function(html){ document.getElementById('site-header').innerHTML=html; var script=document.createElement('script'); script.src='/js/header.js?v=6'; script.onload=function(){ if(window.initLedgerHeader){ window.initLedgerHeader(); } }; document.body.appendChild(script); }).catch(console.error);
+    fetch('/footer.html?v=6').then(function(response){ if(!response.ok) throw new Error('Footer failed to load: '+response.status); return response.text(); }).then(function(html){ document.getElementById('site-footer').innerHTML=html; }).catch(console.error);
+  </script>
+
+  <script src="/js/continued-reading.js?v=1"></script>
+
+</body>
+</html>
