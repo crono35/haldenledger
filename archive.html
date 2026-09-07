@@ -1,13 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The Halden Ledger archive." />
-  <title>Archive | The Halden Ledger</title>
-  <link rel="stylesheet" href="/css/style.css" />
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="The Halden Ledger archive." name="description"/>
+<title>Archive | The Halden Ledger</title>
+<link href="/css/style.css" rel="stylesheet"/>
+<style>
     .archive-shell {
       width: min(calc(100% - 32px), 820px);
       margin: 0 auto;
@@ -171,79 +171,60 @@
       }
     }
   </style>
-</head>
-
+<link href="https://thehaldenledger.com/archive.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="The Halden Ledger" property="og:site_name"/><meta content="Archive | The Halden Ledger" property="og:title"/><meta content="The Halden Ledger archive." property="og:description"/><meta content="https://thehaldenledger.com/archive.html" property="og:url"/><meta content="summary" name="twitter:card"/><meta content="Archive | The Halden Ledger" name="twitter:title"/><meta content="The Halden Ledger archive." name="twitter:description"/></head>
 <body>
-
-  <div id="site-header"></div>
-
-  <main class="archive-shell">
-    <article class="archive-page">
-
-      <div class="section-label">Archive</div>
-
-      <h1>The Halden Ledger Archive</h1>
-
-      <p class="archive-dek">
+<div id="site-header"></div>
+<main class="archive-shell">
+<article class="archive-page">
+<div class="section-label">Archive</div>
+<h1>The Halden Ledger Archive</h1>
+<p class="archive-dek">
         The Halden Ledger archive preserves prior editions and published reporting as the record develops. Additional editions will become available over time.
       </p>
-
-      <section class="archive-current" aria-labelledby="available-editions-title">
-        <h2 id="available-editions-title">Available Editions</h2>
-
-        <div class="archive-edition">
-          <div class="archive-year">Edition</div>
-          <h3><a href="/index.html">2027</a></h3>
-          <p>The original Ledger edition.</p>
-        </div>
-
-        <div class="archive-edition" id="archive-2031" hidden>
-          <div class="archive-year">Unlocked Edition</div>
-          <h3><a href="/2031/index.html">2031</a></h3>
-          <p>Reporting published after the events of <em>A Decade to Midnight</em>.</p>
-        </div>
-
-        <div class="archive-edition" id="archive-2036" hidden>
-          <div class="archive-year">Unlocked Edition</div>
-          <h3><a href="/2036/index.html">2036</a></h3>
-          <p>Later reporting from The Halden Ledger.</p>
-        </div>
-
-        <div class="archive-unlock" id="unlock-2036">
-          <div class="archive-year">Test Access</div>
-          <h3>Unlock the 2036 Edition</h3>
-          <p>
+<section aria-labelledby="available-editions-title" class="archive-current">
+<h2 id="available-editions-title">Available Editions</h2>
+<div class="archive-edition">
+<div class="archive-year">Edition</div>
+<h3><a href="/index.html">2027</a></h3>
+<p>The original Ledger edition.</p>
+</div>
+<div class="archive-edition" hidden="" id="archive-2031">
+<div class="archive-year">Unlocked Edition</div>
+<h3><a href="/2031/index.html">2031</a></h3>
+<p>Reporting published after the events of <em>A Decade to Midnight</em>.</p>
+</div>
+<div class="archive-edition" hidden="" id="archive-2036">
+<div class="archive-year">Unlocked Edition</div>
+<h3><a href="/2036/index.html">2036</a></h3>
+<p>Later reporting from The Halden Ledger.</p>
+</div>
+<div class="archive-unlock" id="unlock-2036">
+<div class="archive-year">Test Access</div>
+<h3>Unlock the 2036 Edition</h3>
+<p>
             Temporary test access for the 2036 archive framework.
           </p>
-
-          <form class="unlock-form" id="archive-2036-form">
-            <div class="unlock-field">
-              <label for="archive-2036-email">Email</label>
-              <input id="archive-2036-email" type="email" autocomplete="email" required />
-            </div>
-
-            <div class="unlock-field">
-              <label for="archive-2036-code">Access code</label>
-              <input id="archive-2036-code" type="password" autocomplete="current-password" required />
-            </div>
-
-            <button type="submit">Unlock 2036</button>
-          </form>
-
-          <div id="archive-unlock-status" aria-live="polite"></div>
-        </div>
-      </section>
-
-      <div class="archive-note">
+<form class="unlock-form" id="archive-2036-form">
+<div class="unlock-field">
+<label for="archive-2036-email">Email</label>
+<input autocomplete="email" id="archive-2036-email" required="" type="email"/>
+</div>
+<div class="unlock-field">
+<label for="archive-2036-code">Access code</label>
+<input autocomplete="current-password" id="archive-2036-code" required="" type="password"/>
+</div>
+<button type="submit">Unlock 2036</button>
+</form>
+<div aria-live="polite" id="archive-unlock-status"></div>
+</div>
+</section>
+<div class="archive-note">
         Archived editions remain available as new editions are published.
       </div>
-
-    </article>
-  </main>
-
-  <div id="site-footer"></div>
-
-  <script>
+</article>
+</main>
+<div id="site-footer"></div>
+<script>
     function getUnlockedEdition() {
       try {
         return parseInt(localStorage.getItem('haldenLedgerEdition') || '2027', 10);
@@ -347,6 +328,5 @@
         console.error(error);
       });
   </script>
-
 </body>
 </html>
