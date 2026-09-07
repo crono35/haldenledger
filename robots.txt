@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Utility pages are not intended as search landing pages.
+Disallow: /confirmed.html
+Disallow: /continued-reading.html
+
+Sitemap: https://thehaldenledger.com/sitemap.xml
